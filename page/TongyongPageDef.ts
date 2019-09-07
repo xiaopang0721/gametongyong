@@ -101,13 +101,15 @@ module gametongyong.page {
 		 * @param ecb 确定
 		 * @param ccb 取消
 		 * @param isOnlyOK  是否只有一个按钮 =》确定
-		 * @param okSkin 确定的皮肤
+		 * @param okSkin 确定皮肤
+		 * @param titleSkin 标题皮肤
+		 * @param cancleSkin 取消皮肤
 		 */
-		alertRecharge(str: string, ecb: Function = null, ccb: Function = null, isOnlyOK: boolean = true, okSkin?: string, cancleSkin?: string): void {
+		alertRecharge(str: string, ecb: Function = null, ccb: Function = null, isOnlyOK: boolean = true, okSkin?: string, titleSkin?: string, cancleSkin?: string): void {
 			this._game.uiRoot.top.close(TongyongPageDef.PAGE_TONGYONG_TIPS);
 			this._game.uiRoot.top.open(TongyongPageDef.PAGE_TONGYONG_TIPS, (tip: TongyongTipsPage) => {
 				tip.isOnlyOK = isOnlyOK;
-				tip.setInfo(str, ecb, ccb, okSkin);
+				tip.setInfo(str, ecb, ccb, okSkin, titleSkin, cancleSkin);
 			});
 		}
 	}

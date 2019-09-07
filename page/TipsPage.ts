@@ -7,7 +7,7 @@ module gametongyong.page {
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [
-				PathGameTongyong.atlas_game_ui_tongyong+ "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 			];
 			this._isNeedBlack = true;
 		}
@@ -17,7 +17,7 @@ module gametongyong.page {
 		protected init(): void {
 			this._viewUI = this.createView("game_ui.tongyong.TipsUI");
 			this.addChild(this._viewUI);
-			
+
 			this._viewUI.btn_enter.on(LEvent.CLICK, this, this.onMouseHandle);
 			this._viewUI.btn_cancle.on(LEvent.CLICK, this, this.onMouseHandle);
 		}
@@ -66,12 +66,29 @@ module gametongyong.page {
 
 		private _ecb: Function;
 		private _ccb: Function;
-		setInfo(str, ecb: Function, ccb: Function, okSkin: string) {
+		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string) {
 			this._viewUI.txt_label.text = str;
 			this._ecb = ecb;
 			this._ccb = ccb;
 			if (okSkin) {
-				this._viewUI.btn_enter.skin = okSkin;
+				let img_enter = this.getViewComponentPos("img_enter") as LImage;
+				if (img_enter) {
+					img_enter.skin = okSkin;
+				} else {
+					this._viewUI.btn_enter.skin = okSkin;
+				}
+			}
+			if (titleSkin) {
+				let img_title = this.getViewComponentPos("img_title") as LImage;
+				if (img_title) {
+					img_title.skin = titleSkin;
+				}
+			}
+			if (cancleSkin) {
+				let img_cancle = this.getViewComponentPos("img_cancle") as LImage;
+				if (img_cancle) {
+					img_cancle.skin = cancleSkin;
+				}
 			}
 		}
 	}

@@ -31,7 +31,7 @@ module gametongyong.page {
 			this._viewUI.txt_noRecord.visible = false;
 			this._timeList = [];
 			this._btnList = [];
-			for (let i = 0; i < this._viewUI.list_time.numChildren; i++) {
+			for (let i = 0; i < 7; i++) {
 				this._btnList.push(this._viewUI["btn_list" + i]);
 				this._btnList[i].on(LEvent.CLICK, this, this.onBtnClick, [i]);
 			}
@@ -193,7 +193,7 @@ module gametongyong.page {
 		public close(): void {
 			if (this._viewUI) {
 				this._viewUI.btn_list.off(LEvent.CLICK, this, this.onBtnClickWithTween);
-				for (let i = 0; i < this._viewUI.list_time.numChildren; i++) {
+				for (let i = 0; i < 7; i++) {
 					this._btnList[i] && this._btnList[i].off(LEvent.CLICK, this, this.onBtnClick);
 				}
 			}

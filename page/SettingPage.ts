@@ -4,6 +4,8 @@ name 设置
 module gametongyong.page {
 	export class SettingPage extends game.gui.base.Page {
 		private _viewUI: ui.game_ui.tongyong.SheZhiUI;
+		private _btnSound: Button;
+		private _btnMusic: Button;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._isNeedBlack = true;
@@ -45,6 +47,8 @@ module gametongyong.page {
 					this._gmTxt = null;
 				}
 			}
+			this._btnSound = this.getViewComponentPos("btn_sound") as Button;
+			this._btnMusic = this.getViewComponentPos("btn_music") as Button;
 		}
 
 		// 页面打开时执行函数
@@ -61,18 +65,56 @@ module gametongyong.page {
 			this._viewUI.hslider1.tick = 0.1;//设置 this.hslider0 刻度值。
 			this._viewUI.hslider1.value = Laya.SoundManager.musicVolume;//设置 this.hslider0 当前位置值。
 			this._viewUI.hslider1.changeHandler = new Handler(this, this.onChange1);//设置 this.hslider0 位置变化处理器。
+			this._btnSound.on(LEvent.CLICK, this, this.onCheckClick);
+			this._btnMusic.on(LEvent.CLICK, this, this.onCheckClick);
 
+		}
+
+		private onCheckClick(e: LEvent): void {
+			switch (e.currentTarget) {
+				case this._btnSound://開關音效
+					if (this._btnSound.selected) {
+						let value;
+						value = Number(localGetItem("soundVolumeSelf"));
+						if (value <= 0) value = 1;
+						this._viewUI.hslider0.value = value;
+					} else {
+						//记录当前的音量
+						localSetItem("soundVolumeSelf", localGetItem("soundVolume"));
+						this._viewUI.hslider0.value = 0;
+					}
+					break;
+				case this._btnMusic://開關背景音樂
+					if (this._btnMusic.selected) {
+						let value;
+						value = Number(localGetItem("musicVolumeSelf"));
+						if (value <= 0) value = 1;
+						this._viewUI.hslider1.value = value;
+					} else {
+						localSetItem("musicVolumeSelf", localGetItem("musicVolume"));
+						this._viewUI.hslider1.value = 0;
+					}
+					break;
+			}
 		}
 
 
 
 		private onChange0(value: number) {
-			// Laya.SoundManager.soundVolume = value;
+			if (value > 0) {
+				this._btnSound.selected = true;
+			} else {
+				this._btnSound.selected = false;
+			}
 			Laya.SoundManager.setSoundVolume(value);
 			localSetItem("soundVolume", value.toString());
-
 		}
 		private onChange1(value: number) {
+			if (value > 0) {
+				this._btnMusic.selected = true;
+			} else {
+				this._btnMusic.selected = false;
+			}
 			Laya.SoundManager.setMusicVolume(value);
 			localSetItem("musicVolume", value.toString());
 		}
