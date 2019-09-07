@@ -1,0 +1,10 @@
+//通用
+import PathGameTongyong = gametongyong.data.Path;
+import TongyongClip = gametongyong.ClipUtil;
+import TongyongPageDef = gametongyong.page.TongyongPageDef;
+import TongyongHudPage = gametongyong.page.TongyongHudPage;
+import RecordMgr = gametongyong.manager.RecordMgr;
+import TongyongTipsPage = gametongyong.page.TipsPage;
+import TongyongHudNqpPage = gametongyong.page.TongyongHudNqpPage;
+import TongyongUtil = gametongyong.TongyongUtil;
+
