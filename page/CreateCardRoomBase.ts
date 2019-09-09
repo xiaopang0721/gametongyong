@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class CreateCardRoomBase extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.FangKa_ChuangJianUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.FangKa_ChuangJianUI;
 		private _round_count = [5, 10, 15, 20];	// 游戏局数
 		private _pay_money = [3, 6, 9, 12];	// 不同局数的支付金额
 		private _game_id: string;	// 当前游戏ID

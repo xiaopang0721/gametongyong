@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class QiFuPage extends game.gui.base.Page {
-		protected _viewUI: ui.game_ui.tongyong.QiFuUI;
+		protected _viewUI: ui.nqp.game_ui.tongyong.QiFuUI;
 		private _imgTypeUI: LImage[];
 		private _txtMoneyUI: Label[];
 

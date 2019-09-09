@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class SettlePage extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.JieSuanUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.JieSuanUI;
 		private _imgList: Array<LImage> = [];
 		private _htmlText: laya.html.dom.HTMLDivElement;
 

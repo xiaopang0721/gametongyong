@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class RecordPage extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.ZhanJiUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.ZhanJiUI;
 		private _btnList: Array<Button>;
 		private _timeList: Array<number>;
 		private _selectTime: number;
@@ -210,7 +210,7 @@ module gametongyong.page {
 			}
 		}
 	}
-	export class ListRecordItem extends ui.game_ui.tongyong.BaoBiaoTUI {
+	export class ListRecordItem extends ui.nqp.game_ui.tongyong.BaoBiaoTUI {
 
 		constructor() {
 			super();

@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
     export class CardRoomSettleBase extends game.gui.base.Page {
-        private _viewUI: ui.game_ui.tongyong.JieSuan_FangKaUI;
+        private _viewUI: ui.nqp.game_ui.tongyong.JieSuan_FangKaUI;
         private _isGameEnd: boolean = false;  //是否结束
         private _game_id: string;	// 当前游戏ID
         private _create_room_page_id: string;	// 创建房间
@@ -115,7 +115,7 @@ module gametongyong.page {
         }
     }
 
-    class ListRecordItem extends ui.game_ui.tongyong.JieSuanRender2UI {
+    class ListRecordItem extends ui.nqp.game_ui.tongyong.JieSuanRender2UI {
         private _game: Game;
         private _data: any;
         setData(game: Game, data: any) {
