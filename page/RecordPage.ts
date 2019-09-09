@@ -93,7 +93,7 @@ module gametongyong.page {
 			this._viewUI.list_time.visible = false;
 			this._viewUI.list_time.dataSource = this._timeList;
 
-			this._viewUI.btn_list.label = Sync.getTimeStr3(this._selectTime);
+			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 			let str = "<span style='color:{0}'>汇总：{1}</span>";
 			let colorHtml = this._viewUI.txt_total.color;
 			let innerHtml = StringU.substitute(str, colorHtml, 0);
@@ -168,7 +168,7 @@ module gametongyong.page {
 			this._lastIndex = 0;
 			this._timeSelectIndex = index;
 			this._selectTime = this._timeList[index];//选择的时间
-			this._viewUI.btn_list.label = Sync.getTimeStr3(this._selectTime);
+			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 
 			this.onUpdateDataInfo();
 			this.updateBoxBtnStatus();
