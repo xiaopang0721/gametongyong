@@ -62,11 +62,7 @@ module gametongyong.page {
 
 		static myinit(str: string) {
 			super.myinit(str);
-			if (WebConfig.baseplatform == PageDef.BASE_PLATFORM_TYPE_NQP) {
-				View.regViewRuntime("ui.nqp.game_ui.tongyong.HudUI", TongyongHudNqpPage)
-			} else {
-				View.regViewRuntime("ui.nqp.game_ui.tongyong.HudUI", TongyongHudPage)
-			}
+			View.regViewRuntime("ui.nqp.game_ui.tongyong.HudUI", TongyongHudNqpPage)
 			PageDef._pageClassMap[this.PAGE_TONGYONG_RECORD] = RecordPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_TIPS] = TipsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTER_INFO] = PaiJuInfoPage;
