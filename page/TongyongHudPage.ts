@@ -39,7 +39,7 @@ module gametongyong.page {
 			let mainPlayer = this._game.sceneObjectMgr.mainPlayer;
 			if (!mainPlayer) return;
 			let playerInfo = this._game.sceneObjectMgr.mainPlayer.playerInfo;
-			this.clip_id.text = "ID:" + playerInfo.userid;
+			// this.clip_id.text = "ID:" + playerInfo.userid;
 			this.txt_name.text = playerInfo.nickname;
 
 			if (!this._clip_money) {
