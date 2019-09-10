@@ -88,9 +88,10 @@ module gametongyong.page {
 			this._timeList = [];
 			for (let i = 0; i < 7; i++) {
 				this._timeList.push(this._selectTime - 86400 * (6 - i));
-				this._btnList[i].label = Sync.getTimeStr3(this._timeList[i]);
+				this._viewUI["lab_btn" + i].text = Sync.getTimeStr3(this._timeList[i]);
 			}
 			this._viewUI.list_time.visible = false;
+			this._viewUI.jiantou_down.visible = false;
 			this._viewUI.list_time.dataSource = this._timeList;
 
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
@@ -154,6 +155,8 @@ module gametongyong.page {
 			switch (target) {
 				case this._viewUI.btn_list:
 					this._viewUI.list_time.visible = !this._viewUI.list_time.visible;
+					this._viewUI.jiantou_down.visible = this._viewUI.list_time.visible;
+					this._viewUI.jiantou_up.visible = !this._viewUI.list_time.visible;
 					break;
 				default:
 					break;
@@ -188,6 +191,8 @@ module gametongyong.page {
 
 		private updateBoxBtnStatus() {
 			this._viewUI.list_time.visible = false;
+			this._viewUI.jiantou_down.visible = false;
+			this._viewUI.jiantou_up.visible = true;
 		}
 
 		public close(): void {
