@@ -175,7 +175,7 @@ module gametongyong.page {
 			this._selectTime = this._timeList[index];//选择的时间
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 			for (let i = 0; i < 7; i++) {
-				this._viewUI["btn_selected" + index].selected = i == index;
+				this._viewUI["btn_selected" + i].selected = (i == index) ? true:false;
 			}
 
 			this.onUpdateDataInfo();
