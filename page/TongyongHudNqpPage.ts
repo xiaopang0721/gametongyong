@@ -21,8 +21,6 @@ module gametongyong.page {
 			this._game = game;
 			this._gameId = gameId;
 			this._isCardRoomType = isCardRoomType;
-			this.btn_record.visible = false;
-			this.btn_help.visible = false;
 			this.btn_record.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_help.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_gren.on(LEvent.CLICK, this, this.onBtnClickHandle);

@@ -62,7 +62,9 @@ module gametongyong.page {
 			this._viewUI.list_record.itemRender = this.createChildren("game_ui.tongyong.BaoBiaoTUI", ListRecordItem);
 			this._viewUI.list_record.renderHandler = new Handler(this, this.renderHandler);
 			this._viewUI.img_profit.skin = StringU.substitute(PathGameTongyong.ui_tongyong_general + "{0}.png", this._isCardRoomType ? "bb_jf" : "bb_yl");
-
+			for (let i = 0; i < 7; i++) {
+				this._viewUI["btn_selected" + i].selected = i == 0;
+			}
 			this._viewUI.btn_list.on(LEvent.CLICK, this, this.onBtnClickWithTween);
 			this._recordMgr.on(RecordMgr.RECORD_CHANGE, this, this.onUpdateDataInfo);
 		}
@@ -172,6 +174,9 @@ module gametongyong.page {
 			this._timeSelectIndex = index;
 			this._selectTime = this._timeList[index];//选择的时间
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
+			for (let i = 0; i < 7; i++) {
+				this._viewUI["btn_selected" + index].selected = i == index;
+			}
 
 			this.onUpdateDataInfo();
 			this.updateBoxBtnStatus();
