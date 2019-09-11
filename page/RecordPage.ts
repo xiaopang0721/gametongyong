@@ -106,6 +106,7 @@ module gametongyong.page {
 
 
 		private _dataInfo: any[];
+		private _isInitDaysUI: boolean = false;
 		private onUpdateDataInfo(date?: any) {
 			this._dataInfo = [];
 			let value = this._recordMgr.getDataInfo(this._timeSelectIndex, !date);
@@ -126,7 +127,17 @@ module gametongyong.page {
 				this._htmlText.innerHTML = innerHtml;
 				return;
 			}
+			//日期图标显隐,不必重复做
+			if (this._recordMgr.timeTotalNumArr && this._recordMgr.timeTotalNumArr.length > 0) {
+				if (!this._isInitDaysUI) {
+					this._isInitDaysUI = true;
+					for (let i = 0; i < 7; i++) {
+						let curTimeStr = Sync.getTimeStr3(this._timeList[i]);
+						this._viewUI["img_data" + i].visible = this._recordMgr.isCurDayHaveNum(curTimeStr) ? true : false;
+					}
+				}
 
+			}
 
 			for (let key in value) {
 				if (value.hasOwnProperty(key)) {
@@ -175,7 +186,7 @@ module gametongyong.page {
 			this._selectTime = this._timeList[index];//选择的时间
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 			for (let i = 0; i < 7; i++) {
-				this._viewUI["btn_selected" + i].selected = (i == index) ? true:false;
+				this._viewUI["btn_selected" + i].selected = (i == index) ? true : false;
 			}
 
 			this.onUpdateDataInfo();
