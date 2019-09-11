@@ -93,7 +93,7 @@ module gametongyong.page {
 					this._game.network.call_player_qifu_new(qftype, qfid, qfname);
 					this.close();
 				}, () => {
-				}, false, PathGameTongyong.ui_tongyong_general + "btn_qd.png");
+				}, false, TongyongPageDef.TIPS_SKIN_STR["qd"]);
 			}
 		}
 

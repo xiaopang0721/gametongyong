@@ -91,6 +91,15 @@ module gametongyong.page {
 			});
 		}
 
+		/**对应皮肤资源类型 */
+		static get TIPS_SKIN_STR() {
+			return{
+				"cz":PathGameTongyong.ui_tongyong_dating + "tu_ch.png",		//充值
+				"qd":PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
+				"qw":PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
+			}
+		}
+
 		/**
 		 * 弹窗提示
 		 * @param str  字符串

@@ -30,7 +30,7 @@ module gametongyong.page {
 			if (WebConfig.server_close) {
 				TongyongPageDef.ins.alertRecharge(StringU.substitute("为了您更好的游戏体验，服务器正在更新中。为避免造成不必要的损失，更新期间无法进入游戏，给您造成的不便我们深表歉意，感谢您的配合。"), () => {
 				}, () => {
-				}, true, PathGameTongyong.ui_tongyong_general + "btn_qd.png");
+				}, true, TongyongPageDef.TIPS_SKIN_STR["qd"]);
 				this._game.sceneObjectMgr.leaveStory(true);
 				this.close();
 				return;
