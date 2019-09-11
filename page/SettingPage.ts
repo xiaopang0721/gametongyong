@@ -57,14 +57,15 @@ module gametongyong.page {
 			this._viewUI.hslider0.min = 0;//设置 this.hslider0 最低位置值。
 			this._viewUI.hslider0.max = 1;//设置 this.hslider0 最高位置值。
 			this._viewUI.hslider0.tick = 0.1;//设置 this.hslider0 刻度值。
-			this._viewUI.hslider0.value = Laya.SoundManager.soundVolume;//设置 this.hslider0 当前位置值。
 			this._viewUI.hslider0.changeHandler = new Handler(this, this.onChange0);//设置 this.hslider0 位置变化处理器。
+			this._viewUI.hslider0.value = Laya.SoundManager.soundVolume;//设置 this.hslider0 当前位置值。
+
 
 			this._viewUI.hslider1.min = 0;//设置 this.hslider0 最低位置值。
 			this._viewUI.hslider1.max = 1;//设置 this.hslider0 最高位置值。
 			this._viewUI.hslider1.tick = 0.1;//设置 this.hslider0 刻度值。
-			this._viewUI.hslider1.value = Laya.SoundManager.musicVolume;//设置 this.hslider0 当前位置值。
 			this._viewUI.hslider1.changeHandler = new Handler(this, this.onChange1);//设置 this.hslider0 位置变化处理器。
+			this._viewUI.hslider1.value = Laya.SoundManager.musicVolume;//设置 this.hslider0 当前位置值。			
 			this._btnSound.on(LEvent.CLICK, this, this.onCheckClick);
 			this._btnMusic.on(LEvent.CLICK, this, this.onCheckClick);
 
