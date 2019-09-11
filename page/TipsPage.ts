@@ -8,6 +8,7 @@ module gametongyong.page {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
 			];
 			this._isNeedBlack = true;
 		}
