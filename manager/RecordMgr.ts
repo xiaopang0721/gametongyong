@@ -22,6 +22,24 @@ module gametongyong.manager {
 			return this._dataInfoList[index];
 		}
 
+		private _timeTotalNumArr: Array<Object>;
+		get timeTotalNumArr() {
+			return this._timeTotalNumArr;
+		}
+		isCurDayHaveNum(strDay: string): number {
+			if (this._timeTotalNumArr && this._timeTotalNumArr.length > 0) {
+				for (let i = 0; i < this._timeTotalNumArr.length; i++) {
+					let curDayObj: any = this._timeTotalNumArr[i];
+					if (curDayObj) {
+						if (strDay == curDayObj.days) {
+							return Number(curDayObj.num);
+						}
+					}
+				}
+			}
+			return 0;
+		}
+
 		private _totalList: { [key: number]: any } = {};
 		getTotalByIndex(index: number) {
 			return this._totalList[index];
@@ -37,6 +55,7 @@ module gametongyong.manager {
 					}
 					this._dataInfoList[index][data.msg.page] = data.msg.list;
 					this._totalList[index] = data.msg.all;
+					this._timeTotalNumArr = data.msg.tjlist;
 					this.event(RecordMgr.RECORD_CHANGE, 1);
 				}
 			}
