@@ -783,15 +783,15 @@ module ui.nqp.game_ui.tongyong {
 
 module ui.nqp.game_ui.tongyong {
     export class TipsUI extends View {
-		public img_title:Laya.Image;
 		public btn_enter:Laya.Button;
 		public img_enter:Laya.Image;
 		public btn_cancle:Laya.Button;
 		public img_cancle:Laya.Image;
 		public txt_label:Laya.Label;
 		public btn_close:Laya.Button;
+		public img_title:Laya.Image;
 
-        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Box","props":{"width":675,"height":477,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"skin":"tongyong_ui/game_ui/tongyong/dating/tu_bk.png"}},{"type":"Image","props":{"x":673,"skin":"tongyong_ui/game_ui/tongyong/dating/tu_bk.png","scaleX":-1}},{"type":"Image","props":{"y":16,"x":235,"var":"img_title","skin":"tongyong_ui/game_ui/tongyong/dating/tu_jbbz.png"}},{"type":"Button","props":{"y":396,"var":"btn_enter","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_kban1.png","centerX":140,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":9,"x":47,"var":"img_enter","skin":"tongyong_ui/game_ui/tongyong/dating/tu_qd.png"}}]},{"type":"Button","props":{"y":396,"var":"btn_cancle","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_kban1.png","centerX":-140,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":12,"x":26,"var":"img_cancle","skin":"tongyong_ui/game_ui/tongyong/dating/tu_qx.png"}}]},{"type":"Label","props":{"y":102,"x":58,"wordWrap":true,"width":558,"var":"txt_label","valign":"middle","leading":8,"height":228,"fontSize":28,"color":"#ffffff","align":"center"}},{"type":"Button","props":{"y":-19,"x":602,"var":"btn_close","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/hud/btn_tuichu.png"}}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Box","props":{"width":675,"height":477,"centerY":0,"centerX":0},"child":[{"type":"Image","props":{"skin":"tongyong_ui/game_ui/tongyong/dating/tu_bk.png"}},{"type":"Image","props":{"x":673,"skin":"tongyong_ui/game_ui/tongyong/dating/tu_bk.png","scaleX":-1}},{"type":"Button","props":{"y":396,"var":"btn_enter","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_kban1.png","centerX":140,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":9,"x":47,"var":"img_enter","skin":"tongyong_ui/game_ui/tongyong/dating/tu_qd.png"}}]},{"type":"Button","props":{"y":396,"var":"btn_cancle","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_kban1.png","centerX":-140,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":12,"x":26,"var":"img_cancle","skin":"tongyong_ui/game_ui/tongyong/dating/tu_qx.png"}}]},{"type":"Label","props":{"y":102,"x":58,"wordWrap":true,"width":558,"var":"txt_label","valign":"middle","leading":8,"height":228,"fontSize":28,"color":"#ffffff","align":"center"}},{"type":"Button","props":{"y":-19,"x":602,"var":"btn_close","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/hud/btn_tuichu.png"}},{"type":"Box","props":{"y":16,"x":235,"width":220,"height":58},"child":[{"type":"Image","props":{"var":"img_title","skin":"tongyong_ui/game_ui/tongyong/dating/tu_jbbz.png","centerY":0,"centerX":0}}]}]}]};
         constructor(){ super()}
         createChildren():void {
         
