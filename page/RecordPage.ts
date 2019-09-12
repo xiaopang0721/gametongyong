@@ -248,7 +248,7 @@ module gametongyong.page {
 			this.txt_id.text = (data.battle_id).toString();
 			this.txt_earn.text = data.profit.toString();
 			this.img_bg.skin = StringU.substitute(PathGameTongyong.ui_tongyong_general + "tu_bb{0}.png", data.rank % 2 == 0 ? 1 : 2)
-			this.txt_earn.color = data.profit > 0 ? "#069e00" : "#ff0000";
+			this.txt_earn.color = data.profit > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
 			this.txt_type.text = data.room_name.toString();
 			this.txt_time.text = Sync.getTimeShortStr(data.end_time * 1000);
 			if (this._gameId == "buyu") {//捕鱼没有详情
