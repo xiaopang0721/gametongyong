@@ -156,7 +156,7 @@ module gametongyong.page {
 
 			this._viewUI.list_record.dataSource = this._dataInfo;
 			let all = this._recordMgr.getTotalByIndex(this._timeSelectIndex);
-			colorHtml = all > 0 ? this._viewUI.txt_total.color : "#ff0000";
+			colorHtml = all > 0 ? this._viewUI.txt_total.color : TeaStyle.COLOR_RED;
 			innerHtml = StringU.substitute(str, colorHtml, EnumToString.getPointBackNum(all, 2))
 			this._htmlText.innerHTML = innerHtml;
 
