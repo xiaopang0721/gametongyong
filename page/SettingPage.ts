@@ -102,6 +102,7 @@ module gametongyong.page {
 
 
 		private onChange0(value: number) {
+			value = parseFloat(value.toFixed(2));
 			if (value > 0) {
 				this._btnSound.selected = true;
 			} else {
@@ -111,11 +112,14 @@ module gametongyong.page {
 			localSetItem("soundVolume", value.toString());
 		}
 		private onChange1(value: number) {
+			//防止出现non-finite 无限小数
+			value = parseFloat(value.toFixed(2));
 			if (value > 0) {
 				this._btnMusic.selected = true;
 			} else {
 				this._btnMusic.selected = false;
 			}
+			;
 			Laya.SoundManager.setMusicVolume(value);
 			localSetItem("musicVolume", value.toString());
 		}
