@@ -13,6 +13,7 @@ module gametongyong.page {
 			this._asset = [
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "hud.atlas",
 			];
 		}
 
