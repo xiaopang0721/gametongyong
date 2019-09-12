@@ -51,6 +51,9 @@ module gametongyong.manager {
 					if (!data.msg) return;
 					if (data.msg.tjlist)
 						this._timeTotalNumArr = data.msg.tjlist;
+					else {
+						this._timeTotalNumArr = [];
+					}
 					if (!this._dataInfoList[index]) this._dataInfoList[index] = {}
 					if (!this._totalList[index]) this._totalList[index] = 0
 					if (data.msg.list && data.msg.list.length) {

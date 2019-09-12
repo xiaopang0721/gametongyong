@@ -109,7 +109,7 @@ module gametongyong.page {
 		private _isInitDaysUI: boolean = false;
 		private onUpdateDataInfo(date?: any) {
 			//日期图标显隐,不必重复做
-			if (this._recordMgr.timeTotalNumArr && this._recordMgr.timeTotalNumArr.length > 0) {
+			if (this._recordMgr.timeTotalNumArr) {
 				if (!this._isInitDaysUI) {
 					this._isInitDaysUI = true;
 					for (let i = 0; i < 7; i++) {
