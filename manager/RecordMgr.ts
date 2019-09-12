@@ -48,14 +48,18 @@ module gametongyong.manager {
 			if (data.code == Web_operation_fields.CLIENT_IRCODE_BETLIST) {
 				if (data && data.success == 0 && this._game_id == data.game_id) {
 					let index = data.msg.index;
+					if (!data.msg) return;
+					if (data.msg.tjlist)
+						this._timeTotalNumArr = data.msg.tjlist;
+					else {
+						this._timeTotalNumArr = [];
+					}
 					if (!this._dataInfoList[index]) this._dataInfoList[index] = {}
 					if (!this._totalList[index]) this._totalList[index] = 0
-					if (!data.msg || !data.msg.list || !data.msg.list.length) {
-						return;
+					if (data.msg.list && data.msg.list.length) {
+						this._dataInfoList[index][data.msg.page] = data.msg.list;
+						this._totalList[index] = data.msg.all;
 					}
-					this._dataInfoList[index][data.msg.page] = data.msg.list;
-					this._totalList[index] = data.msg.all;
-					this._timeTotalNumArr = data.msg.tjlist;
 					this.event(RecordMgr.RECORD_CHANGE, 1);
 				}
 			}
