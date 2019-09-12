@@ -120,7 +120,7 @@ module gametongyong.page {
 							this._game.sceneObjectMgr.leaveStory(true);
 							this._game.uiRoot.general.open(this._open_id);
 						}, () => {
-						}, false,TongyongPageDef.TIPS_SKIN_STR["cz"]);
+						}, true,TongyongPageDef.TIPS_SKIN_STR["cz"]);
 						break;
 				}
 			}
