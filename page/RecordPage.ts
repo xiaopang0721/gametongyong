@@ -98,7 +98,7 @@ module gametongyong.page {
 
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 			let str = "<span style='color:{0}'>汇总：{1}</span>";
-			let colorHtml = this._viewUI.txt_total.color;
+			let colorHtml = TeaStyle.COLOR_GREEN;
 			let innerHtml = StringU.substitute(str, colorHtml, 0);
 			this._htmlText.innerHTML = innerHtml;
 		}
@@ -129,7 +129,7 @@ module gametongyong.page {
 			this._viewUI.txt_noRecord.visible = !count;
 			this._viewUI.list_record.visible = count > 0;
 			let str = "<span style='color:{0}'>汇总：{1}</span>";
-			let colorHtml = this._viewUI.txt_total.color;
+			let colorHtml = TeaStyle.COLOR_GREEN;
 			let innerHtml = "";
 			if (!count) {
 				!date && this._recordMgr.getData(1, this._roomId, this._selectTime, this._timeSelectIndex);
@@ -156,7 +156,7 @@ module gametongyong.page {
 
 			this._viewUI.list_record.dataSource = this._dataInfo;
 			let all = this._recordMgr.getTotalByIndex(this._timeSelectIndex);
-			colorHtml = all > 0 ? this._viewUI.txt_total.color : TeaStyle.COLOR_RED;
+			colorHtml = all > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
 			innerHtml = StringU.substitute(str, colorHtml, EnumToString.getPointBackNum(all, 2))
 			this._htmlText.innerHTML = innerHtml;
 
