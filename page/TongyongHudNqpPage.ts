@@ -67,6 +67,7 @@ module gametongyong.page {
 
 			if (!this._clip_money) {
 				this._clip_money = new TongyongClip(TongyongClip.MONEY_FONT2);
+				this._clip_money.scale(0.9, 0.9);
 				this._clip_money.x = this.clip_money.x;
 				this._clip_money.y = this.clip_money.y;
 				this.clip_money.parent && this.clip_money.parent.addChild(this._clip_money);
