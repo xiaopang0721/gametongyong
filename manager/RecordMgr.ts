@@ -14,12 +14,14 @@ module gametongyong.manager {
 		}
 
 
-		public getDataInfo(index: number, first?: boolean) {
+		public getDataInfo(index: number, gameid: string, first?: boolean) {
 			if (index == 6 && first) {
-				this._dataInfoList[index] = []
-				this._totalList[index] = 0
+				this._dataInfoList[gameid] = {};
+				this._dataInfoList[gameid][index] = {};
+				this._totalList[gameid] = {};
+				this._totalList[gameid][index] = 0;
 			}
-			return this._dataInfoList[index];
+			return this._dataInfoList[gameid][index];
 		}
 
 		private _timeTotalNumArr: Array<Object>;
@@ -40,9 +42,9 @@ module gametongyong.manager {
 			return 0;
 		}
 
-		private _totalList: { [key: number]: any } = {};
-		getTotalByIndex(index: number) {
-			return this._totalList[index];
+		private _totalList: any = {};
+		getTotalByIndex(gameid:string,index: number) {
+			return this._totalList[gameid][index];
 		}
 		protected onSucessHandler(data: any) {
 			if (data.code == Web_operation_fields.CLIENT_IRCODE_BETLIST) {
@@ -54,18 +56,18 @@ module gametongyong.manager {
 					else {
 						this._timeTotalNumArr = [];
 					}
-					if (!this._dataInfoList[index]) this._dataInfoList[index] = {}
-					if (!this._totalList[index]) this._totalList[index] = 0
+					if (!this._dataInfoList[this._game_id][index]) this._dataInfoList[this._game_id][index] = {};
+					if (!this._totalList[this._game_id][index]) this._totalList[this._game_id][index] = 0
 					if (data.msg.list && data.msg.list.length) {
-						this._dataInfoList[index][data.msg.page] = data.msg.list;
-						this._totalList[index] = data.msg.all;
+						this._dataInfoList[this._game_id][index][data.msg.page] = data.msg.list;
+						this._totalList[this._game_id][index] = data.msg.all;
 					}
 					this.event(RecordMgr.RECORD_CHANGE, 1);
 				}
 			}
 		}
 
-		private _dataInfoList: { [key: number]: { [key: number]: any } } = {};
+		private _dataInfoList: any = {}//{ [key: number]: { [key: number]: any } } = {};
 		private _game_id: string;
 
 		get game_id() {

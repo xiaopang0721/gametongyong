@@ -62,6 +62,8 @@ module gametongyong.page {
 			this._viewUI.list_record.itemRender = this.createChildren("game_ui.tongyong.BaoBiaoTUI", ListRecordItem);
 			this._viewUI.list_record.renderHandler = new Handler(this, this.renderHandler);
 			this._viewUI.img_profit.skin = StringU.substitute(PathGameTongyong.ui_tongyong_general + "{0}.png", this._isCardRoomType ? "bb_jf" : "bb_yl");
+			//当天的话，数据重新获取
+			this._recordMgr.getData(1, this._roomId, this._selectTime, this._timeSelectIndex);
 			for (let i = 0; i < 7; i++) {
 				this._viewUI["btn_selected" + i].selected = i == 6;
 			}
@@ -74,8 +76,8 @@ module gametongyong.page {
 			if (cell) {
 				cell.setData(this._game, cell.dataSource, this._recordMgr.game_id);
 				let page = Math.floor((index + 10) / RecordMgr.PAGE_MAX) + 1;
-				if (!this._recordMgr.getDataInfo(this._timeSelectIndex)[page]) {
-					if (this._recordMgr.getDataInfo(this._timeSelectIndex)[page - 1] && this._recordMgr.getDataInfo(this._timeSelectIndex)[page - 1].length >= RecordMgr.PAGE_MAX) {
+				if (!this._recordMgr.getDataInfo(this._timeSelectIndex, this._gameId)[page]) {
+					if (this._recordMgr.getDataInfo(this._timeSelectIndex, this._gameId)[page - 1] && this._recordMgr.getDataInfo(this._timeSelectIndex, this._gameId)[page - 1].length >= RecordMgr.PAGE_MAX) {
 						if (index - this._lastIndex < RecordMgr.PAGE_MAX * .5) return;
 						this._lastIndex = index;
 						this._recordMgr.getData(page, this._roomId, this._selectTime, this._timeSelectIndex);
@@ -106,20 +108,16 @@ module gametongyong.page {
 
 
 		private _dataInfo: any[];
-		private _isInitDaysUI: boolean = false;
 		private onUpdateDataInfo(date?: any) {
 			//日期图标显隐,不必重复做
-			if (this._recordMgr.timeTotalNumArr) {
-				if (!this._isInitDaysUI) {
-					this._isInitDaysUI = true;
-					for (let i = 0; i < 7; i++) {
-						let curTimeStr = Sync.getTimeStr3(this._timeList[i]);
-						this._viewUI["img_data" + i].visible = this._recordMgr.isCurDayHaveNum(curTimeStr) ? true : false;
-					}
+			if (this._recordMgr.timeTotalNumArr&&date) {
+				for (let i = 0; i < 7; i++) {
+					let curTimeStr = Sync.getTimeStr3(this._timeList[i]);
+					this._viewUI["img_data" + i].visible = this._recordMgr.isCurDayHaveNum(curTimeStr) ? true : false;
 				}
 			}
 			this._dataInfo = [];
-			let value = this._recordMgr.getDataInfo(this._timeSelectIndex, !date);
+			let value = this._recordMgr.getDataInfo(this._timeSelectIndex, this._gameId, !date);
 			let count: number = 0;
 			let curPageCount: number = 0;
 			for (let key in value) {
@@ -155,7 +153,7 @@ module gametongyong.page {
 			}
 
 			this._viewUI.list_record.dataSource = this._dataInfo;
-			let all = this._recordMgr.getTotalByIndex(this._timeSelectIndex);
+			let all = this._recordMgr.getTotalByIndex(this._gameId, this._timeSelectIndex);
 			colorHtml = all > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
 			innerHtml = StringU.substitute(str, colorHtml, EnumToString.getPointBackNum(all, 2))
 			this._htmlText.innerHTML = innerHtml;
