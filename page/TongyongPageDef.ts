@@ -91,6 +91,8 @@ module gametongyong.page {
 			});
 		}
 
+		static CZ_PLAY_DIFF_TIME = 5000;
+
 		/**对应皮肤资源类型 */
 		static get TIPS_SKIN_STR() {
 			return {
