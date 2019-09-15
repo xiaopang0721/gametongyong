@@ -9,8 +9,8 @@ module gametongyong.page {
 			this._isNeedBlack = true;
 			this._isClickBlack = false;
 			this._asset = [
-				PathGameTongyong.atlas_game_ui_tongyong+ "general.atlas",
-				PathGameTongyong.atlas_game_ui_tongyong+ "hud.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "hud.atlas",
 			];
 		}
 
@@ -27,7 +27,7 @@ module gametongyong.page {
 			BattleXiangQingMgr.ins.on(BattleXiangQingMgr.RECORD_CHANGE, this, this.onUpdateInfo);
 			this._viewUI.list_info.vScrollBarSkin = "";
 			this._viewUI.list_info.scrollBar.elasticDistance = 100;
-			this._viewUI.list_info.itemRender = this.createChildren("game_ui.tongyong.PaiJu_xqTUI",PaiJuItemRender);
+			this._viewUI.list_info.itemRender = this.createChildren("game_ui.tongyong.PaiJu_xqTUI", PaiJuItemRender);
 			this._viewUI.list_info.renderHandler = new Handler(this, this.renderHandler);
 		}
 
@@ -85,13 +85,28 @@ module gametongyong.page {
 			let infoArr: string[] = v.split("|");
 			this.txt_title.text = "";
 			this.txt_info.text = "";
+
 			if (infoArr.length == 1) {
 				//没有标题信息
 				this.txt_info.x = 0;
 				this.txt_info.text = infoArr[0];
 			} else {
+				let titleStr: string = infoArr[0];
+				let color: string = "";
+				switch (titleStr) {
+					case "开牌":
+						color = TeaStyle.COLOR_YELLOW;
+						break
+					case "下注":
+						color = TeaStyle.COLOR_GREEN;
+						break
+					case "结算":
+						color = TeaStyle.COLOR_RED;
+						break
+				}
 				this.txt_info.x = 110;
-				this.txt_title.text = infoArr[0];
+				this.txt_title.text = titleStr;
+				this.txt_title.color = color;
 				this.txt_info.text = infoArr[1];
 			}
 			this.height = this.txt_info.textField.height;
