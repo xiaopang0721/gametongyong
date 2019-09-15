@@ -46,11 +46,7 @@ module gametongyong.page {
 		}
 
 		private updatePos() {
-			// logd('********************', this._clientRealWidth, this._clientRealHeight, this._clientRealWidth / this._clientRealHeight);
-			// 判断是否全面屏
-			let rate: number = this._game.clientWidth / this._game.clientHeight;
-			let isFull: boolean = rate >= 1.8;
-			if (isFull) {
+			if (this._game.isFullScreen) {
 				this.box_btn_top_left.left = 56;
 			} else {
 				this.box_btn_top_left.left = 0;
