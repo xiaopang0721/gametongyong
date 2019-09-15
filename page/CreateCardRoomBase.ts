@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class CreateCardRoomBase extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.FangKa_ChuangJianUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.FangKa_ChuangJianUI;
 		private _round_count = [5, 10, 15, 20];	// 游戏局数
 		private _pay_money = [3, 6, 9, 12];	// 不同局数的支付金额
 		private _game_id: string;	// 当前游戏ID
@@ -118,7 +118,7 @@ module gametongyong.page {
 				TongyongPageDef.ins.alertRecharge(StringU.substitute("老板，您的金币不足开房间哦~\n补充点金币去大杀四方吧~"), () => {
 					this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
 				}, () => {
-				}, false, PathGameTongyong.ui_tongyong_general + "btn_cz.png");
+				}, false, TongyongPageDef.TIPS_SKIN_STR["cz"]);
 				return false;
 			}
 			return true;
@@ -148,13 +148,13 @@ module gametongyong.page {
 					case Operation_Fields.OPRATE_CARDROOM_NOT_CARD_ID:
 						TongyongPageDef.ins.alertRecharge(StringU.substitute("创建房间失败,没有多余的房间可用,请确认!"), () => {
 						}, () => {
-						}, true, PathGameTongyong.ui_tongyong_general + "btn_qd.png");
+						}, true, TongyongPageDef.TIPS_SKIN_STR["qd"]);
 						break;
 					case Operation_Fields.OPRATE_CARDROOM_CREATE_ROOM_NOT_MONEY:
 						TongyongPageDef.ins.alertRecharge(StringU.substitute("老板，您的金币不足哦~\n补充点金币去大杀四方吧~"), () => {
 							this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
 						}, () => {
-						}, false, PathGameTongyong.ui_tongyong_general + "btn_cz.png");
+						}, true, TongyongPageDef.TIPS_SKIN_STR["cz"]);
 						break;
 					case Operation_Fields.OPRATE_TELEPORT_MAP_CREATE_ROOM_SUCCESS:
 						this.close();
@@ -183,7 +183,7 @@ module gametongyong.page {
 		private onMapOutSuccess() {
 			TongyongPageDef.ins.alertRecharge("房间已解散!", () => {
 			}, () => {
-			}, true, PathGameTongyong.ui_tongyong_general + "btn_cz.png");
+			}, true, TongyongPageDef.TIPS_SKIN_STR["cz"]);
 		}
 
 		public close(): void {

@@ -3,7 +3,7 @@
 */
 module gametongyong.page{
 	export class QiFuPlayAniPage extends game.gui.base.Page{
-		private _viewUI: ui.game_ui.tongyong.effect.QiFuUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.effect.QiFuUI;
 		
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);

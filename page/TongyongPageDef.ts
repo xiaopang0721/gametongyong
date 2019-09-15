@@ -62,11 +62,7 @@ module gametongyong.page {
 
 		static myinit(str: string) {
 			super.myinit(str);
-			if (WebConfig.baseplatform == PageDef.BASE_PLATFORM_TYPE_NQP) {
-				View.regViewRuntime("ui.nqp.game_ui.tongyong.HudUI", TongyongHudNqpPage)
-			} else {
-				View.regViewRuntime("ui.game_ui.tongyong.HudUI", TongyongHudPage)
-			}
+			View.regViewRuntime("ui.nqp.game_ui.tongyong.HudUI", TongyongHudNqpPage)
 			PageDef._pageClassMap[this.PAGE_TONGYONG_RECORD] = RecordPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_TIPS] = TipsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTER_INFO] = PaiJuInfoPage;
@@ -93,6 +89,19 @@ module gametongyong.page {
 					tip.setInfo(gameId, Handler.create(caller, ecb));
 				}
 			});
+		}
+
+		static CZ_PLAY_DIFF_TIME = 5000;
+
+		/**对应皮肤资源类型 */
+		static get TIPS_SKIN_STR() {
+			return {
+				"cz": PathGameTongyong.ui_tongyong_dating + "tu_ch.png",		//充值
+				"qd": PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
+				"qw": PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
+				"title_qf": PathGameTongyong.ui_tongyong_qifu + "tu_qf.png",	//祈福标题
+				"title_ts": PathGameTongyong.ui_tongyong_dating + "tu_ts.png",	//提示标题
+			}
 		}
 
 		/**

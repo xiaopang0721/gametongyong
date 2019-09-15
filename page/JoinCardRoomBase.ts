@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class JoinCardRoomBase extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.JiaRuUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.JiaRuUI;
 		protected readonly _game_id: string;	// 当前游戏ID
 		protected readonly _open_id: string;	// 重新打开加入房间ID
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
@@ -120,7 +120,7 @@ module gametongyong.page {
 							this._game.sceneObjectMgr.leaveStory(true);
 							this._game.uiRoot.general.open(this._open_id);
 						}, () => {
-						}, false, PathGameTongyong.ui_tongyong_general + "btn_cz.png");
+						}, true,TongyongPageDef.TIPS_SKIN_STR["cz"]);
 						break;
 				}
 			}

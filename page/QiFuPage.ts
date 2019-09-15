@@ -3,8 +3,8 @@
 */
 module gametongyong.page {
 	export class QiFuPage extends game.gui.base.Page {
-		protected _viewUI: ui.game_ui.tongyong.QiFuUI;
-		private _imgTypeUI: LImage[];
+		protected _viewUI: ui.nqp.game_ui.tongyong.QiFuUI;
+		private _boxQifuUI: Box[];
 		private _txtMoneyUI: Label[];
 
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
@@ -23,11 +23,11 @@ module gametongyong.page {
 			this._viewUI = this.createView('game_ui.tongyong.QiFuUI');
 			this.addChild(this._viewUI);
 
-			this._imgTypeUI = [];
+			this._boxQifuUI = [];
 			this._txtMoneyUI = [];
 			for (let i = 0; i < 6; i++) {
-				this._imgTypeUI[i] = this._viewUI["img_type" + i];
-				this._imgTypeUI[i].on(LEvent.CLICK, this, this.onBtnClickWithTween);
+				this._boxQifuUI[i] = this._viewUI["box_qifu" + i];
+				this._boxQifuUI[i].on(LEvent.CLICK, this, this.onBtnClickWithTween);
 				this._txtMoneyUI[i] = this._viewUI["txt_money" + i];
 			}
 		}
@@ -70,7 +70,7 @@ module gametongyong.page {
 				this._game.uiRoot.topUnder.showTips("老板，当前不可以祈福哦~")
 				return;
 			}
-			let idx = this._imgTypeUI.indexOf(target);
+			let idx = this._boxQifuUI.indexOf(target);
 			let mainplayer = this._game.sceneObjectMgr.mainPlayer;
 			if (!mainplayer) return;
 			if (!this._dataInfo || !this._dataInfo.length) return;
@@ -93,7 +93,7 @@ module gametongyong.page {
 					this._game.network.call_player_qifu_new(qftype, qfid, qfname);
 					this.close();
 				}, () => {
-				}, false, PathGameTongyong.ui_tongyong_general + "btn_qd.png");
+				}, true, TongyongPageDef.TIPS_SKIN_STR["qd"],TongyongPageDef.TIPS_SKIN_STR["title_qf"]);
 			}
 		}
 

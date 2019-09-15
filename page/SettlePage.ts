@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class SettlePage extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.JieSuanUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.JieSuanUI;
 		private _imgList: Array<LImage> = [];
 		private _htmlText: laya.html.dom.HTMLDivElement;
 
@@ -15,6 +15,7 @@ module gametongyong.page {
 			this._asset = [
 				PathGameTongyong.atlas_game_ui_tongyong + "touxiang.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "hud.atlas",
 			];
 		}

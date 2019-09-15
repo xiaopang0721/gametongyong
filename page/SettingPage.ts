@@ -3,7 +3,7 @@ name 设置
 	**/
 module gametongyong.page {
 	export class SettingPage extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.SheZhiUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.SheZhiUI;
 		private _btnSound: Button;
 		private _btnMusic: Button;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
@@ -13,6 +13,7 @@ module gametongyong.page {
 			this._asset = [
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "hud.atlas",
 			];
 		}
 
@@ -57,14 +58,15 @@ module gametongyong.page {
 			this._viewUI.hslider0.min = 0;//设置 this.hslider0 最低位置值。
 			this._viewUI.hslider0.max = 1;//设置 this.hslider0 最高位置值。
 			this._viewUI.hslider0.tick = 0.1;//设置 this.hslider0 刻度值。
-			this._viewUI.hslider0.value = Laya.SoundManager.soundVolume;//设置 this.hslider0 当前位置值。
 			this._viewUI.hslider0.changeHandler = new Handler(this, this.onChange0);//设置 this.hslider0 位置变化处理器。
+			this._viewUI.hslider0.value = Laya.SoundManager.soundVolume;//设置 this.hslider0 当前位置值。
+
 
 			this._viewUI.hslider1.min = 0;//设置 this.hslider0 最低位置值。
 			this._viewUI.hslider1.max = 1;//设置 this.hslider0 最高位置值。
 			this._viewUI.hslider1.tick = 0.1;//设置 this.hslider0 刻度值。
-			this._viewUI.hslider1.value = Laya.SoundManager.musicVolume;//设置 this.hslider0 当前位置值。
 			this._viewUI.hslider1.changeHandler = new Handler(this, this.onChange1);//设置 this.hslider0 位置变化处理器。
+			this._viewUI.hslider1.value = Laya.SoundManager.musicVolume;//设置 this.hslider0 当前位置值。			
 			this._btnSound.on(LEvent.CLICK, this, this.onCheckClick);
 			this._btnMusic.on(LEvent.CLICK, this, this.onCheckClick);
 
@@ -101,6 +103,7 @@ module gametongyong.page {
 
 
 		private onChange0(value: number) {
+			value = parseFloat(value.toFixed(2));
 			if (value > 0) {
 				this._btnSound.selected = true;
 			} else {
@@ -110,11 +113,14 @@ module gametongyong.page {
 			localSetItem("soundVolume", value.toString());
 		}
 		private onChange1(value: number) {
+			//防止出现non-finite 无限小数
+			value = parseFloat(value.toFixed(2));
 			if (value > 0) {
 				this._btnMusic.selected = true;
 			} else {
 				this._btnMusic.selected = false;
 			}
+			;
 			Laya.SoundManager.setMusicVolume(value);
 			localSetItem("musicVolume", value.toString());
 		}

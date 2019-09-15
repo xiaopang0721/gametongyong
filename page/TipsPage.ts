@@ -3,11 +3,12 @@
 */
 module gametongyong.page {
 	export class TipsPage extends game.gui.base.Page {
-		private _viewUI: ui.game_ui.tongyong.TipsUI;
+		private _viewUI: ui.nqp.game_ui.tongyong.TipsUI;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
 			];
 			this._isNeedBlack = true;
 		}
@@ -64,6 +65,7 @@ module gametongyong.page {
 			}
 		}
 
+
 		private _ecb: Function;
 		private _ccb: Function;
 		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string) {
@@ -71,21 +73,19 @@ module gametongyong.page {
 			this._ecb = ecb;
 			this._ccb = ccb;
 			if (okSkin) {
-				let img_enter = this.getViewComponentPos("img_enter") as LImage;
+				let img_enter = this._viewUI.img_enter;
 				if (img_enter) {
 					img_enter.skin = okSkin;
-				} else {
-					this._viewUI.btn_enter.skin = okSkin;
 				}
 			}
 			if (titleSkin) {
-				let img_title = this.getViewComponentPos("img_title") as LImage;
+				let img_title = this._viewUI.img_title;
 				if (img_title) {
 					img_title.skin = titleSkin;
 				}
 			}
 			if (cancleSkin) {
-				let img_cancle = this.getViewComponentPos("img_cancle") as LImage;
+				let img_cancle = this._viewUI.img_cancle;
 				if (img_cancle) {
 					img_cancle.skin = cancleSkin;
 				}
