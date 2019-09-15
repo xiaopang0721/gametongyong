@@ -66,6 +66,7 @@ module gametongyong.page {
 			this._recordMgr.getData(1, this._roomId, this._selectTime, this._timeSelectIndex);
 			for (let i = 0; i < 7; i++) {
 				this._viewUI["btn_selected" + i].selected = i == 6;
+				this._viewUI["lab_btn" + i].color = (i == 6) ? TeaStyle.COLOR_YELLOW : "#89d4ff";
 			}
 			this._viewUI.btn_list.on(LEvent.CLICK, this, this.onBtnClickWithTween);
 			this._recordMgr.on(RecordMgr.RECORD_CHANGE, this, this.onUpdateDataInfo);
@@ -110,10 +111,11 @@ module gametongyong.page {
 		private _dataInfo: any[];
 		private onUpdateDataInfo(date?: any) {
 			//日期图标显隐,不必重复做
-			if (this._recordMgr.timeTotalNumArr&&date) {
+			if (this._recordMgr.timeTotalNumArr && date) {
 				for (let i = 0; i < 7; i++) {
 					let curTimeStr = Sync.getTimeStr3(this._timeList[i]);
-					this._viewUI["img_data" + i].visible = this._recordMgr.isCurDayHaveNum(curTimeStr) ? true : false;
+					let isSlected = this._recordMgr.isCurDayHaveNum(curTimeStr) ? true : false;
+					this._viewUI["img_data" + i].visible = isSlected;
 				}
 			}
 			this._dataInfo = [];
@@ -184,6 +186,7 @@ module gametongyong.page {
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 			for (let i = 0; i < 7; i++) {
 				this._viewUI["btn_selected" + i].selected = (i == index) ? true : false;
+				this._viewUI["lab_btn" + i].color = (i == index) ? TeaStyle.COLOR_YELLOW : "#89d4ff";
 			}
 
 			this.onUpdateDataInfo();
