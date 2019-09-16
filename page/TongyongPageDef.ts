@@ -15,33 +15,25 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "2";
 		};
-		static get PAGE_TONGYONG_QIFU_ANI() {//祈福动画
+		static get PAGE_TONGYONG_SETTING() {//设置界面
 			this.ins;
 			return this.GAME_NAME + "3";
 		};
-		static get PAGE_TONGYONG_QIFU() {//祈福界面
+		static get PAGE_TONGYONG_RECORD() {//战绩界面
 			this.ins;
 			return this.GAME_NAME + "4";
 		};
-		static get PAGE_TONGYONG_SETTING() {//设置界面
+		static get PAGE_TONGYONG_TIPS() {//提示界面
 			this.ins;
 			return this.GAME_NAME + "5";
 		};
-		static get PAGE_TONGYONG_RECORD() {//战绩界面
+		static get PAGE_TONGYONG_MATCH() {//匹配界面
 			this.ins;
 			return this.GAME_NAME + "6";
 		};
-		static get PAGE_TONGYONG_TIPS() {//提示界面
-			this.ins;
-			return this.GAME_NAME + "7";
-		};
-		static get PAGE_TONGYONG_MATCH() {//匹配界面
-			this.ins;
-			return this.GAME_NAME + "8";
-		};
 		static get PAGE_TONGYONG_SETTLE() {//百人场结算界面
 			this.ins;
-			return this.GAME_NAME + "9";
+			return this.GAME_NAME + "7";
 		};
 
 		private static _ins: TongyongPageDef;
@@ -67,8 +59,6 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_TIPS] = TipsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTER_INFO] = PaiJuInfoPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_CLOSE_TIPS] = CloseTipsPage;
-			PageDef._pageClassMap[this.PAGE_TONGYONG_QIFU_ANI] = QiFuPlayAniPage;
-			PageDef._pageClassMap[this.PAGE_TONGYONG_QIFU] = QiFuPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_SETTING] = SettingPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_MATCH] = MatchPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_SETTLE] = SettlePage;
