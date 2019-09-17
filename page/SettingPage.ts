@@ -72,6 +72,10 @@ module gametongyong.page {
 
 		}
 
+		protected onMouseDown(e: LEvent) {
+			return true;
+		}
+
 		private onCheckClick(e: LEvent): void {
 			switch (e.currentTarget) {
 				case this._btnSound://開關音效
