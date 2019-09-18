@@ -82,14 +82,14 @@ module gametongyong.page {
 		}
 
 		static CZ_PLAY_DIFF_TIME = 5000;
-
 		/**对应皮肤资源类型 */
 		static get TIPS_SKIN_STR() {
 			return {
 				"cz": PathGameTongyong.ui_tongyong_dating + "tu_ch.png",		//充值
 				"qd": PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
 				"qw": PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
-				"title_qf": PathGameTongyong.ui_tongyong_qifu + "tu_qf.png",	//祈福标题
+				"wyqf": DatingPath.ui_dating + "qifu/tu_wyqf.png",	//我要祈福
+				"title_qf": DatingPath.ui_dating + "qifu/tu_qf.png",	//祈福标题
 				"title_ts": PathGameTongyong.ui_tongyong_dating + "tu_ts.png",	//提示标题
 			}
 		}
