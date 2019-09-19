@@ -63,7 +63,7 @@ module gametongyong.page {
 			let mainPlayer = this._game.sceneObjectMgr.mainPlayer;
 			if (!mainPlayer) return;
 			let playerInfo = this._game.sceneObjectMgr.mainPlayer.playerInfo;
-			this.txt_name.text = playerInfo.nickname;
+			this.txt_name.text = getNameSlice(playerInfo.nickname);
 
 			if (!this._clip_money) {
 				this._clip_money = new TongyongClip(TongyongClip.MONEY_FONT2);
