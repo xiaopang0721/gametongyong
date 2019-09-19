@@ -56,7 +56,7 @@ module gametongyong.page {
 
 		private _clip_money: TongyongClip;
 		private _clip_vip: TongyongClip;
-		// private _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
+		private _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
 		private onUpdatePlayerInfo(first: boolean = true) {
 			if (!this._game) return;
 			if (!WebConfig.info) return;
@@ -84,9 +84,9 @@ module gametongyong.page {
 			this._clip_vip.setText(playerInfo.vip_level, true);
 
 			this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + (playerInfo.headimg ? playerInfo.headimg : 0) + ".png";
-			// if (playerInfo.qifu_type > 0 && mainPlayer.GetQiFuEndTime(playerInfo.qifu_type - 1) > this._game.sync.serverTimeBys) {
-			// 	this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "head_" + this._qifuNameStr[playerInfo.qifu_type - 1] + ".png";
-			// }
+			if (playerInfo.qifu_type > 0 && mainPlayer.GetQiFuEndTime(playerInfo.qifu_type - 1) > this._game.sync.serverTimeBys) {
+				this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "head_" + this._qifuNameStr[playerInfo.qifu_type - 1] + ".png";
+			}
 
 			// this.img_txk.visible = playerInfo.vip_level > 0;
 			// if (this.img_txk.visible) {
