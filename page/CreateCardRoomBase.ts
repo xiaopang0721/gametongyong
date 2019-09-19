@@ -46,7 +46,7 @@ module gametongyong.page {
 			this.setRoundCheckboxEvent(true);
 			this.setPaytypeCheckboxEvent(true);
 			this._viewUI.cb_round0.selected = true;
-			this._viewUI.cb_pay0.selected = true;
+			// this._viewUI.cb_pay0.selected = true;
 			this._viewUI.txt_money.text = this._pay_money[0].toString();
 		}
 
