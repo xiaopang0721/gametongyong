@@ -72,6 +72,10 @@ module gametongyong.page {
 			this._recordMgr.on(RecordMgr.RECORD_CHANGE, this, this.onUpdateDataInfo);
 		}
 
+		protected onMouseDown(e: LEvent) {
+			return true;
+		}
+
 		private _lastIndex: number;
 		private renderHandler(cell: ListRecordItem, index: number) {
 			if (cell) {
