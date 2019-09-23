@@ -51,7 +51,7 @@ module gametongyong.page {
 			} else {
 				this.box_btn_top_left.left = 0;
 			}
-			
+
 		}
 
 		private _clip_money: TongyongClip;
@@ -87,13 +87,8 @@ module gametongyong.page {
 			if (playerInfo.qifu_type > 0 && mainPlayer.GetQiFuEndTime(playerInfo.qifu_type - 1) > this._game.sync.serverTimeBys) {
 				this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "head_" + this._qifuNameStr[playerInfo.qifu_type - 1] + ".png";
 			}
-
-			// this.img_txk.visible = playerInfo.vip_level > 0;
-			// if (this.img_txk.visible) {
 			this.img_txk.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + (playerInfo.headKuang ? playerInfo.headKuang : 0) + ".png";
-			// }
 		}
-
 
 		protected onBtnClickHandle(e: LEvent): void {
 			if (!this._game) return;
