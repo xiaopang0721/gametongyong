@@ -35,6 +35,22 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "7";
 		};
+		static get PAGE_TONGYONG_GAMESTART() {//游戏开始界面
+			this.ins;
+			return this.GAME_NAME + "8";
+		};
+		static get PAGE_TONGYONG_GAMEWIN() {//胜利界面
+			this.ins;
+			return this.GAME_NAME + "9";
+		};
+		static get PAGE_TONGYONG_ZJTS() {//庄家通杀界面
+			this.ins;
+			return this.GAME_NAME + "10";
+		};
+		static get PAGE_TONGYONG_ZJTP() {//庄家通赔界面
+			this.ins;
+			return this.GAME_NAME + "11";
+		};
 
 		private static _ins: TongyongPageDef;
 
@@ -62,6 +78,10 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_SETTING] = SettingPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_MATCH] = MatchPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_SETTLE] = SettlePage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_GAMESTART] = GameStartPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_GAMEWIN] = GameWinPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTS] = ZjtsPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTP] = ZjtpPage;
 		}
 
 		/**
