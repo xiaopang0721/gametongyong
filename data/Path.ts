@@ -10,7 +10,6 @@ module gametongyong.data {
 
 		static ui_tongyong: string = "tongyong_ui/game_ui/tongyong/";
 		static ui_tongyong_touxiang: string = Path.ui_tongyong + "touxiang/";
-		static ui_tongyong_qifu: string = Path.ui_tongyong + "qifu/";
 		static ui_tongyong_pai: string = Path.ui_tongyong + "pai/";
 		static ui_tongyong_general: string = Path.ui_tongyong + "general/";
 		static ui_tongyong_sk: string = Path.ui_tongyong + "sk/";
