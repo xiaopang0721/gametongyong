@@ -9,6 +9,7 @@ module gametongyong.page {
 			this._asset = [
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+				Path.atlas_game_ui_tongyong + "fk.atlas",
 			];
 			this._isNeedBlack = true;
 		}
@@ -68,7 +69,7 @@ module gametongyong.page {
 
 		private _ecb: Function;
 		private _ccb: Function;
-		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string) {
+		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string,okBtnSkin?: string, cancleBtnSkin?: string) {
 			this._viewUI.txt_label.text = str;
 			this._ecb = ecb;
 			this._ccb = ccb;
@@ -76,6 +77,12 @@ module gametongyong.page {
 				let img_enter = this._viewUI.img_enter;
 				if (img_enter) {
 					img_enter.skin = okSkin;
+				}
+			}
+			if (okBtnSkin) {
+				let btn_enter = this._viewUI.btn_enter;
+				if (btn_enter) {
+					btn_enter.skin = okBtnSkin;
 				}
 			}
 			if (titleSkin) {
@@ -88,6 +95,12 @@ module gametongyong.page {
 				let img_cancle = this._viewUI.img_cancle;
 				if (img_cancle) {
 					img_cancle.skin = cancleSkin;
+				}
+			}
+			if (cancleBtnSkin) {
+				let btn_cancle = this._viewUI.btn_cancle;
+				if (btn_cancle) {
+					btn_cancle.skin = okSkin;
 				}
 			}
 		}

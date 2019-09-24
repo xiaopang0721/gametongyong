@@ -108,9 +108,12 @@ module gametongyong.page {
 				"cz": PathGameTongyong.ui_tongyong_dating + "tu_ch.png",		//充值
 				"qd": PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
 				"qw": PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
+				"js": PathGameTongyong.ui_tongyong_fk + "tu_wyqf.png",			//解散
+				"fqtq": PathGameTongyong.ui_tongyong_fk + "tu_fqtp.png",		//发起投票
 				"wyqf": DatingPath.ui_dating + "qifu/tu_wyqf.png",	//我要祈福
 				"title_qf": DatingPath.ui_dating + "qifu/tu_qf.png",	//祈福标题
 				"title_ts": PathGameTongyong.ui_tongyong_dating + "tu_ts.png",	//提示标题
+				"btn_red": PathGameTongyong.ui_tongyong_dating + "btn_1da.png",	//红的按钮
 			}
 		}
 
@@ -124,11 +127,12 @@ module gametongyong.page {
 		 * @param titleSkin 标题皮肤
 		 * @param cancleSkin 取消皮肤
 		 */
-		alertRecharge(str: string, ecb: Function = null, ccb: Function = null, isOnlyOK: boolean = true, okSkin?: string, titleSkin?: string, cancleSkin?: string): void {
+		alertRecharge(str: string, ecb: Function = null, ccb: Function = null, isOnlyOK: boolean = true, okSkin?: string, titleSkin?: string, cancleSkin?: string, okBtnSkin?: string, cancleBtnSkin?: string
+		): void {
 			this._game.uiRoot.top.close(TongyongPageDef.PAGE_TONGYONG_TIPS);
 			this._game.uiRoot.top.open(TongyongPageDef.PAGE_TONGYONG_TIPS, (tip: TongyongTipsPage) => {
 				tip.isOnlyOK = isOnlyOK;
-				tip.setInfo(str, ecb, ccb, okSkin, titleSkin, cancleSkin);
+				tip.setInfo(str, ecb, ccb, okSkin, titleSkin, cancleSkin, okBtnSkin, cancleBtnSkin);
 			});
 		}
 	}
