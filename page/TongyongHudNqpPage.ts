@@ -76,7 +76,7 @@ module gametongyong.page {
 			this._clip_money.setText(EnumToString.getPointBackNum(playerInfo.money, 2) + "", true, false, playerInfo.money < 0 ? PathGameTongyong.ui_tongyong_general + "tu_jianhao.png" : null);
 			if (!this._clip_vip) {
 				this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
-				this._clip_vip.centerX = this.clip_vip.centerX;
+				this._clip_vip.centerX = this.clip_vip.centerX - 10;
 				this._clip_vip.centerY = this.clip_vip.centerY;
 				this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
 				this.clip_vip.removeSelf();
