@@ -82,10 +82,10 @@ module gametongyong.page {
 				this.clip_vip.removeSelf();
 			}
 			this._clip_vip.setText(playerInfo.vip_level, true);
-
-			this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + (playerInfo.headimg ? playerInfo.headimg : 0) + ".png";
 			if (playerInfo.qifu_type > 0 && playerInfo.qifu_endtime > this._game.sync.serverTimeBys) {
 				this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "head_" + this._qifuNameStr[playerInfo.qifu_type - 1] + ".png";
+			}else{
+				this.btn_gren.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + (playerInfo.headimg ? playerInfo.headimg : 0) + ".png";
 			}
 			this.img_txk.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + (playerInfo.headKuang ? playerInfo.headKuang : 0) + ".png";
 		}
