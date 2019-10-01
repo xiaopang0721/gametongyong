@@ -27,7 +27,6 @@ module gametongyong.page {
 			this._viewUI.box_v.visible = Vesion["_defaultVesion"];
 			this._viewUI.txt_bbh.text = Vesion["_defaultVesion"];
 			this._viewUI.btn_clear.on(LEvent.CLICK, this, this.onBtnClickWithTween);
-			this._viewUI.btn_change.on(LEvent.CLICK, this, this.onBtnClickWithTween);
 			this._viewUI.btn_check.on(LEvent.CLICK, this, this.onBtnClickWithTween);
 			if (WebConfig.gameGmOpen) {
 				if (!this._gmTxt) {
@@ -133,7 +132,6 @@ module gametongyong.page {
 			if (this._viewUI) {
 				this._viewUI.btn_check.off(LEvent.CLICK, this, this.onBtnClickWithTween);
 				this._viewUI.btn_clear.off(LEvent.CLICK, this, this.onBtnClickWithTween);
-				this._viewUI.btn_change.off(LEvent.CLICK, this, this.onBtnClickWithTween);
 				WebConfig.update_appVersion = null;
 				super.close();
 
@@ -146,9 +144,6 @@ module gametongyong.page {
 						localClear();
 						this._game.showTips("清理缓存成功!")
 					}, null, false)
-					break;
-				case this._viewUI.btn_change://切换账号
-					this.close();
 					break;
 				case this._viewUI.btn_check://检查更新
 					this._game.checkClientVesion(true);

@@ -108,7 +108,7 @@ module gametongyong.page {
 				"cz": PathGameTongyong.ui_tongyong_dating + "tu_ch.png",		//充值
 				"qd": PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
 				"qw": PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
-				"js": PathGameTongyong.ui_tongyong_fk + "tu_wyqf.png",			//解散
+				"js": PathGameTongyong.ui_tongyong_fk + "tu_js.png",			//解散
 				"fqtq": PathGameTongyong.ui_tongyong_fk + "tu_fqtp.png",		//发起投票
 				"wyqf": DatingPath.ui_dating + "qifu/tu_wyqf.png",	//我要祈福
 				"title_qf": DatingPath.ui_dating + "qifu/tu_qf.png",	//祈福标题
