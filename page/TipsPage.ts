@@ -71,6 +71,7 @@ module gametongyong.page {
 		private _ccb: Function;
 		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string,okBtnSkin?: string, cancleBtnSkin?: string) {
 			this._viewUI.txt_label.text = str;
+			TextFieldU.setHtmlText(this._viewUI.txt_label, str);//支持HTML
 			this._ecb = ecb;
 			this._ccb = ccb;
 			if (okSkin) {
