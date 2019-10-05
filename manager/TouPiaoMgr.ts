@@ -22,7 +22,7 @@ module gametongyong.manager {
 			this._jiesan = view;
 			this._mapinfo = mapinfo;
 			this._gameid = gameid;
-
+			this._countTP = 0;
 			this._game.sceneObjectMgr.on(TouPiaoMgr.EVENT_TOUPIAO_TIME, this, this.updateTouPiaoTime);//投票解散
 			this._jiesan.btn_ok.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._jiesan.btn_refuse.on(LEvent.CLICK, this, this.onBtnClickHandle);
@@ -55,7 +55,7 @@ module gametongyong.manager {
 			this._tpEndTime = this._mapinfo.GetTouPiaoTime();
 		}
 
-		private _countTP: number = 0;    //投票人数
+		private _countTP: number    //投票人数
 		onBattleUpdate(info) {
 			if (info instanceof gamecomponent.object.BattleInfoSponsorVote) {
 				if (info.state == 1) {
