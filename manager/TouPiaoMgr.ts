@@ -32,7 +32,12 @@ module gametongyong.manager {
 			return this._isTouPiaoing;
 		}
 
+		get touPiaoResult(): boolean {
+			return this._touPiaoResult;
+		}
+
 		private _isTouPiaoing: boolean = false;      //是否投票中
+		private _touPiaoResult: boolean = false;	//是否解散le
 		private _tpEndTime: number = 0;  //投票倒计时结束时间
 		update(diff: number) {
 			if (this._isTouPiaoing && this._tpEndTime > 0) {
@@ -67,6 +72,7 @@ module gametongyong.manager {
 					if (this._isTouPiaoing) {
 						if (info.tpResult == 1) {
 							this._game.showTips("解散投票通过，本局结束后房间解散");
+							this._touPiaoResult = true;
 						} else if (info.tpResult == 2) {
 							this._game.showTips("很遗憾，尚有玩家未同意解散房间");
 						}
