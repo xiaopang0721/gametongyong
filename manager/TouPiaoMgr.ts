@@ -222,8 +222,7 @@ module gametongyong.manager {
 			}
 			this._jiesan.btn_ok.off(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._jiesan.btn_refuse.off(LEvent.CLICK, this, this.onBtnClickHandle);
-			this._isTouPiaoing = false;
-			this._touPiaoResult = false;
+			this.resetData();
 		}
 	}
 }
