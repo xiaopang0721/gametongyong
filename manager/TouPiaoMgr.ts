@@ -28,6 +28,13 @@ module gametongyong.manager {
 			this._jiesan.btn_refuse.on(LEvent.CLICK, this, this.onBtnClickHandle);
 		}
 
+		resetData(): void {
+			this._isTouPiaoing = false;
+			this._touPiaoResult = false;
+			this._tpEndTime = 0;
+			this._countTP = 0;
+		}
+
 		get isTouPiaoing(): boolean {
 			return this._isTouPiaoing;
 		}
