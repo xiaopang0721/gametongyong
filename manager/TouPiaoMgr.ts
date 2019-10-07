@@ -22,7 +22,6 @@ module gametongyong.manager {
 			this._jiesan = view;
 			this._mapinfo = mapinfo;
 			this._gameid = gameid;
-			this._countTP = 0;
 			this._game.sceneObjectMgr.on(TouPiaoMgr.EVENT_TOUPIAO_TIME, this, this.updateTouPiaoTime);//投票解散
 			this._jiesan.btn_ok.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._jiesan.btn_refuse.on(LEvent.CLICK, this, this.onBtnClickHandle);
@@ -38,7 +37,7 @@ module gametongyong.manager {
 
 		private _isTouPiaoing: boolean = false;      //是否投票中
 		private _touPiaoResult: boolean = false;	//是否解散了
-		private _tpEndTime: number = 0;  //投票倒计时结束时间
+		private _tpEndTime: number = 0;  //投票倒计时结束时间戳
 		update(diff: number) {
 			if (this._isTouPiaoing && this._tpEndTime > 0) {
 				let curTime = this._game.sync.serverTimeBys;
@@ -65,6 +64,7 @@ module gametongyong.manager {
 			if (info instanceof gamecomponent.object.BattleInfoSponsorVote) {
 				//投票开始
 				if (info.state == 1) {
+					this._countTP = 0;//投票人数清零
 					this._isTouPiaoing = true;
 					this.showViewTX();
 				}
@@ -92,7 +92,6 @@ module gametongyong.manager {
 					if (info.tpType == 1) strTip = StringU.substitute("{0}<span color='{1}'>{2}</span>解散房间", name, TeaStyle.COLOR_GREEN, "同意");
 					else if (info.tpType == 0) strTip = StringU.substitute("{0}<span color='{1}'>{2}</span>解散房间", name, TeaStyle.COLOR_RED, "拒绝");
 					this._game.showTips(strTip);
-					if (!this._countTP) this._countTP = 0;
 					this._countTP++;
 					this._jiesan["clip_" + this._countTP].index = (info.tpType == 1 ? 1 : 0);
 					if (unit == this._game.sceneObjectMgr.mainUnit) {
