@@ -82,7 +82,7 @@ module gametongyong.page {
 				this.clip_vip.removeSelf();
 			}
 			this._clip_vip.setText(playerInfo.vip_level, true);
-			this.btn_gren.skin = this._game.datingGame.getPlayerHeadUrl(playerInfo);
+			this.btn_gren.skin = this._game.datingGame.getHeadUrl(playerInfo.headimg, 2);
 			this.img_txk.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + (playerInfo.headKuang ? playerInfo.headKuang : 0) + ".png";
 		}
 

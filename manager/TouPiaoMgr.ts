@@ -22,7 +22,6 @@ module gametongyong.manager {
 			this._jiesan = view;
 			this._mapinfo = mapinfo;
 			this._gameid = gameid;
-			this._countTP = 0;
 			this._game.sceneObjectMgr.on(TouPiaoMgr.EVENT_TOUPIAO_TIME, this, this.updateTouPiaoTime);//投票解散
 			this._jiesan.btn_ok.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._jiesan.btn_refuse.on(LEvent.CLICK, this, this.onBtnClickHandle);
@@ -44,8 +43,8 @@ module gametongyong.manager {
 		}
 
 		private _isTouPiaoing: boolean = false;      //是否投票中
-		private _touPiaoResult: boolean = false;	//是否解散le
-		private _tpEndTime: number = 0;  //投票倒计时结束时间
+		private _touPiaoResult: boolean = false;	//是否解散了
+		private _tpEndTime: number = 0;  //投票倒计时结束时间戳
 		update(diff: number) {
 			if (this._isTouPiaoing && this._tpEndTime > 0) {
 				let curTime = this._game.sync.serverTimeBys;
@@ -70,18 +69,21 @@ module gametongyong.manager {
 		private _countTP: number    //投票人数
 		onBattleUpdate(info) {
 			if (info instanceof gamecomponent.object.BattleInfoSponsorVote) {
+				//投票开始
 				if (info.state == 1) {
-					//投票开始
+					this._countTP = 0;//投票人数清零
 					this._isTouPiaoing = true;
 					this.showViewTX();
-				} else if (info.state == 2) {
-					//所有人都投了票,提前结束游戏         
+				}
+				//所有人都投了票   
+				else if (info.state == 2) {
 					if (this._isTouPiaoing) {
 						if (info.tpResult == 1) {
 							this._game.showTips("解散投票通过，本局结束后房间解散");
 							this._touPiaoResult = true;
 						} else if (info.tpResult == 2) {
 							this._game.showTips("很遗憾，尚有玩家未同意解散房间");
+							this._touPiaoResult = false;
 						}
 						this._isTouPiaoing = false;
 						this.hideViewTX();
@@ -97,7 +99,6 @@ module gametongyong.manager {
 					if (info.tpType == 1) strTip = StringU.substitute("{0}<span color='{1}'>{2}</span>解散房间", name, TeaStyle.COLOR_GREEN, "同意");
 					else if (info.tpType == 0) strTip = StringU.substitute("{0}<span color='{1}'>{2}</span>解散房间", name, TeaStyle.COLOR_RED, "拒绝");
 					this._game.showTips(strTip);
-					if (!this._countTP) this._countTP = 0;
 					this._countTP++;
 					this._jiesan["clip_" + this._countTP].index = (info.tpType == 1 ? 1 : 0);
 					if (unit == this._game.sceneObjectMgr.mainUnit) {
@@ -222,6 +223,7 @@ module gametongyong.manager {
 			this._jiesan.btn_ok.off(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._jiesan.btn_refuse.off(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._isTouPiaoing = false;
+			this._touPiaoResult = false;
 		}
 	}
 }
