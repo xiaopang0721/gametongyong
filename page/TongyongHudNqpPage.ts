@@ -56,7 +56,6 @@ module gametongyong.page {
 
 		private _clip_money: TongyongClip;
 		private _clip_vip: TongyongClip;
-		private _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
 		private onUpdatePlayerInfo(first: boolean = true) {
 			if (!this._game) return;
 			if (!WebConfig.info) return;
@@ -83,7 +82,7 @@ module gametongyong.page {
 			}
 			this._clip_vip.setText(playerInfo.vip_level, true);
 			this.btn_gren.skin = this._game.datingGame.getHeadUrl(playerInfo.headimg, 2);
-			this.img_txk.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + (playerInfo.headKuang ? playerInfo.headKuang : 0) + ".png";
+			this.img_txk.skin = this._game.datingGame.getTouXiangKuangUrl(playerInfo.headKuang, 2);
 		}
 
 		protected onBtnClickHandle(e: LEvent): void {
