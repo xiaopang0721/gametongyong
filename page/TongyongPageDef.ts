@@ -51,6 +51,10 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "11";
 		};
+		static get PAGE_TONGYONG_BATTLE_INFO_FK() {//战斗房卡详情
+			this.ins;
+			return this.GAME_NAME + "12";
+		};
 
 		private static _ins: TongyongPageDef;
 
@@ -82,6 +86,7 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_GAMEWIN] = GameWinPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTS] = ZjtsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTP] = ZjtpPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_FK] = PaiJuInfoFKPage;
 		}
 
 		/**
