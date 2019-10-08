@@ -604,6 +604,113 @@ module ui.nqp.game_ui.tongyong {
 }
 
 module ui.nqp.game_ui.tongyong {
+    export class PaiJuFangKaT1UI extends View {
+		public txt_title:Laya.Label;
+
+        public static  uiView:any ={"type":"View","props":{"width":710,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":710,"height":30},"child":[{"type":"Image","props":{"width":358,"skin":"tongyong_ui/game_ui/tongyong/hud/tu_dizj.png","height":30,"centerX":0}},{"type":"Label","props":{"width":300,"var":"txt_title","text":"第一局","fontSize":22,"color":"#ffffff","centerY":1,"centerX":0,"align":"center"}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.PaiJuFangKaT1UI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
+    export class PaiJuFangKaT2UI extends View {
+		public txt_title:Laya.Label;
+
+        public static  uiView:any ={"type":"View","props":{"width":710,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":710,"height":30,"centerX":0},"child":[{"type":"Label","props":{"y":3,"x":297,"width":110,"var":"txt_title","text":"开始抢地主","fontSize":22,"color":"#ffffff","align":"center"}},{"type":"Image","props":{"y":16,"x":410.0000000535895,"width":200,"skin":"tongyong_ui/game_ui/tongyong/hud/tu_hxfg.png"}},{"type":"Image","props":{"y":16,"x":293.0000000535895,"width":200,"skin":"tongyong_ui/game_ui/tongyong/hud/tu_hxfg.png","rotation":180}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.PaiJuFangKaT2UI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
+    export class PaiJuFangKaT3UI extends View {
+		public txt_name:Laya.Label;
+		public txt_num:Laya.Label;
+		public card0:Laya.Image;
+		public card1:Laya.Image;
+		public card2:Laya.Image;
+		public card3:Laya.Image;
+		public card4:Laya.Image;
+		public card5:Laya.Image;
+		public card6:Laya.Image;
+		public card7:Laya.Image;
+		public card8:Laya.Image;
+		public card9:Laya.Image;
+		public card10:Laya.Image;
+		public card11:Laya.Image;
+		public card12:Laya.Image;
+		public card13:Laya.Image;
+		public card14:Laya.Image;
+		public card15:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":700,"height":80},"child":[{"type":"Box","props":{"width":700,"height":80},"child":[{"type":"Label","props":{"y":45,"x":20,"var":"txt_name","text":"玩家名字六字：","fontSize":22,"color":"#ffffff","align":"left"}},{"type":"Label","props":{"y":45,"x":174,"width":68,"var":"txt_num","text":"[16张]","height":22,"fontSize":22,"color":"#00ff2a","align":"left"}},{"type":"Box","props":{"y":7,"x":261,"width":213,"height":69},"child":[{"type":"Image","props":{"y":0,"x":0,"width":45,"var":"card0","skin":"tongyong_ui/game_ui/tongyong/pai/10.png","height":66}},{"type":"Image","props":{"y":0,"x":20,"width":45,"var":"card1","skin":"tongyong_ui/game_ui/tongyong/pai/19.png","height":66}},{"type":"Image","props":{"y":0,"x":40,"width":45,"var":"card2","skin":"tongyong_ui/game_ui/tongyong/pai/18.png","height":66}},{"type":"Image","props":{"y":0,"x":60,"width":45,"var":"card3","skin":"tongyong_ui/game_ui/tongyong/pai/11.png","height":66}},{"type":"Image","props":{"y":0,"x":80,"width":45,"var":"card4","skin":"tongyong_ui/game_ui/tongyong/pai/17.png","height":66}},{"type":"Image","props":{"y":0,"x":100,"width":45,"var":"card5","skin":"tongyong_ui/game_ui/tongyong/pai/2.png","height":66}},{"type":"Image","props":{"y":0,"x":120,"width":45,"var":"card6","skin":"tongyong_ui/game_ui/tongyong/pai/12.png","height":66}},{"type":"Image","props":{"y":0,"x":140,"width":45,"var":"card7","skin":"tongyong_ui/game_ui/tongyong/pai/13.png","height":66}},{"type":"Image","props":{"y":0,"x":160,"width":45,"var":"card8","skin":"tongyong_ui/game_ui/tongyong/pai/16.png","height":66}},{"type":"Image","props":{"y":0,"x":180,"width":45,"var":"card9","skin":"tongyong_ui/game_ui/tongyong/pai/15.png","height":66}},{"type":"Image","props":{"y":0,"x":200,"width":45,"var":"card10","skin":"tongyong_ui/game_ui/tongyong/pai/14.png","height":66}},{"type":"Image","props":{"y":0,"x":220,"width":45,"var":"card11","skin":"tongyong_ui/game_ui/tongyong/pai/14.png","height":66}},{"type":"Image","props":{"y":0,"x":240,"width":45,"var":"card12","skin":"tongyong_ui/game_ui/tongyong/pai/14.png","height":66}},{"type":"Image","props":{"y":0,"x":260,"width":45,"var":"card13","skin":"tongyong_ui/game_ui/tongyong/pai/14.png","height":66}},{"type":"Image","props":{"y":0,"x":280,"width":45,"var":"card14","skin":"tongyong_ui/game_ui/tongyong/pai/14.png","height":66}},{"type":"Image","props":{"y":0,"x":300,"width":45,"var":"card15","skin":"tongyong_ui/game_ui/tongyong/pai/14.png","height":66}}]}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.PaiJuFangKaT3UI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
+    export class PaiJuFangKaT4UI extends View {
+		public txt_name:Laya.Label;
+		public txt_desc:Laya.Label;
+		public card0:Laya.Image;
+		public card1:Laya.Image;
+		public card2:Laya.Image;
+		public card3:Laya.Image;
+		public card4:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":700,"height":85},"child":[{"type":"Box","props":{"width":700,"height":85},"child":[{"type":"Label","props":{"y":50,"x":20,"var":"txt_name","text":"玩家名字六字：","fontSize":22,"color":"#ffffff"}},{"type":"Label","props":{"y":50,"x":184,"var":"txt_desc","text":"[五小牛]","fontSize":22,"color":"#00ff2a"}},{"type":"Image","props":{"y":12,"x":281,"width":45,"var":"card0","skin":"tongyong_ui/game_ui/tongyong/pai/10.png","height":66}},{"type":"Image","props":{"y":12,"x":301,"width":45,"var":"card1","skin":"tongyong_ui/game_ui/tongyong/pai/19.png","height":66}},{"type":"Image","props":{"y":12,"x":321,"width":45,"var":"card2","skin":"tongyong_ui/game_ui/tongyong/pai/18.png","height":66}},{"type":"Image","props":{"y":12,"x":341,"width":45,"var":"card3","skin":"tongyong_ui/game_ui/tongyong/pai/11.png","height":66}},{"type":"Image","props":{"y":12,"x":361,"width":45,"var":"card4","skin":"tongyong_ui/game_ui/tongyong/pai/17.png","height":66}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.PaiJuFangKaT4UI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
+    export class PaiJuFangKaT5UI extends View {
+
+        public static  uiView:any ={"type":"View","props":{"width":700,"height":170},"child":[{"type":"Box","props":{"width":700,"height":170,"centerX":0},"child":[{"type":"Image","props":{"y":32,"x":356,"skin":"tongyong_ui/game_ui/tongyong/hud/tu_sxfg.png"}},{"type":"Image","props":{"y":0,"x":180,"width":358,"skin":"tongyong_ui/game_ui/tongyong/hud/tu_dizj.png","height":30}},{"type":"Label","props":{"text":"当前房间规则","fontSize":22,"color":"#ffffff","centerY":-69,"centerX":1}},{"type":"Box","props":{"y":43,"x":528},"child":[{"type":"Label","props":{"text":"有牌必打","fontSize":22,"color":"#00ff2a"}},{"type":"Label","props":{"y":23,"text":"报单保底","fontSize":22,"color":"#00ff2a"}},{"type":"Label","props":{"y":47,"text":"四带三","fontSize":22,"color":"#00ff2a"}},{"type":"Label","props":{"y":70,"text":"3A为炸弹","fontSize":22,"color":"#00ff2a"}}]},{"type":"Box","props":{"y":38,"x":49},"child":[{"type":"Label","props":{"text":"人数：3","fontSize":22,"color":"#ffffff"}},{"type":"Label","props":{"y":25,"width":78.2353515625,"text":"局数：5","height":22,"fontSize":22,"color":"#ffffff"}},{"type":"Label","props":{"y":50,"text":"玩法：16张","fontSize":22,"color":"#ffffff"}},{"type":"Label","props":{"y":75,"text":"先出：","fontSize":22,"color":"#ffffff"}},{"type":"Label","props":{"y":100,"x":1,"text":"顺子：五张起","fontSize":22,"color":"#ffffff"}}]}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.PaiJuFangKaT5UI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
+    export class PaiJuFangKaT6UI extends View {
+		public txt_name:Laya.Label;
+		public txt_desc:Laya.Label;
+
+        public static  uiView:any ={"type":"View","props":{"width":700,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":700,"height":30},"child":[{"type":"Label","props":{"y":2,"x":20,"var":"txt_name","text":"玩家名字六字：","fontSize":22,"color":"#ffffff"}},{"type":"Label","props":{"y":3,"x":176,"width":126,"var":"txt_desc","text":"不抢庄","height":22,"fontSize":22,"color":"#ffffff"}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.PaiJuFangKaT6UI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
     export class PaiJu_xqUI extends View {
 		public btn_close:Laya.Button;
 		public panel_xq:Laya.Panel;
