@@ -263,11 +263,18 @@ module gametongyong.page {
 			}
 		}
 
+		private _cardroomList: string[] = ["rniuniu", "rddz", "rpaodekuai", "rshisanshui"];
 		private onMouseClick(e: LEvent): void {
 			if (this._game && this._data) {
-				this._game.uiRoot.general.open(TongyongPageDef.PAGE_TONGYONG_BATTER_INFO, (page: PaiJuInfoPage) => {
-					page.getDataInfo(this._data.battle_id, this._gameId, this._data.end_time);
-				})
+				if (this._cardroomList.indexOf(this._gameId) != -1) {//房卡类型
+					this._game.uiRoot.general.open(TongyongPageDef.PAGE_TONGYONG_BATTLE_INFO_FK, (page: PaiJuInfoFKPage) => {
+						page.getDataInfo(this._data.battle_id, this._gameId, this._data.end_time);
+					})
+				} else {//非房卡类型
+					this._game.uiRoot.general.open(TongyongPageDef.PAGE_TONGYONG_BATTER_INFO, (page: PaiJuInfoPage) => {
+						page.getDataInfo(this._data.battle_id, this._gameId, this._data.end_time);
+					})
+				}
 			}
 		}
 

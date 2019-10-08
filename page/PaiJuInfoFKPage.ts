@@ -46,10 +46,14 @@ module gametongyong.page {
 			this.onUpdateInfo(battle_id, data);
 		}
 
-		private _h: number;//组件总高度
-		private _interval: number = 5;//组件间隔
+		private _h: number = 0;//组件总高度
+		private _interval: number = 10;//组件间隔
 		private onUpdateInfo(battleid: string, data: any) {
-			if (!data || battleid != this._battle_id) return;
+			if (!data || !data.length || battleid != this._battle_id) {
+				this._view.txt_request.visible = true;
+				return;
+			}
+			this._view.txt_request.visible = false;
 			for (let i: number = 0; i < data.length; i++) {
 				let obj = data[i];
 				switch (obj.type) {
@@ -57,7 +61,7 @@ module gametongyong.page {
 						let component1: PaiJuFangKaT1UI = new PaiJuFangKaT1UI();
 						component1.txt_title.text = obj.title;
 						component1.y = this._h + this._interval;
-						this._h += component1.height;
+						this._h += component1.y + component1.height;
 						this._viewUI.panel_xq.addChild(component1);
 						break;
 					case 2://战斗日志类型标题
@@ -111,7 +115,6 @@ module gametongyong.page {
 
 		public close(): void {
 			if (this._viewUI) {
-				this._viewUI.panel_xq.vScrollBarSkin = null;
 				BattleXiangQingMgr.ins.off(BattleXiangQingMgr.RECORD_CHANGE, this, this.onUpdateInfo);
 			}
 			super.close();
