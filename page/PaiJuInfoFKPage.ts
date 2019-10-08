@@ -90,6 +90,10 @@ module gametongyong.page {
 						for (let j: number = 0; j < obj.cards.length; j++) {
 							let val: number = obj.cards[j];
 							component4["card" + j].skin = PathGameTongyong.ui_tongyong + "pai/" + val + ".png";
+							//牛牌后两张上移
+							if (obj.isniu && j > 2) {
+								component4["card" + j].y = component4["card" + j].y - 10;
+							}
 						}
 						component4.y = this._h + this._interval;
 						this._h += component4.height;
