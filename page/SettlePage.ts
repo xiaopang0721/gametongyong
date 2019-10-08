@@ -35,14 +35,8 @@ module gametongyong.page {
 			super.onOpen();
 			//主玩家
 			let mainPlayer = this._game.sceneObjectMgr.mainPlayer;
-			this._viewUI.img_head.skin = StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "head_{0}.png", mainPlayer.playerInfo.headimg);
-			if (mainPlayer.playerInfo.qifu_type && mainPlayer.playerInfo.qifu_endtime > this._game.sync.serverTimeBys) {
-				this._viewUI.img_head.skin = PathGameTongyong.ui_tongyong_touxiang + "head_" + this._nameStrInfo[mainPlayer.playerInfo.qifu_type - 1] + ".png";
-			}
-			this._viewUI.img_txk.visible = mainPlayer.playerInfo.vip_level > 0;
-			if (this._viewUI.img_txk.visible) {
-				this._viewUI.img_txk.skin = PathGameTongyong.ui_tongyong_touxiang + "tu_v" + mainPlayer.playerInfo.vip_level + ".png";
-			}
+			this._viewUI.img_head.skin = this._game.datingGame.getHeadUrl(mainPlayer.playerInfo.headimg, 2);
+			this._viewUI.img_txk.skin = this._game.datingGame.getTouXiangKuangUrl(mainPlayer.playerInfo.headKuang, 2);
 			this._viewUI.txt_name.text = this._game.sceneObjectMgr.mainPlayer.playerInfo.nickname;
 			this._viewUI.txt_bet.text = this.dataSource.myBet ? this.dataSource.myBet.toString() : 0;
 			this._viewUI.txt_benefit.text = this.dataSource.myBenefit ? this.dataSource.myBenefit.toString() : 0;
