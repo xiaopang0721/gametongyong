@@ -61,7 +61,7 @@ module gametongyong.page {
 						let component1: PaiJuFangKaT1UI = new PaiJuFangKaT1UI();
 						component1.txt_title.text = obj.title;
 						component1.y = this._h + this._interval;
-						this._h += component1.y + component1.height;
+						this._h += component1.height;
 						this._viewUI.panel_xq.addChild(component1);
 						break;
 					case 2://战斗日志类型标题（例：开始抢庄）
