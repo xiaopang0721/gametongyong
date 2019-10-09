@@ -47,7 +47,7 @@ module gametongyong.page {
 		}
 
 		private _h: number = 0;//组件总高度
-		private _interval: number = 10;//组件间隔
+		private _interval: number = 15;//组件间隔
 		private onUpdateInfo(battleid: string, data: any) {
 			if (!data || !data.length || battleid != this._battle_id) {
 				this._view.txt_request.visible = true;
@@ -107,7 +107,6 @@ module gametongyong.page {
 						break;
 					case 6://姓名加描述文本
 						let component6: PaiJuFangKaT6UI = new PaiJuFangKaT6UI();
-						component6.txt_name.text = obj.name;
 						TextFieldU.setHtmlText(component6.txt_desc, obj.desc);
 						component6.y = this._h + this._interval;
 						this._h += component6.height;
