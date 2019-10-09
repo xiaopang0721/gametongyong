@@ -513,32 +513,6 @@ module ui.nqp.game_ui.tongyong {
 }
 
 module ui.nqp.game_ui.tongyong {
-    export class JieSuanRender2UI extends View {
-		public img_bg:Laya.Image;
-		public lab_name:Laya.Label;
-		public lab_chip:Laya.Label;
-		public lab_multiple:Laya.Label;
-		public lab_point:Laya.Label;
-		public img_banker:Laya.Image;
-		public lbl_totalpoint:Laya.Label;
-		public lab_double:Laya.Label;
-		public img_bomb:Laya.Image;
-		public lab_bomb:Laya.Label;
-		public img_tp:Laya.Image;
-		public img_qgsb:Laya.Image;
-		public img_qg:Laya.Image;
-
-        public static  uiView:any ={"type":"View","props":{"width":1200,"height":38},"child":[{"type":"Box","props":{"y":0,"x":0,"width":680,"renderType":"render","height":38},"child":[{"type":"Image","props":{"y":33,"x":4,"var":"img_bg","skin":"tongyong_ui/game_ui/tongyong/fk/tu_jsfg.png"}},{"type":"Label","props":{"y":20,"x":239,"width":170,"var":"lab_name","text":"小钻","leading":6,"height":26,"fontSize":23,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":20,"x":433,"width":170,"var":"lab_chip","text":"1","leading":6,"height":23,"fontSize":23,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":20,"var":"lab_multiple","text":"3 ","leading":6,"fontSize":23,"color":"#ffffff","centerX":299,"anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":20,"x":817,"var":"lab_point","text":"300","leading":6,"fontSize":23,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Image","props":{"y":17,"x":116,"var":"img_banker","skin":"tongyong_ui/game_ui/tongyong/general/tu_zhuang.png","anchorY":0.5,"anchorX":0.5}},{"type":"Label","props":{"y":20,"x":1005,"var":"lbl_totalpoint","text":"300","leading":6,"fontSize":23,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":20,"var":"lab_double","text":"x2","leading":6,"fontSize":23,"color":"#f9e162","centerX":319,"anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Image","props":{"y":-1,"x":947,"var":"img_bomb","skin":"paodekuai_ui/game_ui/paodekuai/zhadan.png"},"child":[{"type":"Label","props":{"y":16,"x":26,"var":"lab_bomb","text":"1","fontSize":15,"color":"#ffffff","bold":true}}]},{"type":"Image","props":{"y":3,"x":838,"var":"img_tp","skin":"paodekuai_ui/game_ui/paodekuai/tu_tp.png"}},{"type":"Image","props":{"y":-2,"x":574,"var":"img_qgsb","skin":"paodekuai_ui/game_ui/paodekuai/tu_qgsb.png"}},{"type":"Image","props":{"y":-5,"x":564,"var":"img_qg","skin":"paodekuai_ui/game_ui/paodekuai/tu_qg.png"}}]}]};
-        constructor(){ super()}
-        createChildren():void {
-        
-            super.createChildren();
-            this.createView(ui.nqp.game_ui.tongyong.JieSuanRender2UI.uiView);
-        }
-    }
-}
-
-module ui.nqp.game_ui.tongyong {
     export class JieSuanRender3UI extends View {
 		public img_bg:Laya.Image;
 		public lab_name:Laya.Label;
@@ -565,25 +539,6 @@ module ui.nqp.game_ui.tongyong {
         
             super.createChildren();
             this.createView(ui.nqp.game_ui.tongyong.JieSuanRender3UI.uiView);
-        }
-    }
-}
-
-module ui.nqp.game_ui.tongyong {
-    export class JieSuan_FangKaUI extends View {
-		public ani2:Laya.FrameAnimation;
-		public lab_xinxi:Laya.Label;
-		public list_settle:Laya.List;
-		public btn_create_room:Laya.Button;
-		public btn_back_hud:Laya.Button;
-
-        public static  uiView:any ={"type":"View","props":{},"child":[{"type":"Box","props":{"width":726,"height":527,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":154,"x":359,"skin":"tongyong_ui/game_ui/tongyong/general/tu_gs.png","blendMode":"lighter","anchorY":0.5,"anchorX":0.5},"compId":44},{"type":"Image","props":{"y":294,"x":363,"width":800,"skin":"tongyong_ui/game_ui/tongyong/general/tu_bk1.png","sizeGrid":"10,10,0,10","height":460,"centerY":30,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":74,"x":363,"skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_sl2.png","centerY":-190,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":84,"x":363,"skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_js.png","centerY":-180,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":112,"x":349,"skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_2.png","blendMode":"lighter","anchorY":0.5,"anchorX":0.5}},{"type":"Label","props":{"y":418,"x":367,"wordWrap":true,"width":495,"var":"lab_xinxi","text":"5S后开始第1局，本轮共5局","leading":6,"height":23,"fontSize":20,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Image","props":{"y":180,"x":20,"width":681,"skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_d1.png","sizeGrid":"0,176,0,164","height":38,"alpha":0.6}},{"type":"Label","props":{"y":204,"x":138,"wordWrap":true,"width":63,"text":"昵称","leading":6,"height":23,"fontSize":20,"color":"#2d5fc8","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":204,"x":254,"wordWrap":true,"width":63,"text":"底分","leading":6,"height":23,"fontSize":20,"color":"#2d5fc8","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":204,"x":370,"wordWrap":true,"width":63,"text":"倍数","leading":6,"height":23,"fontSize":20,"color":"#2d5fc8","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Label","props":{"y":204,"x":493,"wordWrap":true,"width":63,"text":"积分","leading":6,"height":23,"fontSize":20,"color":"#2d5fc8","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"List","props":{"y":227,"x":18,"width":683,"var":"list_settle","spaceY":8,"repeatY":4,"height":180},"child":[{"type":"JieSuanRender2","props":{"name":"render","runtime":"ui.nqp.game_ui.tongyong.JieSuanRender2UI"}}]},{"type":"Label","props":{"y":204,"x":611,"wordWrap":true,"width":84,"text":"累计积分","leading":6,"height":23,"fontSize":20,"color":"#2d5fc8","anchorY":0.5,"anchorX":0.5,"align":"center"}},{"type":"Button","props":{"y":467,"x":218,"width":200,"visible":false,"var":"btn_create_room","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/general/btn_2.png","sizeGrid":"0,20,0,20","labelStrokeColor":"#9d4725","labelStroke":2,"labelSize":26,"labelPadding":"-6","labelColors":"#ffffff","labelBold":true,"label":"创建房间","anchorY":0.5,"anchorX":0.5}},{"type":"Button","props":{"y":467,"x":508,"width":200,"visible":false,"var":"btn_back_hud","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/general/btn_3.png","sizeGrid":"0,20,0,20","labelStrokeColor":"#397119","labelStroke":2,"labelSize":26,"labelPadding":"-6","labelColors":"#ffffff","labelBold":true,"label":"返回大厅","anchorY":0.5,"anchorX":0.5}}]}],"animations":[{"nodes":[{"target":44,"keyframes":{"rotation":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":44,"key":"rotation","index":0},{"value":360,"tweenMethod":"linearNone","tween":true,"target":44,"key":"rotation","index":100}]}}],"name":"ani2","id":2,"frameRate":24,"action":2}]};
-        constructor(){ super()}
-        createChildren():void {
-        			View.regComponent("ui.nqp.game_ui.tongyong.JieSuanRender2UI",ui.nqp.game_ui.tongyong.JieSuanRender2UI);
-
-            super.createChildren();
-            this.createView(ui.nqp.game_ui.tongyong.JieSuan_FangKaUI.uiView);
         }
     }
 }
