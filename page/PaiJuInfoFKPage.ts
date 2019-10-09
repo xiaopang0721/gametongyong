@@ -47,7 +47,7 @@ module gametongyong.page {
 		}
 
 		private _h: number = 0;//组件总高度
-		private _interval: number = 10;//组件间隔
+		private _interval: number = 15;//组件间隔
 		private onUpdateInfo(battleid: string, data: any) {
 			if (!data || !data.length || battleid != this._battle_id) {
 				this._view.txt_request.visible = true;
@@ -57,21 +57,21 @@ module gametongyong.page {
 			for (let i: number = 0; i < data.length; i++) {
 				let obj = data[i];
 				switch (obj.type) {
-					case 1://局数标题
+					case 1://局数标题（例：第x局）
 						let component1: PaiJuFangKaT1UI = new PaiJuFangKaT1UI();
 						component1.txt_title.text = obj.title;
 						component1.y = this._h + this._interval;
-						this._h += component1.y + component1.height;
+						this._h += component1.height;
 						this._viewUI.panel_xq.addChild(component1);
 						break;
-					case 2://战斗日志类型标题
+					case 2://战斗日志类型标题（例：开始抢庄）
 						let component2: PaiJuFangKaT2UI = new PaiJuFangKaT2UI();
 						component2.txt_title.text = obj.title;
 						component2.y = this._h + this._interval;
 						this._h += component2.height;
 						this._viewUI.panel_xq.addChild(component2);
 						break;
-					case 3://房卡跑得快，房卡斗地主摊牌
+					case 3://房卡跑得快，房卡斗地主摊牌（例：姓名 剩余牌 具体牌）
 						let component3: PaiJuFangKaT3UI = new PaiJuFangKaT3UI();
 						component3.txt_name.text = obj.name;
 						component3.txt_num.text = obj.desc;
@@ -83,7 +83,7 @@ module gametongyong.page {
 						this._h += component3.height;
 						this._viewUI.panel_xq.addChild(component3);
 						break;
-					case 4://房卡抢庄牛牛摊牌
+					case 4://房卡抢庄牛牛摊牌（例：姓名 牌型 具体牌）
 						let component4: PaiJuFangKaT4UI = new PaiJuFangKaT4UI();
 						component4.txt_name.text = obj.name;
 						component4.txt_desc.text = obj.desc;
@@ -105,9 +105,8 @@ module gametongyong.page {
 						this._h += component5.height;
 						this._viewUI.panel_xq.addChild(component5);
 						break;
-					case 6://姓名加文本
+					case 6://姓名加描述文本
 						let component6: PaiJuFangKaT6UI = new PaiJuFangKaT6UI();
-						component6.txt_name.text = obj.name;
 						TextFieldU.setHtmlText(component6.txt_desc, obj.desc);
 						component6.y = this._h + this._interval;
 						this._h += component6.height;

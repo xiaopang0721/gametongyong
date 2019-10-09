@@ -30,7 +30,6 @@ module gametongyong.page {
 		}
 
 		// 页面打开时执行函数
-		private _nameStrInfo: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
 		protected onOpen(): void {
 			super.onOpen();
 			//主玩家
