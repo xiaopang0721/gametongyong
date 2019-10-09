@@ -34,8 +34,8 @@ module gametongyong.page {
 			super.onOpen();
 			//主玩家
 			let mainPlayer = this._game.sceneObjectMgr.mainPlayer;
-			this._viewUI.img_head.skin = this._game.datingGame.getHeadUrl(mainPlayer.playerInfo.headimg, 2);
-			this._viewUI.img_txk.skin = this._game.datingGame.getTouXiangKuangUrl(mainPlayer.playerInfo.headKuang, 2);
+			this._viewUI.img_head.skin = TongyongUtil.getHeadUrl(mainPlayer.playerInfo.headimg, 2);
+			this._viewUI.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(mainPlayer.playerInfo.headKuang, 2);
 			this._viewUI.txt_name.text = this._game.sceneObjectMgr.mainPlayer.playerInfo.nickname;
 			this._viewUI.txt_bet.text = this.dataSource.myBet ? this.dataSource.myBet.toString() : 0;
 			this._viewUI.txt_benefit.text = this.dataSource.myBenefit ? this.dataSource.myBenefit.toString() : 0;

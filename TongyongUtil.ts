@@ -45,5 +45,37 @@ module gametongyong {
             }
             return maplv;
         }
+
+        private static _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
+		public static getHeadUrl(headimg: string, type: number = 2): string {
+			headimg = headimg ? headimg : '0';
+			let hs = headimg.split('.');
+			let headIdx = parseInt(hs[hs.length - 1]);
+			if (headIdx >= 16 && headIdx <= 21) {
+				return DatingPath.ui_dating + "touxiang/tu_tx" + this._qifuNameStr[headIdx - 16] + ".png";
+			} else {
+				return DatingPath.ui_dating + "touxiang/tu_tx" + (headimg ? headimg : 0) + ".png";
+			}
+		}
+
+		public static getTouXiangKuangUrl(headKuang: string, type: number = 2): string {
+			headKuang = headKuang ? headKuang : '0';
+			return  DatingPath.ui_dating + "touxiang/tu_txk" + headKuang + ".png";
+		}
+
+		public static getQFTypeImg(qf_id): string {
+			return StringU.substitute(DatingPath.ui_dating + "touxiang/f_{0}2.png", this._qifuNameStr[qf_id - 1]);
+		}
+
+		public static getIsHaveQiFu(player, serverTimeBys): boolean {
+			if (!player || !player.GetQiFuEndTime) return false;
+			for (let i = 0; i < 6; i++) {
+				let qfEndTime = player.GetQiFuEndTime(i);
+				if (qfEndTime && qfEndTime > serverTimeBys) {
+					return true;
+				}
+			}
+			return false;
+		}
     }
 }
