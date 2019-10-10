@@ -68,7 +68,7 @@ module gametongyong {
 		}
 
 		public static getIsHaveQiFu(unit:Unit, serverTimeBys): boolean {
-			if (!unit) return false;
+			if (!unit || !unit.GetQFEndTime) return false;
 			for (let i = 0; i < 6; i++) {
 				let qfEndTime = unit.GetQFEndTime(i);
 				if (qfEndTime && qfEndTime > serverTimeBys) {
