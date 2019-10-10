@@ -75,9 +75,12 @@ module gametongyong.page {
 						let component3: PaiJuFangKaT3UI = new PaiJuFangKaT3UI();
 						component3.txt_name.text = obj.name;
 						component3.txt_num.text = obj.desc;
-						for (let j: number = 0; j < obj.cards.length; j++) {
-							let val: number = obj.cards[j];
-							component3["card" + j].skin = PathGameTongyong.ui_tongyong + "pai/" + val + ".png";
+						for (let k: number = 0; k < 16; k++) {//一共16张
+							component3["card" + k].visible = k < obj.cards.length;
+							if (k < obj.cards.length) {
+								let val: number = obj.cards[k];
+								component3["card" + k].skin = PathGameTongyong.ui_tongyong + "pai/" + val + ".png";
+							}
 						}
 						component3.y = this._h + this._interval;
 						this._h += component3.height;
@@ -101,6 +104,39 @@ module gametongyong.page {
 						break;
 					case 5://房卡跑得快规则
 						let component5: PaiJuFangKaT5UI = new PaiJuFangKaT5UI();
+						for (let index: number = 0; index < obj.rules.length; index++) {
+							let str: string = "";
+							switch (index) {
+								case 0:
+									str = "人数：" + obj.rules[index];
+									break;
+								case 1:
+									str = "局数：" + obj.rules[index];
+									break;
+								case 2:
+									str = "玩法：" + obj.rules[index] + "张";
+									break;
+								case 3:
+									str = "先出：" + (obj.rules[index] == 0 ? "黑桃3" : "赢家");
+									break;
+								case 4:
+									str = "顺子：" + obj.rules[index] + "张起";
+									break;
+								case 5:
+									str = obj.rules[index] == 1 ? "有牌必打" : "不需要有牌必打";
+									break;
+								case 6:
+									str = obj.rules[index] == 1 ? "报单保底" : "没有报单保底";
+									break;
+								case 7:
+									str = obj.rules[index] == 1 ? "四带三" : "不能四带三";
+									break;
+								case 8:
+									str = obj.rules[index] == 1 ? "3A为炸弹" : "3A不能为炸弹";
+									break;
+							}
+							component5["rule" + index].text = str;
+						}
 						component5.y = this._h + this._interval;
 						this._h += component5.height;
 						this._viewUI.panel_xq.addChild(component5);
