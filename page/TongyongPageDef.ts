@@ -119,7 +119,7 @@ module gametongyong.page {
 				"title_qf": DatingPath.ui_dating + "qifu/tu_qf.png",	//祈福标题
 				"title_ts": PathGameTongyong.ui_tongyong_dating + "tu_ts.png",	//提示标题
 				"title_pdk": DatingPath.ui_dating + "fk/tit_pdk.png",	//跑的快标题
-				"title_ddz": DatingPath.ui_dating + "fk/tit_ddz.png",	//斗地主标题
+				"title_ddz": DatingPath.ui_dating + "fk/tu_fkddz.png",	//斗地主标题
 				"btn_red": PathGameTongyong.ui_tongyong_dating + "btn_1da.png",	//红的按钮
 			}
 		}
