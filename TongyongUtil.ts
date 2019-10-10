@@ -67,10 +67,10 @@ module gametongyong {
 			return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
 		}
 
-		public static getIsHaveQiFu(player, serverTimeBys): boolean {
-			if (!player || !player.GetQiFuEndTime) return false;
+		public static getIsHaveQiFu(unit:Unit, serverTimeBys): boolean {
+			if (!unit) return false;
 			for (let i = 0; i < 6; i++) {
-				let qfEndTime = player.GetQiFuEndTime(i);
+				let qfEndTime = unit.GetQFEndTime(i);
 				if (qfEndTime && qfEndTime > serverTimeBys) {
 					return true;
 				}
