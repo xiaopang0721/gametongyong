@@ -139,7 +139,7 @@ module gametongyong.page {
 									str = obj.rules[index] == 1 ? "四带三" : "不能四带三";
 									break;
 								case 8:
-									str = obj.rules[index] == 1 ? "3A为炸弹" : "3A不能为炸弹";
+									str = obj.rules[index] == 1 ? "3A为炸弹" : "";
 									break;
 							}
 							component5["rule" + index].text = str;
