@@ -664,8 +664,9 @@ module ui.nqp.game_ui.tongyong {
 module ui.nqp.game_ui.tongyong {
     export class PaiJuFangKaT6UI extends View {
 		public txt_desc:Laya.Label;
+		public img_boom:Laya.Image;
 
-        public static  uiView:any ={"type":"View","props":{"width":700,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":700,"height":30},"child":[{"type":"Label","props":{"y":3,"x":70,"width":578,"var":"txt_desc","text":"玩家名字六字：不抢庄","height":22,"fontSize":22,"color":"#ffffff","align":"left"}}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":700,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":700,"height":30},"child":[{"type":"Label","props":{"y":3,"x":70,"width":578,"var":"txt_desc","text":"玩家名字六字：积分+99","height":22,"fontSize":22,"color":"#ffffff","align":"left"}},{"type":"Image","props":{"y":-3,"x":316,"var":"img_boom","skin":"tongyong_ui/game_ui/tongyong/general/zhadan.png"}}]}]};
         constructor(){ super()}
         createChildren():void {
         
