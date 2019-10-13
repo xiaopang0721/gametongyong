@@ -151,7 +151,9 @@ module gametongyong.page {
 					case PaiJuInfoFKPage.TYPE_NAME_ADD_DESC://姓名加描述文本
 						let component6: PaiJuFangKaT6UI = new PaiJuFangKaT6UI();
 						TextFieldU.setHtmlText(component6.txt_desc, obj.desc);
-						component6.img_boom.visible = obj.isboom;
+						component6.box_boom.visible = obj.boomCount > 0;
+						component6.box_boom.x = obj.val >= 100 ? component6.img_boom.x + 10 : component6.img_boom.x;
+						component6.txt_boom.text = obj.boomCount > 0 ? "x" + obj.boomCount : ""
 						component6.y = this._h + this._interval;
 						this._h += component6.height;
 						this._viewUI.panel_xq.addChild(component6);

@@ -678,9 +678,11 @@ module ui.nqp.game_ui.tongyong {
 module ui.nqp.game_ui.tongyong {
     export class PaiJuFangKaT6UI extends View {
 		public txt_desc:Laya.Label;
+		public box_boom:Laya.Box;
 		public img_boom:Laya.Image;
+		public txt_boom:Laya.Label;
 
-        public static  uiView:any ={"type":"View","props":{"width":700,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":700,"height":30},"child":[{"type":"Label","props":{"y":3,"x":70,"width":578,"var":"txt_desc","text":"玩家名字六字：积分+99","height":22,"fontSize":22,"color":"#ffffff","align":"left"}},{"type":"Image","props":{"y":-3,"x":316,"var":"img_boom","skin":"tongyong_ui/game_ui/tongyong/general/zhadan.png"}}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":700,"height":30},"child":[{"type":"Box","props":{"y":0,"x":0,"width":700,"height":30},"child":[{"type":"Label","props":{"y":3,"x":70,"width":578,"var":"txt_desc","text":"玩家名字六字：积分+99","height":22,"fontSize":22,"color":"#ffffff","align":"left"}},{"type":"Box","props":{"y":-3,"x":316,"var":"box_boom"},"child":[{"type":"Image","props":{"var":"img_boom","skin":"tongyong_ui/game_ui/tongyong/general/zhadan.png"}},{"type":"Label","props":{"y":6,"x":32,"width":50,"var":"txt_boom","text":"x2","height":22,"fontSize":22,"color":"#41fe69","align":"left"}}]}]}]};
         constructor(){ super()}
         createChildren():void {
         
