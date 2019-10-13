@@ -58,9 +58,13 @@ module gametongyong {
 			}
 		}
 
-		public static getTouXiangKuangUrl(headKuang: string, type: number = 2): string {
+		public static getTouXiangKuangUrl(headKuang: string): string {
 			headKuang = headKuang ? headKuang : '0';
 			return PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + headKuang + ".png";
+		}
+
+		public static getVipUrl(vip: number): string {
+			return PathGameTongyong.ui_tongyong_touxiang + "tu_j" + vip + ".png";
 		}
 
 		public static getQFTypeImg(qf_id): string {

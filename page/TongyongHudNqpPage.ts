@@ -82,7 +82,7 @@ module gametongyong.page {
 			}
 			this._clip_vip.setText(playerInfo.vip_level, true);
 			this.btn_gren.skin = TongyongUtil.getHeadUrl(playerInfo.headimg, 2);
-			this.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(playerInfo.headKuang, 2);
+			this.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(playerInfo.headKuang);
 		}
 
 		protected onBtnClickHandle(e: LEvent): void {
