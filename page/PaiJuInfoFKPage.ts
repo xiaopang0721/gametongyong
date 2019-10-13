@@ -152,7 +152,7 @@ module gametongyong.page {
 						let component6: PaiJuFangKaT6UI = new PaiJuFangKaT6UI();
 						TextFieldU.setHtmlText(component6.txt_desc, obj.desc);
 						component6.box_boom.visible = obj.boomCount > 0;
-						component6.box_boom.x = obj.val >= 100 ? component6.img_boom.x + 10 : component6.img_boom.x;
+						component6.box_boom.x = obj.val >= 100 ? 326 : 316;
 						component6.txt_boom.text = obj.boomCount > 0 ? "x" + obj.boomCount : ""
 						component6.y = this._h + this._interval;
 						this._h += component6.height;
