@@ -25,8 +25,8 @@ module gametongyong.page {
 			this.btn_help.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_gren.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_back.on(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_fresh.on(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_vip.on(LEvent.CLICK, this, this.onBtnClickHandle);
+			WebConfig.enterGameLocked && this.btn_fresh.on(LEvent.CLICK, this, this.onBtnClickHandle);
+			WebConfig.enterGameLocked && this.btn_vip.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._game.sceneObjectMgr.on(SceneObjectMgr.EVENT_PLAYER_INFO_UPDATE, this, this.onUpdatePlayerInfo);
 			this.onUpdatePlayerInfo();
 			this.ani1.play(0, false);
@@ -73,16 +73,18 @@ module gametongyong.page {
 				this.clip_money.removeSelf();
 			}
 			this._clip_money.setText(EnumToString.getPointBackNum(playerInfo.money, 2) + "", true, false, playerInfo.money < 0 ? PathGameTongyong.ui_tongyong_general + "tu_jianhao.png" : null);
-			if (!this._clip_vip) {
-				this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
-				this._clip_vip.centerX = this.clip_vip.centerX - 10;
-				this._clip_vip.centerY = this.clip_vip.centerY;
-				this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
-				this.clip_vip.removeSelf();
+			if (WebConfig.enterGameLocked) {
+				if (!this._clip_vip) {
+					this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
+					this._clip_vip.centerX = this.clip_vip.centerX - 10;
+					this._clip_vip.centerY = this.clip_vip.centerY;
+					this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
+					this.clip_vip.removeSelf();
+				}
+				this._clip_vip.setText(playerInfo.vip_level, true);
+				this.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(playerInfo.headKuang);
 			}
-			this._clip_vip.setText(playerInfo.vip_level, true);
 			this.btn_gren.skin = TongyongUtil.getHeadUrl(playerInfo.headimg, 2);
-			this.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(playerInfo.headKuang);
 		}
 
 		protected onBtnClickHandle(e: LEvent): void {
@@ -127,8 +129,8 @@ module gametongyong.page {
 			this.btn_help.off(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_gren.off(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_back.off(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_fresh.off(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_vip.off(LEvent.CLICK, this, this.onBtnClickHandle);
+			WebConfig.enterGameLocked && this.btn_fresh.off(LEvent.CLICK, this, this.onBtnClickHandle);
+			WebConfig.enterGameLocked && this.btn_vip.off(LEvent.CLICK, this, this.onBtnClickHandle);
 			if (this._clip_money) {
 				this._clip_money.removeSelf();
 				this._clip_money.destroy();
