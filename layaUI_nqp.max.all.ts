@@ -448,6 +448,31 @@ module ui.nqp.game_ui.tongyong {
 }
 
 module ui.nqp.game_ui.tongyong {
+    export class JieSuanUI extends View {
+		public ani2:Laya.FrameAnimation;
+		public img_0:Laya.Image;
+		public img_1:Laya.Image;
+		public img_2:Laya.Image;
+		public img_3:Laya.Image;
+		public txt_name:laya.display.Text;
+		public img_head:Laya.Image;
+		public txt_benefit:laya.display.Text;
+		public txt_bet:laya.display.Text;
+		public txt_result:laya.display.Text;
+		public img_txk:Laya.Image;
+
+        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Box","props":{"y":360,"x":640,"width":1280,"height":720,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":250,"x":636,"var":"img_0","skin":"tongyong_ui/game_ui/tongyong/general/tu_gs.png","blendMode":"lighter","anchorY":0.5,"anchorX":0.5},"compId":44},{"type":"Image","props":{"width":660,"skin":"tongyong_ui/game_ui/tongyong/dating/game_popout_bg.png","sizeGrid":"20,20,0,20","height":380,"centerY":2,"centerX":-4,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"var":"img_1","skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_sl2.png","centerY":-190,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"var":"img_2","skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_js.png","centerY":-180,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":208,"x":626,"var":"img_3","skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_2.png","blendMode":"lighter","anchorY":0.5,"anchorX":0.5}},{"type":"Box","props":{"y":404,"x":623,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Text","props":{"y":102,"x":67,"wordWrap":true,"width":150,"var":"txt_name","text":"玩家名字六字","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Image","props":{"y":53,"x":139,"skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_txk.png","anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":53,"x":139,"var":"img_head","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_tx1.png","anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":62,"x":331,"width":167,"skin":"tongyong_ui/game_ui/tongyong/general/tu_k3.png","sizeGrid":"10,10,10,10","height":34}},{"type":"Text","props":{"y":67,"x":233,"wordWrap":true,"width":102,"text":"我的输赢：","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Text","props":{"y":68,"x":341,"wordWrap":true,"width":145,"var":"txt_benefit","text":"000000.00","leading":6,"height":20,"fontSize":20,"color":"#ffe16b","align":"left"}},{"type":"Image","props":{"y":18,"x":331,"width":167,"skin":"tongyong_ui/game_ui/tongyong/general/tu_k3.png","sizeGrid":"10,10,10,10","height":34}},{"type":"Text","props":{"y":23,"x":233,"wordWrap":true,"width":102,"text":"我的下注：","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Text","props":{"y":24,"x":341,"wordWrap":true,"width":145,"var":"txt_bet","text":"000000.00","leading":6,"height":20,"fontSize":20,"color":"#ffe16b","align":"left"}},{"type":"Image","props":{"y":141,"x":0,"skin":"tongyong_ui/game_ui/tongyong/general/tu_d5.png"}},{"type":"Text","props":{"y":172,"x":8,"width":552,"var":"txt_result","text":"000000.00","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Image","props":{"y":0,"x":90,"var":"img_txk","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_txk1.png"}}]}]}],"animations":[{"nodes":[{"target":44,"keyframes":{"rotation":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":44,"key":"rotation","index":0},{"value":360,"tweenMethod":"linearNone","tween":true,"target":44,"key":"rotation","index":100}]}}],"name":"ani2","id":2,"frameRate":24,"action":2}]};
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.createView(ui.nqp.game_ui.tongyong.JieSuanUI.uiView);
+        }
+    }
+}
+
+module ui.nqp.game_ui.tongyong {
     export class JieSuanRenderUI extends View {
 		public img_bg:Laya.Image;
 		public lab_name:Laya.Label;
