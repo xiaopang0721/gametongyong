@@ -372,20 +372,6 @@ module ui.nqp.game_ui.tongyong {
 }
 
 module ui.nqp.game_ui.tongyong {
-    export class FenXiangUI extends View {
-
-        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Image","props":{"width":793,"skin":"tongyong_ui/game_ui/tongyong/dating/game_popout_bg.png","height":531,"centerY":-17,"centerX":0,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":33,"skin":"tongyong_ui/game_ui/tongyong/hud/tit_fx.png","centerX":-1}},{"type":"Image","props":{"y":139,"x":530,"skin":"tongyong_ui/game_ui/tongyong/hud/fx_szs.png"}},{"type":"Button","props":{"y":41,"x":762,"stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/hud/btn_gb.png","anchorY":0.5,"anchorX":0.5}},{"type":"Button","props":{"y":263,"x":271,"stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/hud/fx_wx.png","anchorY":0.5,"anchorX":0.5},"child":[{"type":"Text","props":{"y":134,"x":1,"wordWrap":true,"width":119,"text":"好友/群","leading":6,"height":36,"fontSize":28,"font":"SimHei","color":"#ffee7d","align":"center"}}]},{"type":"Button","props":{"y":263,"x":525,"stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/hud/fx_pyq.png","anchorY":0.5,"anchorX":0.5},"child":[{"type":"Text","props":{"y":134,"x":3,"wordWrap":true,"width":119,"text":"好友/群","leading":6,"height":36,"fontSize":28,"font":"SimHei","color":"#ffee7d","align":"center"}}]},{"type":"Text","props":{"y":429,"x":36,"wordWrap":true,"width":719,"text":"每日分享朋友圈，可获得1-3张房卡","leading":6,"height":36,"fontSize":28,"font":"SimHei","color":"#ffffff","align":"center"}}]}]};
-        constructor(){ super()}
-        createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
-
-            super.createChildren();
-            this.createView(ui.nqp.game_ui.tongyong.FenXiangUI.uiView);
-        }
-    }
-}
-
-module ui.nqp.game_ui.tongyong {
     export class GuangUI extends View {
 		public ani1:Laya.FrameAnimation;
 
@@ -457,31 +443,6 @@ module ui.nqp.game_ui.tongyong {
         
             super.createChildren();
             this.createView(ui.nqp.game_ui.tongyong.JieSanUI.uiView);
-        }
-    }
-}
-
-module ui.nqp.game_ui.tongyong {
-    export class JieSuanUI extends View {
-		public ani2:Laya.FrameAnimation;
-		public img_0:Laya.Image;
-		public img_1:Laya.Image;
-		public img_2:Laya.Image;
-		public img_3:Laya.Image;
-		public txt_name:laya.display.Text;
-		public img_head:Laya.Image;
-		public txt_benefit:laya.display.Text;
-		public txt_bet:laya.display.Text;
-		public txt_result:laya.display.Text;
-		public img_txk:Laya.Image;
-
-        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Box","props":{"y":360,"x":640,"width":1280,"height":720,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":250,"x":636,"var":"img_0","skin":"tongyong_ui/game_ui/tongyong/general/tu_gs.png","blendMode":"lighter","anchorY":0.5,"anchorX":0.5},"compId":44},{"type":"Image","props":{"width":660,"skin":"tongyong_ui/game_ui/tongyong/dating/game_popout_bg.png","sizeGrid":"20,20,0,20","height":380,"centerY":2,"centerX":-4,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"var":"img_1","skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_sl2.png","centerY":-190,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"var":"img_2","skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_js.png","centerY":-180,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":208,"x":626,"var":"img_3","skin":"tongyong_ui/game_ui/tongyong/general/jiesuan_2.png","blendMode":"lighter","anchorY":0.5,"anchorX":0.5}},{"type":"Box","props":{"y":404,"x":623,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Text","props":{"y":102,"x":67,"wordWrap":true,"width":150,"var":"txt_name","text":"玩家名字六字","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Image","props":{"y":53,"x":139,"skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_txk.png","anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":53,"x":139,"var":"img_head","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_tx1.png","anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":62,"x":331,"width":167,"skin":"tongyong_ui/game_ui/tongyong/general/tu_k3.png","sizeGrid":"10,10,10,10","height":34}},{"type":"Text","props":{"y":67,"x":233,"wordWrap":true,"width":102,"text":"我的输赢：","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Text","props":{"y":68,"x":341,"wordWrap":true,"width":145,"var":"txt_benefit","text":"000000.00","leading":6,"height":20,"fontSize":20,"color":"#ffe16b","align":"left"}},{"type":"Image","props":{"y":18,"x":331,"width":167,"skin":"tongyong_ui/game_ui/tongyong/general/tu_k3.png","sizeGrid":"10,10,10,10","height":34}},{"type":"Text","props":{"y":23,"x":233,"wordWrap":true,"width":102,"text":"我的下注：","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Text","props":{"y":24,"x":341,"wordWrap":true,"width":145,"var":"txt_bet","text":"000000.00","leading":6,"height":20,"fontSize":20,"color":"#ffe16b","align":"left"}},{"type":"Image","props":{"y":141,"x":0,"skin":"tongyong_ui/game_ui/tongyong/general/tu_d5.png"}},{"type":"Text","props":{"y":172,"x":8,"width":552,"var":"txt_result","text":"000000.00","leading":6,"height":20,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Image","props":{"y":0,"x":90,"var":"img_txk","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_txk1.png"}}]}]}],"animations":[{"nodes":[{"target":44,"keyframes":{"rotation":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":44,"key":"rotation","index":0},{"value":360,"tweenMethod":"linearNone","tween":true,"target":44,"key":"rotation","index":100}]}}],"name":"ani2","id":2,"frameRate":24,"action":2}]};
-        constructor(){ super()}
-        createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
-
-            super.createChildren();
-            this.createView(ui.nqp.game_ui.tongyong.JieSuanUI.uiView);
         }
     }
 }
@@ -835,35 +796,6 @@ module ui.nqp.game_ui.tongyong {
 }
 
 module ui.nqp.game_ui.tongyong {
-    export class TabItemRenderUI extends View {
-		public txt_name:laya.display.Text;
-
-        public static  uiView:any ={"type":"View","props":{"width":175,"height":58},"child":[{"type":"Clip","props":{"y":0,"x":0,"skin":"tongyong_ui/game_ui/tongyong/dating/clip_an1.png","name":"selectBox","index":2,"clipY":3}},{"type":"Text","props":{"y":16,"x":6,"wordWrap":false,"width":147,"var":"txt_name","text":"活动内容","height":24,"fontSize":24,"color":"#f7e9c1","cacheAs":"normal","align":"center"}}]};
-        constructor(){ super()}
-        createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
-
-            super.createChildren();
-            this.createView(ui.nqp.game_ui.tongyong.TabItemRenderUI.uiView);
-        }
-    }
-}
-
-module ui.nqp.game_ui.tongyong {
-    export class TimeBtnRenderUI extends View {
-		public btn_time:Laya.Button;
-
-        public static  uiView:any ={"type":"View","props":{"width":179,"height":29},"child":[{"type":"Button","props":{"var":"btn_time","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_rq.png","sizeGrid":"0,21,0,19","labelSize":20,"labelColors":"#fffa9a"}}]};
-        constructor(){ super()}
-        createChildren():void {
-        
-            super.createChildren();
-            this.createView(ui.nqp.game_ui.tongyong.TimeBtnRenderUI.uiView);
-        }
-    }
-}
-
-module ui.nqp.game_ui.tongyong {
     export class TipsUI extends View {
 		public btn_enter:Laya.Button;
 		public img_enter:Laya.Image;
@@ -900,12 +832,10 @@ module ui.nqp.game_ui.tongyong {
 module ui.nqp.game_ui.tongyong {
     export class Tips_backUI extends View {
 		public img_bg:Laya.Image;
-		public img_meinv:Laya.Image;
-		public img_guanggao:Laya.Image;
 		public btn_cancle:Laya.Button;
 		public btn_enter:Laya.Button;
 
-        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Box","props":{"width":608,"height":358,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":-87.5,"x":-261,"var":"img_bg","skin":"tongyong_ui/game_ui/tongyong/general/tu_bgTips.png"}},{"type":"Image","props":{"y":120.5,"x":2,"visible":false,"var":"img_meinv","skin":"tongyong_ui/game_ui/tongyong/tuichu/baijiale0.png","anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"y":112.5,"x":531,"visible":false,"var":"img_guanggao","skin":"tongyong_ui/game_ui/tongyong/tuichu/baijiale1.png","anchorY":0.5,"anchorX":0.5}},{"type":"Button","props":{"y":-1,"x":722,"var":"btn_cancle","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_gb1.png"}},{"type":"Button","props":{"y":328,"x":157,"var":"btn_enter","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_kban1.png"},"child":[{"type":"Image","props":{"y":9,"x":67,"skin":"tongyong_ui/game_ui/tongyong/dating/tu_tuichu.png"}}]}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720},"child":[{"type":"Box","props":{"width":608,"height":358,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"y":-87.5,"x":-261,"var":"img_bg","skin":"tongyong_ui/game_ui/tongyong/general/tu_bgTips.png"}},{"type":"Button","props":{"y":-1,"x":722,"var":"btn_cancle","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_gb1.png"}},{"type":"Button","props":{"y":328,"x":157,"var":"btn_enter","stateNum":1,"skin":"tongyong_ui/game_ui/tongyong/dating/btn_kban1.png"},"child":[{"type":"Image","props":{"y":9,"x":67,"skin":"tongyong_ui/game_ui/tongyong/dating/tu_tuichu.png"}}]}]}]};
         constructor(){ super()}
         createChildren():void {
         
