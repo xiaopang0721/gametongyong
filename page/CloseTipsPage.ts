@@ -56,18 +56,7 @@ module gametongyong.page {
 		private _ecb: Handler;
 		private _ccb: Handler;
 		setInfo(gameId: string, ecb: Handler, ccb?: Handler) {
-			if (WebConfig.baseplatform == PageDef.BASE_PLATFORM_TYPE_NQP) {
-				this._viewUI.img_bg.visible = true;
-				this._viewUI.img_meinv.visible = false;
-				this._viewUI.img_guanggao.visible = false;
-				this._viewUI.img_bg.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}.png", gameId);
-			} else {
-				this._viewUI.img_meinv.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}0.png", gameId);
-				this._viewUI.img_guanggao.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}1.png", gameId);
-				this._viewUI.img_bg.skin = StringU.substitute(PathGameTongyong.ui_tongyong_general + "tu_bgTips.png");
-				this._viewUI.img_meinv.visible = true;
-				this._viewUI.img_guanggao.visible = true;
-			}
+			this._viewUI.img_bg.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}.png", gameId);
 			this._ecb = ecb;
 			this._ccb = ccb;
 		}
