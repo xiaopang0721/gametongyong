@@ -1,5 +1,5 @@
 /**
-* name 提示
+* name 游戏通用提示
 */
 module gametongyong.page {
 	export class TipsPage extends game.gui.base.Page {
@@ -69,7 +69,7 @@ module gametongyong.page {
 
 		private _ecb: Function;
 		private _ccb: Function;
-		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string,okBtnSkin?: string, cancleBtnSkin?: string) {
+		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string, okBtnSkin?: string, cancleBtnSkin?: string) {
 			this._viewUI.txt_label.text = str;
 			TextFieldU.setHtmlText(this._viewUI.txt_label, str);//支持HTML
 			this._ecb = ecb;
@@ -77,6 +77,14 @@ module gametongyong.page {
 			if (okSkin) {
 				let img_enter = this._viewUI.img_enter;
 				if (img_enter) {
+					//api修改
+					if (WebConfig.enterGameLocked && okSkin == TongyongPageDef.TIPS_SKIN_STR["cz"]) {
+						okSkin = TongyongPageDef.TIPS_SKIN_STR["fh"];
+						//重写确定函数
+						this._ecb = () => {
+							
+						};
+					}
 					img_enter.skin = okSkin;
 				}
 			}
