@@ -143,7 +143,7 @@ module gametongyong.page {
 					TongyongPageDef.ins.alertRecharge("清理缓存将删除本地数据对此造成的损失，本平台将不承担任何责任。为了您的虚拟财产安全,我们强烈建议您先绑定帐号信息!\n是否清除缓存？", () => {
 						localClear();
 						this._game.showTips("清理缓存成功!")
-					}, null, false)
+					}, null, true);
 					break;
 				case this._viewUI.btn_check://检查更新
 					this._game.checkClientVesion(true);
