@@ -75,6 +75,7 @@ module gametongyong.manager {
 					this._isTouPiaoing = true;
 					this.showViewTX();
 					this.updateTouPiaoTime();
+					logd("发起解散投票")
 				}
 				//所有人都投了票   
 				else if (info.state == 2) {
@@ -116,6 +117,7 @@ module gametongyong.manager {
 		private _isShowTX: boolean = false;
 		showViewTX(): void {
 			console.log("showViewTX");
+			if (this._isShowTX) return;
 			this._isShowTX = true;
 			this._jiesan.right = -335;
 			this.initViewTX();
