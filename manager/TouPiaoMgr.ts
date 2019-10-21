@@ -74,6 +74,7 @@ module gametongyong.manager {
 					this._countTP = 0;//投票人数清零
 					this._isTouPiaoing = true;
 					this.showViewTX();
+					this.updateTouPiaoTime();
 				}
 				//所有人都投了票   
 				else if (info.state == 2) {
