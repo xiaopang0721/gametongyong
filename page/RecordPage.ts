@@ -12,6 +12,8 @@ module gametongyong.page {
 		private _gameId: string;
 		private _isCardRoomType: boolean;
 		private _recordMgr: RecordMgr;
+		private _selectColor: string;	//选中颜色
+		private _unSelectColor: string;	//未选中颜色
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._isNeedBlack = true;
@@ -41,6 +43,11 @@ module gametongyong.page {
 			this._notStageClickUI = [this._viewUI.btn_list];
 		}
 
+		private initColor(): void {
+			this._selectColor = this._viewUI.lab_btn0.color;
+			this._unSelectColor = this._viewUI.lb_time.color;
+		}
+
 		// 页面打开时执行函数
 		protected onOpen(): void {
 			super.onOpen();
@@ -66,7 +73,7 @@ module gametongyong.page {
 			this._recordMgr.getData(1, this._roomId, this._selectTime, this._timeSelectIndex);
 			for (let i = 0; i < 7; i++) {
 				this._viewUI["btn_selected" + i].selected = i == 6;
-				this._viewUI["lab_btn" + i].color = (i == 6) ? TeaStyle.COLOR_YELLOW : "#89d4ff";
+				this._viewUI["lab_btn" + i].color = (i == 6) ? this._selectColor : this._unSelectColor;
 			}
 			this._viewUI.btn_list.on(LEvent.CLICK, this, this.onBtnClickWithTween);
 			this._recordMgr.on(RecordMgr.RECORD_CHANGE, this, this.onUpdateDataInfo);
@@ -190,7 +197,7 @@ module gametongyong.page {
 			this._viewUI.lb_time.text = Sync.getTimeStr3(this._selectTime);
 			for (let i = 0; i < 7; i++) {
 				this._viewUI["btn_selected" + i].selected = (i == index) ? true : false;
-				this._viewUI["lab_btn" + i].color = (i == index) ? TeaStyle.COLOR_YELLOW : "#89d4ff";
+				this._viewUI["lab_btn" + i].color = (i == index) ? this._selectColor : this._unSelectColor;
 			}
 
 			this.onUpdateDataInfo();
