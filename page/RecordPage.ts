@@ -29,6 +29,7 @@ module gametongyong.page {
 		protected init(): void {
 			this._viewUI = this.createView('game_ui.tongyong.ZhanJiUI');
 			this.addChild(this._viewUI);
+			this.initColor();
 			this._viewUI.list_record.visible = false;
 			this._viewUI.txt_noRecord.visible = false;
 			this._timeList = [];
