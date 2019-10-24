@@ -24,10 +24,10 @@ module gametongyong.page {
 			this.btn_vip.visible = this.btn_add.visible = !WebConfig.enterGameLocked;
 			this.btn_record.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_help.on(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_gren.on(LEvent.CLICK, this, this.onBtnClickHandle);
+			this.btn_gren.onAPI(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_back.on(LEvent.CLICK, this, this.onBtnClickHandle);
 
-			this.btn_fresh.on(LEvent.CLICK, this, this.onBtnClickHandle);
+			this.btn_fresh.onAPI(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_vip.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._game.sceneObjectMgr.on(SceneObjectMgr.EVENT_PLAYER_INFO_UPDATE, this, this.onUpdatePlayerInfo);
 			this.onUpdatePlayerInfo();
