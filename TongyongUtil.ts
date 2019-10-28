@@ -47,47 +47,48 @@ module gametongyong {
         }
 
         private static _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
-		public static getHeadUrl(headimg: string, type: number = 2): string {
-			headimg = headimg ? headimg : '0';
-			let hs = headimg.split('.');
-			let headIdx = parseInt(hs[hs.length - 1]);
-			if (headIdx >= 16 && headIdx <= 21) {
-				return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + this._qifuNameStr[headIdx - 16] + ".png";
-			} else {
-				return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + (headimg ? headimg : 0) + ".png";
-			}
-		}
+        public static getHeadUrl(headimg: string, type: number = 2): string {
+            headimg = headimg ? headimg : '0';
+            let hs = headimg.split('.');
+            let headIdx = parseInt(hs[hs.length - 1]);
+            if (headIdx >= 16 && headIdx <= 21) {
+                return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + this._qifuNameStr[headIdx - 16] + ".png";
+            } else {
+                return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + (headimg ? headimg : 0) + ".png";
+            }
+        }
 
-		public static getTouXiangKuangUrl(headKuang: string): string {
-			headKuang = headKuang ? headKuang : '0';
-			return PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + headKuang + ".png";
-		}
+        public static getTouXiangKuangUrl(headKuang: string): string {
+            headKuang = headKuang ? headKuang : '0';
+            return PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + headKuang + ".png";
+        }
 
-		public static getVipUrl(vip: number): string {
-			return PathGameTongyong.ui_tongyong_touxiang + "tu_j" + vip + ".png";
-		}
+        public static getVipUrl(vip: number): string {
+            if (!vip) return "";
+            return PathGameTongyong.ui_tongyong_touxiang + "tu_j" + vip + ".png";
+        }
 
-		public static getQFTypeImg(qf_id): string {
-			return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
-		}
+        public static getQFTypeImg(qf_id): string {
+            return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
+        }
 
-		public static getIsHaveQiFu(player, serverTimeBys): boolean {
+        public static getIsHaveQiFu(player, serverTimeBys): boolean {
             if (player instanceof PlayerData) {
                 for (let i = 0; i < 6; i++) {
                     let qfEndTime = player.GetQiFuEndTime(i);
                     if (qfEndTime && qfEndTime > serverTimeBys) {
                         return true;
                     }
-                }                
+                }
             } else if (player instanceof Unit || player instanceof UnitOffline) {
                 for (let i = 0; i < 6; i++) {
                     let qfEndTime = player.GetQFEndTime(i);
                     if (qfEndTime && qfEndTime > serverTimeBys) {
                         return true;
                     }
-                }                
+                }
             }
-			return false;
-		}
+            return false;
+        }
     }
 }
