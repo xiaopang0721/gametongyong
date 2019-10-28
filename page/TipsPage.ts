@@ -10,6 +10,7 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
 				Path.atlas_game_ui_tongyong + "fk.atlas",
+				DatingPath.atlas_dating_ui_tongyong + "fk.atlas"
 			];
 			this._isNeedBlack = true;
 		}
