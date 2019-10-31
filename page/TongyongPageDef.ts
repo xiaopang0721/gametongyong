@@ -87,14 +87,47 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTS] = ZjtsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTP] = ZjtpPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_FK] = PaiJuInfoFKPage;
+
+			this["__needLoadAsset"] = [
+				PathGameTongyong.atlas_game_ui_tongyong + "chongzhi.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "fk.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "hud.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "ksyx.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "logo.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "nyl.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "pai.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "qz.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "touxiang.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "tuichu.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "yq.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "zjtp.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "zjts.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/bigwin.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/fapai_1.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/fapai_3.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/hulu.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/hulu1.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/kaipai.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/qp.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/shaizi.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/suiji.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/xipai.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/ying.atlas",
+			]
+			if (WebConfig.needMusicPreload) {
+				this["__needLoadAsset"] = this["__needLoadAsset"].concat([
+				])
+			}
 		}
 
 		/**
-		 * 退出弹窗提示
-		 * @param ecb 确定
-		 * @param ccb 取消
-		 * @param gameId 游戏id
-		 */
+		  * 退出弹窗提示
+		  * @param ecb 确定
+		  * @param ccb 取消
+		  * @param gameId 游戏id
+		  */
 		alertClose(gameId: string, caller: any, ecb: Function, ccb?: Function): void {
 			this._game.uiRoot.top.close(TongyongPageDef.PAGE_TONGYONG_CLOSE_TIPS);
 			this._game.uiRoot.top.open(TongyongPageDef.PAGE_TONGYONG_CLOSE_TIPS, (tip: CloseTipsPage) => {
