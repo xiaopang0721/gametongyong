@@ -36,7 +36,7 @@ module gametongyong.page {
 			if (!mainPlayer) return;
 			let playerInfo = mainPlayer.playerInfo;
 			if (!playerInfo) return;
-			if (!playerInfo.mobile && !this._game.datingGame.isAlertVisitorTip) {
+			if (!playerInfo.mobile && !this._game.datingGame.isAlertVisitorTip && !WebConfig.enterGameLocked) {
 				Laya.timer.once(1000, this, () => {
 					this._game.datingGame.isAlertVisitorTip = true;
 					this._game.uiRoot.general.open(DatingPageDef["PAGE_GUEST_TIP"]);
