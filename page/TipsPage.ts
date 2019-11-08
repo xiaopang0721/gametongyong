@@ -10,6 +10,7 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
 				Path.atlas_game_ui_tongyong + "fk.atlas",
+				DatingPath.atlas_dating_ui_tongyong + "fk.atlas"
 			];
 			this._isNeedBlack = true;
 		}
@@ -71,7 +72,7 @@ module gametongyong.page {
 		private _ccb: Function;
 		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string, okBtnSkin?: string, cancleBtnSkin?: string) {
 			this._viewUI.txt_label.text = str;
-			TextFieldU.setHtmlText(this._viewUI.txt_label, str);//支持HTML
+			TextFieldU.setHtmlText(this._viewUI.txt_label, str,false);//支持HTML
 			this._ecb = ecb;
 			this._ccb = ccb;
 			if (okSkin) {

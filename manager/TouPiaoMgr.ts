@@ -27,6 +27,32 @@ module gametongyong.manager {
 			this._jiesan.btn_refuse.on(LEvent.CLICK, this, this.onBtnClickHandle);
 		}
 
+		//断线重连
+		offLineReLogin(): void {
+			//短线重连之后，遍历所有战斗日志，将还在投票中的投票的状态取出来赋值
+			if (!this._mapinfo) return;
+			this.updateTouPiaoTime();
+			let battleInfoMgr = this._mapinfo.battleInfoMgr;
+			let curTime = this._game.sync.serverTimeBys;
+			let txTime = this._tpEndTime - curTime;
+			//是否在投票时间内
+			if (txTime > 0) {
+				let index = 0;
+				for (let i = 0; i < battleInfoMgr.info.length; i++) {
+					//要取出最新的一条，去赋值
+					let battleInfo = battleInfoMgr.info[i] as gamecomponent.object.BattleInfoBase;
+					if (battleInfo.Type == 40) {
+						//投票开始标志
+						index = i;
+					}
+				}
+				for (let i = index; i < battleInfoMgr.info.length; i++) {
+					let battleInfo = battleInfoMgr.info[i] as gamecomponent.object.BattleInfoBase;
+					this.onBattleUpdate(battleInfo);
+				}
+			}
+		}
+
 		resetData(): void {
 			this._isTouPiaoing = false;
 			this._touPiaoResult = false;
@@ -74,6 +100,8 @@ module gametongyong.manager {
 					this._countTP = 0;//投票人数清零
 					this._isTouPiaoing = true;
 					this.showViewTX();
+					this.updateTouPiaoTime();
+					logd("发起解散投票")
 				}
 				//所有人都投了票   
 				else if (info.state == 2) {
@@ -89,7 +117,7 @@ module gametongyong.manager {
 						this.hideViewTX();
 					}
 				}
-			} else {
+			} else if (info instanceof gamecomponent.object.BattleInfoVoting) {
 				if (!this._isTouPiaoing) return;
 				let idx = info.SeatIndex;
 				let unit = this._game.sceneObjectMgr.getUnitByIdx(idx);
@@ -115,6 +143,7 @@ module gametongyong.manager {
 		private _isShowTX: boolean = false;
 		showViewTX(): void {
 			console.log("showViewTX");
+			if (this._isShowTX) return;
 			this._isShowTX = true;
 			this._jiesan.right = -335;
 			this.initViewTX();

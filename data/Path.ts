@@ -20,5 +20,6 @@ module gametongyong.data {
 		static ui_tongyong_dating: string = Path.ui_tongyong + "dating/";
 		static ui_tongyong_fk:string = Path.ui_tongyong + "fk/";
 		static atlas_game_ui_tongyong: string = "tongyong_res/atlas/tongyong_ui/game_ui/tongyong/";
+		static atlas_game_ui_tongyong_general: string = "tongyong_res/atlas/tongyong_ui/game_ui/tongyong/general/";
 	}
 }
