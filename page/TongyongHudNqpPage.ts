@@ -78,14 +78,16 @@ module gametongyong.page {
 				this.clip_money.removeSelf();
 			}
 			this._clip_money.setText(EnumToString.getPointBackNum(playerInfo.money, 2) + "", true, false, playerInfo.money < 0 ? PathGameTongyong.ui_tongyong_general + "tu_jianhao.png" : null);
-			if (!this._clip_vip) {
-				this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
-				this._clip_vip.centerX = this.clip_vip.centerX - 10;
-				this._clip_vip.centerY = this.clip_vip.centerY;
-				this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
-				this.clip_vip.removeSelf();
+			if (!WebConfig.enterGameLocked){
+				if (!this._clip_vip) {
+					this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
+					this._clip_vip.centerX = this.clip_vip.centerX - 10;
+					this._clip_vip.centerY = this.clip_vip.centerY;
+					this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
+					this.clip_vip.removeSelf();
+				}
+				this._clip_vip.setText(playerInfo.vip_level, true);
 			}
-			this._clip_vip.setText(playerInfo.vip_level, true);
 			this.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(playerInfo.headKuang);
 			this.btn_gren.skin = TongyongUtil.getHeadUrl(playerInfo.headimg, 2);
 		}
