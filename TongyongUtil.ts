@@ -52,8 +52,8 @@ module gametongyong {
             headimg = headimg ? headimg : '0';
             let hs = headimg.split('.');
             let headIdx = parseInt(hs[hs.length - 1]);
-            //非API才调用祈福头像
-            if (!WebConfig.enterGameLocked && headIdx >= 16 && headIdx <= 21) {
+            //祈福头像
+            if (headIdx >= 16 && headIdx <= 21) {
                 return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + this._qifuNameStr[headIdx - 16] + ".png";
             } else {
                 return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + (headimg ? headimg : 0) + ".png";
