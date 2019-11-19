@@ -55,6 +55,10 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "12";
 		};
+		static get PAGE_TONGYONG_BATTLE_INFO_WX() {//战斗微信扫雷红包详情
+			this.ins;
+			return this.GAME_NAME + "13";
+		};
 
 		private static _ins: TongyongPageDef;
 
@@ -87,6 +91,7 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTS] = ZjtsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTP] = ZjtpPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_FK] = PaiJuInfoFKPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_WX] = PaiJuInfoFKWXPage;
 
 			this["__needLoadAsset"] = [
 				PathGameTongyong.atlas_game_ui_tongyong + "chongzhi.atlas",
