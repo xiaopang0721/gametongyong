@@ -117,7 +117,7 @@ module gametongyong.page {
 						component8.lb_pf.text = "-" + Number(lq_data.pf_money);
 					}
 					//手气最佳
-					component8.img_max.visible = is_max;
+					component8.img_max.visible = is_max && lq_data.status == 1;
 					//特殊数值
 					component8.lb_special.visible = lq_data.sp_money_num > 0;
 					if (component8.lb_special.visible) {
