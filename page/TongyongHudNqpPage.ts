@@ -51,12 +51,13 @@ module gametongyong.page {
 
 		private updatePos() {
 			this.btn_fresh.x = WebConfig.enterGameLocked ? 378 : 418;
-			if (this._game.isFullScreen) {
-				this.box_btn_top_left.left = 56;
-			} else {
-				this.box_btn_top_left.left = 0;
-			}
-
+			Laya.timer.frameOnce(1, this, () => {
+				if (this._game.isFullScreen) {
+					this.box_btn_top_left.left = 56;
+				} else {
+					this.box_btn_top_left.left = 0;
+				}
+			})
 		}
 
 		private _clip_money: TongyongClip;
@@ -78,7 +79,7 @@ module gametongyong.page {
 				this.clip_money.removeSelf();
 			}
 			this._clip_money.setText(EnumToString.getPointBackNum(playerInfo.money, 2) + "", true, false, playerInfo.money < 0 ? PathGameTongyong.ui_tongyong_general + "tu_jianhao.png" : null);
-			if (!WebConfig.enterGameLocked){
+			if (!WebConfig.enterGameLocked) {
 				if (!this._clip_vip) {
 					this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
 					this._clip_vip.centerX = this.clip_vip.centerX - 10;

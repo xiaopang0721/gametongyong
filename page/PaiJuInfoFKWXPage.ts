@@ -74,6 +74,7 @@ module gametongyong.page {
 			component7.bao_num.text = hb_data.bao_num;
 			component7.lb_money.text = hb_data.money;
 			component7.lb_ld.text = hb_data.ld_str;
+			component7.lb_name.text = hb_data.name;
 			component7.y = this._h;
 			this._h += component7.height;
 			this._viewUI.panel_xq.addChild(component7);
@@ -100,17 +101,12 @@ module gametongyong.page {
 						component8 = new SaoLei_2UI();
 					}
 					component8.lb_name.text = lq_data.status == 1 ? lq_data.name : "免死金牌";
-					let diffMoney = '0';
-					if (hb_data.is_zl) {
-						diffMoney = (lq_data.lq_money - lq_data.pf_money).toFixed(2);
-					} else {
-						diffMoney = lq_data.lq_money.toFixed(2);
-					}
+					let diffMoney = lq_data.lq_money.toFixed(2);
 					component8.lb_status.text = lq_data.pf_money > 0 ? "[中雷]" : "[避雷]";
 					component8.lb_status.color = lq_data.pf_money > 0 ? TeaStyle.COLOR_RED : TeaStyle.COLOR_GREEN;
 					//领取金额
-					component8.lb_money.text = (Number(diffMoney) > 0 ? "+" : "") + lq_data.lq_money;
-					component8.lb_money.color = Number(lq_data.lq_money) > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
+					component8.lb_money.text = (Number(diffMoney) > 0 ? "+" : "") + diffMoney;
+					component8.lb_money.color = Number(diffMoney) > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
 					//赔付金额
 					component8.box_pf.visible = Number(lq_data.pf_money) > 0;
 					if (component8.box_pf.visible) {
@@ -126,13 +122,17 @@ module gametongyong.page {
 					if (component8 instanceof SaoLei_2UI) {
 						//调整位置
 						if (component8.box_pf.visible) {
-
+							if (component8.lb_special.visible) {
+								component8.lb_special.x = component8.box_pf.x + component8.box_pf.width;
+							} else {
+								component8.img_max.x = component8.box_pf.x + component8.box_pf.width;
+							}
 						} else {
 							//赔付不显示的情况
 							if (component8.lb_special.visible) {
-								component8.lb_special.left = 408;
+								component8.lb_special.x = 410;
 							} else {
-								component8.img_max.left = 414;
+								component8.img_max.x = 410;
 							}
 						}
 					} else if (component8 instanceof SaoLei_4UI) {
