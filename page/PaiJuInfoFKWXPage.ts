@@ -91,7 +91,7 @@ module gametongyong.page {
 					//首先判断赔付，手机最佳，特殊数值奖励有没有一起
 					let is_need_change = false;
 					let is_max = Number(key) == maxIndex;
-					if (lq_data.pf_money > 0 && lq_data.sp_money_num > 0 && is_max) {
+					if (hb_data.is_zl && lq_data.pf_money > 0 && lq_data.sp_money_num > 0 && is_max) {
 						is_need_change = true
 					}
 					let component8: SaoLei_4UI | SaoLei_2UI;
@@ -108,9 +108,13 @@ module gametongyong.page {
 					component8.lb_money.text = (Number(diffMoney) > 0 ? "+" : "") + diffMoney;
 					component8.lb_money.color = Number(diffMoney) > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
 					//赔付金额
-					component8.box_pf.visible = Number(lq_data.pf_money) > 0;
-					if (component8.box_pf.visible) {
-						component8.lb_pf.text = "-" + Number(lq_data.pf_money);
+					if (hb_data.is_zl && lq_data.status != 2) {
+						component8.box_pf.visible = Number(lq_data.pf_money) > 0;
+						if (component8.box_pf.visible) {
+							component8.lb_pf.text = "-" + Number(lq_data.pf_money);
+						}
+					} else {
+						component8.box_pf.visible = false;
 					}
 					//手气最佳
 					component8.img_max.visible = is_max && lq_data.status == 1;
