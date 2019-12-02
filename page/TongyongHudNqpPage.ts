@@ -21,11 +21,13 @@ module gametongyong.page {
 			this._game = game;
 			this._gameId = gameId;
 			this._isCardRoomType = isCardRoomType;
+			this.btn_vip.visible = this.btn_add.visible = !WebConfig.enterGameLocked;
 			this.btn_record.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_help.on(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_gren.on(LEvent.CLICK, this, this.onBtnClickHandle);
+			this.btn_gren.onAPI(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_back.on(LEvent.CLICK, this, this.onBtnClickHandle);
-			this.btn_fresh.on(LEvent.CLICK, this, this.onBtnClickHandle);
+
+			this.btn_fresh.onAPI(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_vip.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this._game.sceneObjectMgr.on(SceneObjectMgr.EVENT_PLAYER_INFO_UPDATE, this, this.onUpdatePlayerInfo);
 			this.onUpdatePlayerInfo();
@@ -36,7 +38,7 @@ module gametongyong.page {
 			if (!mainPlayer) return;
 			let playerInfo = mainPlayer.playerInfo;
 			if (!playerInfo) return;
-			if (!playerInfo.mobile && !this._game.datingGame.isAlertVisitorTip) {
+			if (!playerInfo.mobile && !this._game.datingGame.isAlertVisitorTip && !WebConfig.enterGameLocked) {
 				Laya.timer.once(1000, this, () => {
 					this._game.datingGame.isAlertVisitorTip = true;
 					this._game.uiRoot.general.open(DatingPageDef["PAGE_GUEST_TIP"]);
@@ -45,13 +47,17 @@ module gametongyong.page {
 			this.updatePos();
 		}
 
-		private updatePos() {
-			if (this._game.isFullScreen) {
-				this.box_btn_top_left.left = 56;
-			} else {
-				this.box_btn_top_left.left = 0;
-			}
 
+
+		private updatePos() {
+			this.btn_fresh.x = WebConfig.enterGameLocked ? 378 : 418;
+			Laya.timer.frameOnce(1, this, () => {
+				if (this._game.isFullScreen) {
+					this.box_btn_top_left.left = 56;
+				} else {
+					this.box_btn_top_left.left = 0;
+				}
+			})
 		}
 
 		private _clip_money: TongyongClip;
@@ -73,16 +79,18 @@ module gametongyong.page {
 				this.clip_money.removeSelf();
 			}
 			this._clip_money.setText(EnumToString.getPointBackNum(playerInfo.money, 2) + "", true, false, playerInfo.money < 0 ? PathGameTongyong.ui_tongyong_general + "tu_jianhao.png" : null);
-			if (!this._clip_vip) {
-				this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
-				this._clip_vip.centerX = this.clip_vip.centerX - 10;
-				this._clip_vip.centerY = this.clip_vip.centerY;
-				this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
-				this.clip_vip.removeSelf();
+			if (!WebConfig.enterGameLocked) {
+				if (!this._clip_vip) {
+					this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
+					this._clip_vip.centerX = this.clip_vip.centerX - 10;
+					this._clip_vip.centerY = this.clip_vip.centerY;
+					this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
+					this.clip_vip.removeSelf();
+				}
+				this._clip_vip.setText(playerInfo.vip_level, true);
 			}
-			this._clip_vip.setText(playerInfo.vip_level, true);
-			this.btn_gren.skin = TongyongUtil.getHeadUrl(playerInfo.headimg, 2);
 			this.img_txk.skin = TongyongUtil.getTouXiangKuangUrl(playerInfo.headKuang);
+			this.btn_gren.skin = TongyongUtil.getHeadUrl(playerInfo.headimg, 2);
 		}
 
 		protected onBtnClickHandle(e: LEvent): void {
@@ -93,9 +101,11 @@ module gametongyong.page {
 					this._game.uiRoot.general.open(this._gameId + this.RULE_PAGE);
 					break;
 				case this.btn_gren://个人信息
+					if (WebConfig.enterGameLocked) return;
 					this._game.uiRoot.general.open(DatingPageDef.PAGE_XINXI);
 					break;
 				case this.btn_fresh://充值
+					if (WebConfig.enterGameLocked) return;
 					this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
 					break;
 				case this.btn_vip://VIP

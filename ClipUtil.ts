@@ -6,8 +6,8 @@ module gametongyong {
         //货币 金色
         static get MONEY_FONT2() {
             return {
-                source: DatingPath.atlas_dating_ui + "tongyong.atlas",
-                url: DatingPath.ui_dating + 'tongyong/clip_money1.png',
+                source: PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+                url: PathGameTongyong.ui_tongyong_dating + 'clip_money1.png',
                 clipWidth: 20,
                 clipHeight: 27,
                 clipX: 11,
@@ -17,8 +17,8 @@ module gametongyong {
         //VIP 等级数字
         static get DATING_VIP_FONT() {
             return {
-                source: DatingPath.atlas_dating_ui + "dating.atlas",
-                url: DatingPath.ui_dating + 'dating/clip_vip.png',
+                source: PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+                url: PathGameTongyong.ui_tongyong_dating + 'clip_vip.png',
                 clipWidth: 39,
                 clipHeight: 41,
                 clipX: 10,

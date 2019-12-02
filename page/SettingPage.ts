@@ -21,7 +21,8 @@ module gametongyong.page {
 		protected init(): void {
 			this._viewUI = this.createView('game_ui.tongyong.SheZhiUI');
 			this.addChild(this._viewUI);
-
+			//api不显示版本号，检查更新，清除缓存
+			this._viewUI.box_vesion.visible = this._viewUI.btn_check.visible = this._viewUI.btn_clear.visible = !WebConfig.enterGameLocked;
 			this._viewUI.box_app.visible = WebConfig.appVersion;
 			this._viewUI.txt_appbbh.text = WebConfig.appVersion;
 			this._viewUI.box_v.visible = Vesion["_defaultVesion"];

@@ -278,6 +278,11 @@ module gametongyong.page {
 					this._game.uiRoot.general.open(TongyongPageDef.PAGE_TONGYONG_BATTLE_INFO_FK, (page: PaiJuInfoFKPage) => {
 						page.getDataInfo(this._data.battle_id, this._gameId, this._data.end_time);
 					})
+				} else if (this._gameId == "wxsaoleihb") {
+					//微信红包扫雷
+					this._game.uiRoot.general.open(TongyongPageDef.PAGE_TONGYONG_BATTLE_INFO_WX, (page: PaiJuInfoFKWXPage) => {
+						page.getDataInfo(this._data.battle_id, this._gameId, this._data.end_time);
+					})
 				} else {//非房卡类型
 					this._game.uiRoot.general.open(TongyongPageDef.PAGE_TONGYONG_BATTER_INFO, (page: PaiJuInfoPage) => {
 						page.getDataInfo(this._data.battle_id, this._gameId, this._data.end_time);

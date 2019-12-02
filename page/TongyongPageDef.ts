@@ -55,6 +55,10 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "12";
 		};
+		static get PAGE_TONGYONG_BATTLE_INFO_WX() {//战斗微信扫雷红包详情
+			this.ins;
+			return this.GAME_NAME + "13";
+		};
 
 		private static _ins: TongyongPageDef;
 
@@ -88,14 +92,48 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTS] = ZjtsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTP] = ZjtpPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_FK] = PaiJuInfoFKPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_WX] = PaiJuInfoFKWXPage;
+
+			this["__needLoadAsset"] = [
+				PathGameTongyong.atlas_game_ui_tongyong + "chongzhi.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "fk.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "hud.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "ksyx.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "logo.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "nyl.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "pai.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "qz.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "touxiang.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "tuichu.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "yq.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "zjtp.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "zjts.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/bigwin.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/fapai_1.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/fapai_3.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/hulu.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/hulu1.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/kaipai.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/qp.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/shaizi.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/suiji.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/xipai.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/ying.atlas",
+			]
+			if (WebConfig.needMusicPreload) {
+				this["__needLoadAsset"] = this["__needLoadAsset"].concat([
+				])
+			}
 		}
 
 		/**
-		 * 退出弹窗提示
-		 * @param ecb 确定
-		 * @param ccb 取消
-		 * @param gameId 游戏id
-		 */
+		  * 退出弹窗提示
+		  * @param ecb 确定
+		  * @param ccb 取消
+		  * @param gameId 游戏id
+		  */
 		alertClose(gameId: string, caller: any, ecb: Function, ccb?: Function): void {
 			this._game.uiRoot.top.close(TongyongPageDef.PAGE_TONGYONG_CLOSE_TIPS);
 			this._game.uiRoot.top.open(TongyongPageDef.PAGE_TONGYONG_CLOSE_TIPS, (tip: CloseTipsPage) => {
@@ -115,6 +153,7 @@ module gametongyong.page {
 				"qd": PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
 				"qw": PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
 				"js": PathGameTongyong.ui_tongyong_fk + "tu_js.png",			//解散
+				"fh": PathGameTongyong.ui_tongyong_dating + "tu_fh.png",			//返回
 				"fqtq": PathGameTongyong.ui_tongyong_fk + "tu_fqtp.png",		//发起投票
 				"wyqf": DatingPath.ui_dating + "qifu/tu_wyqf.png",	//我要祈福
 				"title_qf": DatingPath.ui_dating + "qifu/tu_qf.png",	//祈福标题

@@ -15,6 +15,7 @@ module gametongyong {
         "dezhou": [[195, 1000], [194, 400], [193, 80], [192, 20]],
         "blackjack": [[34, 2000], [33, 800], [32, 200], [31, 20]],
         "buyu": [[54, 100], [53, 10], [52, 1], [51, 0]],
+        "mpniuniu": [[245, 1000], [244, 500], [243, 200], [242, 20]],
         // "shuiguoji": [[134, 1000], [133, 500], [132, 200], [131, 20]],
         //百人场次规则，最低不限
         "brniuniu": [[74, 1000], [73, 500], [72, 200], [71, 0]],
@@ -26,6 +27,7 @@ module gametongyong {
         "elslp": [[235, 1000], [234, 500], [233, 200], [232, 0]],
         "longhu": [[84, 1000], [83, 500], [82, 200], [81, 0]],
         "zoo": [[205, 1000], [204, 500], [203, 200], [202, 0]],
+		"wxsaoleihb": [[254, 40], [253, 10], [252, 1]],
     }
     export class TongyongUtil {
         /**
@@ -51,6 +53,7 @@ module gametongyong {
             headimg = headimg ? headimg : '0';
             let hs = headimg.split('.');
             let headIdx = parseInt(hs[hs.length - 1]);
+            //祈福头像
             if (headIdx >= 16 && headIdx <= 21) {
                 return PathGameTongyong.ui_tongyong_touxiang + "tu_tx" + this._qifuNameStr[headIdx - 16] + ".png";
             } else {
@@ -59,20 +62,38 @@ module gametongyong {
         }
 
         public static getTouXiangKuangUrl(headKuang: string): string {
-            headKuang = headKuang ? headKuang : '0';
-            return PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + headKuang + ".png";
+            //API不显示头像框
+            if (WebConfig.enterGameLocked) {
+                return "";
+            } else {
+                headKuang = headKuang ? headKuang : '0';
+                return PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + headKuang + ".png";
+            }
         }
 
         public static getVipUrl(vip: number): string {
-            if (!vip) return "";
-            return PathGameTongyong.ui_tongyong_touxiang + "tu_j" + vip + ".png";
+            //API不显示VIP
+            if (WebConfig.enterGameLocked) {
+                return "";
+            } else {
+                return PathGameTongyong.ui_tongyong_touxiang + "tu_j" + vip + ".png";
+            }
         }
 
         public static getQFTypeImg(qf_id): string {
-            return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
+            //API不显示祈福
+            if (WebConfig.enterGameLocked) {
+                return "";
+            } else {
+                return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
+            }
         }
 
         public static getIsHaveQiFu(player, serverTimeBys): boolean {
+            //API默认非祈福状态
+            if (WebConfig.enterGameLocked) {
+                return false;
+            }
             if (player instanceof PlayerData) {
                 for (let i = 0; i < 6; i++) {
                     let qfEndTime = player.GetQiFuEndTime(i);
