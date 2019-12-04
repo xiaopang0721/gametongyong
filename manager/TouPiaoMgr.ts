@@ -5,7 +5,7 @@ module gametongyong.manager {
 	export class TouPiaoMgr extends gamecomponent.managers.BaseMgr {
 		static readonly EVENT_TOUPIAO_TIME: string = "TouPiaoMgr.EVENT_TOUPIAO_TIME"; //投票解散
 		private _count: number;
-		private _jiesan: ui.nqp.game_ui.tongyong.JieSanUI;
+		private _jiesan: ui.ajqp.game_ui.tongyong.JieSanUI;
 		private _mapinfo: any;
 		private _gameid: string;
 

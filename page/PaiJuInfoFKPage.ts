@@ -2,12 +2,12 @@
 * name 
 */
 module gametongyong.page {
-	import PaiJuFangKaT1UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT1UI
-	import PaiJuFangKaT2UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT2UI
-	import PaiJuFangKaT3UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT3UI
-	import PaiJuFangKaT4UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT4UI
-	import PaiJuFangKaT5UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT5UI
-	import PaiJuFangKaT6UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT6UI
+	import PaiJuFangKaT1UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT1UI
+	import PaiJuFangKaT2UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT2UI
+	import PaiJuFangKaT3UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT3UI
+	import PaiJuFangKaT4UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT4UI
+	import PaiJuFangKaT5UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT5UI
+	import PaiJuFangKaT6UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT6UI
 
 	export class PaiJuInfoFKPage extends game.gui.base.Page {
 		static TYPE_ROUND_TITLE: number = 1;//局数标题
@@ -17,7 +17,7 @@ module gametongyong.page {
 		static TYPE_PAODEKUAI_RULE: number = 5;//跑得快规则
 		static TYPE_NAME_ADD_DESC: number = 6;//姓名加描述
 
-		protected _viewUI: ui.nqp.game_ui.tongyong.PaiJu_xq_fkUI;
+		protected _viewUI: ui.ajqp.game_ui.tongyong.PaiJu_xq_fkUI;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [

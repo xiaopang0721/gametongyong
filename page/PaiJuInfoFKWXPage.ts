@@ -2,11 +2,11 @@
 * name 
 */
 module gametongyong.page {
-	import PaiJuFangKaT2UI = ui.nqp.game_ui.tongyong.PaiJuFangKaT2UI
-	import SaoLei_1UI = ui.nqp.game_ui.tongyong.SaoLei_1UI;
-	import SaoLei_2UI = ui.nqp.game_ui.tongyong.SaoLei_2UI;
-	import SaoLei_3UI = ui.nqp.game_ui.tongyong.SaoLei_3UI;
-	import SaoLei_4UI = ui.nqp.game_ui.tongyong.SaoLei_4UI;
+	import PaiJuFangKaT2UI = ui.ajqp.game_ui.tongyong.PaiJuFangKaT2UI
+	import SaoLei_1UI = ui.ajqp.game_ui.tongyong.SaoLei_1UI;
+	import SaoLei_2UI = ui.ajqp.game_ui.tongyong.SaoLei_2UI;
+	import SaoLei_3UI = ui.ajqp.game_ui.tongyong.SaoLei_3UI;
+	import SaoLei_4UI = ui.ajqp.game_ui.tongyong.SaoLei_4UI;
 
 	export class PaiJuInfoFKWXPage extends game.gui.base.Page {
 		//-------微信红包扫雷
@@ -14,7 +14,7 @@ module gametongyong.page {
 		static TYPE_PLAYER_INFO: number = 2;//个人详情
 		static TYPE_TITLE_INFO: number = 3;//标题加信息
 
-		protected _viewUI: ui.nqp.game_ui.tongyong.PaiJu_WXUI;
+		protected _viewUI: ui.ajqp.game_ui.tongyong.PaiJu_WXUI;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [

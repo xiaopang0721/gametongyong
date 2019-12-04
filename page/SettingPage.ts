@@ -3,7 +3,7 @@ name 设置
 	**/
 module gametongyong.page {
 	export class SettingPage extends game.gui.base.Page {
-		private _viewUI: ui.nqp.game_ui.tongyong.SheZhiUI;
+		private _viewUI: ui.ajqp.game_ui.tongyong.SheZhiUI;
 		private _btnSound: Button;
 		private _btnMusic: Button;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {

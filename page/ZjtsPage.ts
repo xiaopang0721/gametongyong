@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class ZjtsPage extends game.gui.base.Page {
-		private _viewUI: ui.nqp.game_ui.tongyong.effect.Effect_zjtsUI;
+		private _viewUI: ui.ajqp.game_ui.tongyong.effect.Effect_zjtsUI;
 
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);

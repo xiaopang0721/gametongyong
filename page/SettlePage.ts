@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class SettlePage extends game.gui.base.Page {
-		private _viewUI: ui.nqp.game_ui.tongyong.JieSuanUI;
+		private _viewUI: ui.ajqp.game_ui.tongyong.JieSuanUI;
 		private _imgList: Array<LImage> = [];
 		private _htmlText: laya.html.dom.HTMLDivElement;
 
@@ -48,8 +48,8 @@ module gametongyong.page {
 				this._imgList[i] = this._viewUI["img_" + i];
 				this._imgList[i].disabled = this.dataSource.myBenefit < 0;
 			}
-			this._viewUI.ani2.on(LEvent.COMPLETE, this, this.onPlayComplte);
-			this._viewUI.ani2.play(0, false);
+			// this._viewUI.ani2.on(LEvent.COMPLETE, this, this.onPlayComplte);
+			// this._viewUI.ani2.play(0, false);
 		}
 
 		private onPlayComplte(): void {
@@ -62,7 +62,7 @@ module gametongyong.page {
 					if (this._imgList) {
 						this._imgList = null;
 					}
-					this._viewUI.ani2.off(LEvent.COMPLETE, this, this.onPlayComplte);
+					// this._viewUI.ani2.off(LEvent.COMPLETE, this, this.onPlayComplte);
 				}
 			}
 			Laya.timer.clearAll(this);

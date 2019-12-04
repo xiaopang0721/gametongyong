@@ -3,7 +3,7 @@
 */
 module gametongyong.page{
 	export class GameWinPage extends game.gui.base.Page {
-		private _viewUI: ui.nqp.game_ui.tongyong.effect.Effect_nylUI;
+		private _viewUI: ui.ajqp.game_ui.tongyong.effect.Effect_nylUI;
 		
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);

@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class CloseTipsPage extends game.gui.base.Page {
-		private _viewUI: ui.nqp.game_ui.tongyong.Tips_backUI;
+		private _viewUI: ui.ajqp.game_ui.tongyong.Tips_backUI;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [

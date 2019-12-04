@@ -2,7 +2,7 @@
 * name 
 */
 module gametongyong.page {
-	export class TongyongHudNqpPage extends ui.nqp.game_ui.tongyong.HudUI {
+	export class TongyongHudNqpPage extends ui.ajqp.game_ui.tongyong.HudUI {
 		private _game: Game;
 		private _isCardRoomType: boolean;
 		private _gameId: string;

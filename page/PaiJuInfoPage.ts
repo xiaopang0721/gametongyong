@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class PaiJuInfoPage extends game.gui.base.Page {
-		protected _viewUI: ui.nqp.game_ui.tongyong.PaiJu_xqUI;
+		protected _viewUI: ui.ajqp.game_ui.tongyong.PaiJu_xqUI;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._isNeedBlack = true;
@@ -75,7 +75,7 @@ module gametongyong.page {
 		}
 
 	}
-	class PaiJuItemRender extends ui.nqp.game_ui.tongyong.PaiJu_xqTUI {
+	class PaiJuItemRender extends ui.ajqp.game_ui.tongyong.PaiJu_xqTUI {
 		set dataSource(v: string) {
 			if (!v || v == "") {
 				this.visible = false;

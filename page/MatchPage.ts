@@ -3,7 +3,7 @@
 */
 module gametongyong.page {
 	export class MatchPage extends game.gui.base.Page {
-		protected _viewUI: ui.nqp.game_ui.tongyong.PiPeiUI;
+		protected _viewUI: ui.ajqp.game_ui.tongyong.PiPeiUI;
 		private _story: gamecomponent.story.StoryNormalBase;
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
