@@ -27,7 +27,7 @@ module gametongyong {
         "elslp": [[235, 1000], [234, 500], [233, 200], [232, 0]],
         "longhu": [[84, 1000], [83, 500], [82, 200], [81, 0]],
         "zoo": [[205, 1000], [204, 500], [203, 200], [202, 0]],
-		"wxsaoleihb": [[254, 40], [253, 10], [252, 1]],
+        "wxsaoleihb": [[254, 40], [253, 10], [252, 1]],
     }
     export class TongyongUtil {
         /**
@@ -35,17 +35,19 @@ module gametongyong {
          * @param game_id 游戏名 
          * @param money 身上的金币
          */
-        public static getJoinMapLv(game_id: string, money: number): number {
-            let maplv: number;
-            let obj = game_config[game_id]
-            if (!obj) return maplv;
-            for (let i = 0; i < obj.length; i++) {
-                if (obj[i][1] <= money) {
-                    maplv = obj[i][0]
+        public static getJoinMapLv(game_id: string, money: number): number[] {
+            let maplv: number = 0;
+            let config = game_config[game_id]
+            if (!config) return [maplv, config[3][1]];
+            for (let i = 0; i < config.length; i++) {
+                let conf_maplv = config[i][0];
+                let conf_money = config[i][1];
+                if (conf_money <= money) {
+                    maplv = conf_maplv
                     break;
                 }
             }
-            return maplv;
+            return [maplv, config[3][1]];
         }
 
         private static _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];

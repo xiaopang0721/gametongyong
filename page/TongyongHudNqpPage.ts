@@ -6,6 +6,7 @@ module gametongyong.page {
 		private _game: Game;
 		private _isCardRoomType: boolean;
 		private _gameId: string;
+		private _isEnterMap: boolean;
 		readonly RULE_PAGE: number = 101;
 		constructor() {
 			super();
@@ -15,12 +16,14 @@ module gametongyong.page {
 		 * 
 		 * @param game 
 		 * @param gameId 游戏id
+		 * @param isEnterMap 是否发起entermap
 		 * @param isCardRoomType 是否房卡类型
 		 */
-		onOpen(game: Game, gameId: string, isCardRoomType?: boolean) {
+		onOpen(game: Game, gameId: string, isEnterMap: boolean = true, isCardRoomType: boolean = false) {
 			this._game = game;
 			this._gameId = gameId;
 			this._isCardRoomType = isCardRoomType;
+			this._isEnterMap = isEnterMap;
 			this.btn_vip.visible = this.btn_add.visible = !WebConfig.enterGameLocked;
 			this.btn_record.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_help.on(LEvent.CLICK, this, this.onBtnClickHandle);
@@ -123,9 +126,25 @@ module gametongyong.page {
 					this._game.uiRoot.HUD.closeAll();
 					this._game.uiRoot.HUD.open(DatingPageDef.PAGE_HUD);
 					break;
-
-				default:
-					break;
+				// case this.btn_join:
+				// 	let config = TongyongUtil.getJoinMapLv(BaijialePageDef.GAME_NAME, WebConfig.info.money);
+				// 	if (!config[0]) {
+				// 		this._game.alert(StringU.substitute("老板，您的金币少于{0}哦~\n补充点金币去大杀四方吧~", config[1]), () => {
+				// 			this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
+				// 		}, () => {
+				// 		}, true, Tips.TIPS_SKIN_STR["cz"]);
+				// 		return;
+				// 	}
+				// 	if (this._gameId == "wxsaoleihb") {
+				// 		this._game.uiRoot.general.open(WxsaoleihbPageDef.PAGE_WXSLHB_HB_FZTS, (page) => {
+				// 			page.isInner = false;
+				// 		}, () => {
+				// 			this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString(), true);
+				// 		})
+				// 	} else {
+				// 		this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString());
+				// 	}
+				// 	break;
 			}
 		}
 
