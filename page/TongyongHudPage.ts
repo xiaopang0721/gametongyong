@@ -2,7 +2,7 @@
 * name 
 */
 module gametongyong.page {
-	export class TongyongHudNqpPage extends ui.ajqp.game_ui.tongyong.HudUI {
+	export class TongyongHudPage extends ui.ajqp.game_ui.tongyong.HudUI {
 		private _game: Game;
 		private _isCardRoomType: boolean;
 		private _gameId: string;
@@ -29,6 +29,7 @@ module gametongyong.page {
 			this.btn_help.on(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_gren.onAPI(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_back.on(LEvent.CLICK, this, this.onBtnClickHandle);
+			this.btn_ksks.on(LEvent.CLICK, this, this.onBtnClickHandle);
 
 			this.btn_fresh.onAPI(LEvent.CLICK, this, this.onBtnClickHandle);
 			this.btn_vip.on(LEvent.CLICK, this, this.onBtnClickHandle);
@@ -85,7 +86,7 @@ module gametongyong.page {
 			if (!WebConfig.enterGameLocked) {
 				if (!this._clip_vip) {
 					this._clip_vip = new TongyongClip(ClipUtil.DATING_VIP_FONT);
-					this._clip_vip.centerX = this.clip_vip.centerX - 10;
+					this._clip_vip.centerX = this.clip_vip.centerX;
 					this._clip_vip.centerY = this.clip_vip.centerY;
 					this.clip_vip.parent && this.clip_vip.parent.addChild(this._clip_vip);
 					this.clip_vip.removeSelf();
@@ -126,25 +127,25 @@ module gametongyong.page {
 					this._game.uiRoot.HUD.closeAll();
 					this._game.uiRoot.HUD.open(DatingPageDef.PAGE_HUD);
 					break;
-				// case this.btn_join:
-				// 	let config = TongyongUtil.getJoinMapLv(BaijialePageDef.GAME_NAME, WebConfig.info.money);
-				// 	if (!config[0]) {
-				// 		this._game.alert(StringU.substitute("老板，您的金币少于{0}哦~\n补充点金币去大杀四方吧~", config[1]), () => {
-				// 			this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
-				// 		}, () => {
-				// 		}, true, Tips.TIPS_SKIN_STR["cz"]);
-				// 		return;
-				// 	}
-				// 	if (this._gameId == "wxsaoleihb") {
-				// 		this._game.uiRoot.general.open(WxsaoleihbPageDef.PAGE_WXSLHB_HB_FZTS, (page) => {
-				// 			page.isInner = false;
-				// 		}, () => {
-				// 			this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString(), true);
-				// 		})
-				// 	} else {
-				// 		this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString());
-				// 	}
-				// 	break;
+				case this.btn_ksks://快速开始
+					let config = TongyongUtil.getJoinMapLv(BaijialePageDef.GAME_NAME, WebConfig.info.money);
+					if (!config[0]) {
+						this._game.alert(StringU.substitute("老板，您的金币少于{0}哦~\n补充点金币去大杀四方吧~", config[1]), () => {
+							this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
+						}, () => {
+						}, true, Tips.TIPS_SKIN_STR["cz"]);
+						return;
+					}
+					if (this._gameId == "wxsaoleihb") {
+						this._game.uiRoot.general.open(WxsaoleihbPageDef.PAGE_WXSLHB_HB_FZTS, (page) => {
+							page.isInner = false;
+						}, () => {
+							this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString(), true);
+						})
+					} else {
+						this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString());
+					}
+					break;
 			}
 		}
 

@@ -9,7 +9,7 @@ module gametongyong {
                 source: PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
                 url: PathGameTongyong.ui_tongyong_dating + 'clip_money1.png',
                 clipWidth: 20,
-                clipHeight: 27,
+                clipHeight: 28,
                 clipX: 11,
                 space: -2
             }
@@ -19,10 +19,10 @@ module gametongyong {
             return {
                 source: PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
                 url: PathGameTongyong.ui_tongyong_dating + 'clip_vip.png',
-                clipWidth: 39,
-                clipHeight: 41,
+                clipWidth: 24,
+                clipHeight: 32,
                 clipX: 10,
-                space: -15
+                space: 0
             }
         }
         

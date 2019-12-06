@@ -5,6 +5,6 @@ import TongyongPageDef = gametongyong.page.TongyongPageDef;
 import RecordMgr = gametongyong.manager.RecordMgr;
 import TouPiaoMgr = gametongyong.manager.TouPiaoMgr;
 import TongyongTipsPage = gametongyong.page.TipsPage;
-import TongyongHudNqpPage = gametongyong.page.TongyongHudNqpPage;
+import TongyongHudPage = gametongyong.page.TongyongHudPage;
 import TongyongUtil = gametongyong.TongyongUtil;
 
