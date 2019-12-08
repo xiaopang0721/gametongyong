@@ -44,10 +44,10 @@ module gametongyong.page {
 			this._htmlText.innerHTML = innerHtml;
 			// this._viewUI.txt_result.text = this.dataSource.lottery.toString();
 
-			for (let i = 0; i < 4; i++) {
-				this._imgList[i] = this._viewUI["img_" + i];
-				this._imgList[i].disabled = this.dataSource.myBenefit < 0;
-			}
+			// for (let i = 0; i < 4; i++) {
+			// 	this._imgList[i] = this._viewUI["img_" + i];
+			// 	this._imgList[i].disabled = this.dataSource.myBenefit < 0;
+			// }
 			// this._viewUI.ani2.on(LEvent.COMPLETE, this, this.onPlayComplte);
 			// this._viewUI.ani2.play(0, false);
 		}
