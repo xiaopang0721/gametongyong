@@ -7,8 +7,9 @@ module gametongyong.page {
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [
-				PathGameTongyong.atlas_game_ui_tongyong + "tuichu.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "tuichu.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong_general + "anniu.atlas",
 			];
 			this._isNeedBlack = true;
 			this._isClickBlack = false;
@@ -20,7 +21,6 @@ module gametongyong.page {
 			this._viewUI = this.createView("game_ui.tongyong.Tips_backUI");
 			this.addChild(this._viewUI);
 			this._viewUI.btn_enter.on(LEvent.CLICK, this, this.onBtnClickWithTween);
-			this._viewUI.btn_cancle.on(LEvent.CLICK, this, this.onBtnClickWithTween);
 		}
 
 		protected onBtnTweenEnd(e: any, target: any): void {
@@ -56,7 +56,8 @@ module gametongyong.page {
 		private _ecb: Handler;
 		private _ccb: Handler;
 		setInfo(gameId: string, ecb: Handler, ccb?: Handler) {
-			this._viewUI.img_bg.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}.png", gameId);
+			this._viewUI.img_meinv.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}0.png", gameId);
+			this._viewUI.img_guanggao.skin = StringU.substitute(PathGameTongyong.ui_tongyong_tuichu + "{0}1.png", gameId);
 			this._ecb = ecb;
 			this._ccb = ccb;
 		}
