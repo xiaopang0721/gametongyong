@@ -16,7 +16,6 @@ module gametongyong {
         "blackjack": [[34, 2000], [33, 800], [32, 200], [31, 20]],
         "buyu": [[54, 100], [53, 10], [52, 1], [51, 0]],
         "mpniuniu": [[245, 1000], [244, 500], [243, 200], [242, 20]],
-        // "shuiguoji": [[134, 1000], [133, 500], [132, 200], [131, 20]],
         //百人场次规则，最低不限
         "brniuniu": [[74, 1000], [73, 500], [72, 200], [71, 0]],
         "honghei": [[104, 1000], [103, 500], [102, 200], [101, 0]],
@@ -35,19 +34,34 @@ module gametongyong {
          * @param game_id 游戏名 
          * @param money 身上的金币
          */
-        public static getJoinMapLv(game_id: string, money: number): number[] {
+        public static getJoinMapLv(game_id: string, money: number): number {
             let maplv: number = 0;
             let config = game_config[game_id]
-            if (!config) return [maplv, config[3][1]];
+            if (!config) {
+                return maplv;
+            }
             for (let i = 0; i < config.length; i++) {
                 let conf_maplv = config[i][0];
                 let conf_money = config[i][1];
                 if (conf_money <= money) {
-                    maplv = conf_maplv
+                    maplv = conf_maplv;
                     break;
                 }
             }
-            return [maplv, config[3][1]];
+            return maplv;
+        }
+
+        /**
+         * 根据game_id和身上金币，返回快速加入游戏所需最低金币
+         * @param game_id 游戏名 
+         * @param money 身上的金币
+         */
+        public static getJoinMoney(game_id: string, money: number): number {
+            let config = game_config[game_id]
+            if (!config) {
+                return 0;
+            }
+            return config[3][1];
         }
 
         private static _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];

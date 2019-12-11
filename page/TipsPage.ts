@@ -7,10 +7,8 @@ module gametongyong.page {
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [
-				PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "dating.atlas",
-				Path.atlas_game_ui_tongyong + "fk.atlas",
-				DatingPath.atlas_dating_ui_tongyong + "fk.atlas"
+				PathGameTongyong.atlas_game_ui_tongyong + "general/anniu.atlas",
 			];
 			this._isNeedBlack = true;
 		}

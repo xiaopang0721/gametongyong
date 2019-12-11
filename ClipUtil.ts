@@ -14,6 +14,28 @@ module gametongyong {
                 space: -2
             }
         }
+        //货币 
+        static get MONEY_FONT() {
+            return {
+                source: PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
+                url: PathGameTongyong.ui_tongyong_general + 'clip_money1.png',
+                clipWidth: 16,
+                clipHeight: 22,
+                clipX: 11,
+                space: 0
+            }
+        }
+        //排行榜
+        static get RANK_FONT2() {
+            return {
+                source: PathGameTongyong.atlas_game_ui_tongyong+ "general.atlas",
+                url: PathGameTongyong.ui_tongyong_general + 'clip_top.png',
+                clipWidth: 40,
+                clipHeight: 50,
+                clipX: 11,
+                space: -10
+            }
+        }
         //VIP 等级数字
         static get DATING_VIP_FONT() {
             return {

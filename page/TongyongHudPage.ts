@@ -128,9 +128,10 @@ module gametongyong.page {
 					this._game.uiRoot.HUD.open(DatingPageDef.PAGE_HUD);
 					break;
 				case this.btn_ksks://快速开始
-					let config = TongyongUtil.getJoinMapLv(this._gameId, WebConfig.info.money);
-					if (!config[0]) {
-						this._game.alert(StringU.substitute("老板，您的金币少于{0}哦~\n补充点金币去大杀四方吧~", config[1]), () => {
+					let maplv: number = TongyongUtil.getJoinMapLv(this._gameId, WebConfig.info.money);
+					let money: number = TongyongUtil.getJoinMoney(this._gameId, WebConfig.info.money);
+					if (!maplv) {
+						this._game.alert(StringU.substitute("老板，您的金币少于{0}哦~\n补充点金币去大杀四方吧~", money), () => {
 							this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
 						}, () => {
 						}, true, Tips.TIPS_SKIN_STR["cz"]);
@@ -140,10 +141,10 @@ module gametongyong.page {
 						this._game.uiRoot.general.open("wxsaoleihb9", (page) => {
 							page.isInner = false;
 						}, () => {
-							this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString(), true);
+							this._game.sceneObjectMgr.intoStory(this._gameId, maplv.toString(), true);
 						})
 					} else {
-						this._game.sceneObjectMgr.intoStory(this._gameId, config[0].toString());
+						this._game.sceneObjectMgr.intoStory(this._gameId, maplv.toString(), this._isEnterMap);
 					}
 					break;
 			}

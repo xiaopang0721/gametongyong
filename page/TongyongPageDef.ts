@@ -59,6 +59,10 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "13";
 		};
+		static get PAGE_TONGYONG_PLAYER_LIST() {//在线人数
+			this.ins;
+			return this.GAME_NAME + "14";
+		};
 
 		private static _ins: TongyongPageDef;
 
@@ -93,6 +97,7 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_ZJTP] = ZjtpPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_FK] = PaiJuInfoFKPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTLE_INFO_WX] = PaiJuInfoFKWXPage;
+			PageDef._pageClassMap[this.PAGE_TONGYONG_PLAYER_LIST] = TongYongPlayerList;
 
 			this["__needLoadAsset"] = [
 				PathGameTongyong.atlas_game_ui_tongyong + "chongzhi.atlas",
@@ -106,7 +111,6 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong + "pai.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "qz.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "touxiang.atlas",
-				PathGameTongyong.atlas_game_ui_tongyong + "tuichu.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "yq.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "zjtp.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong + "zjts.atlas",
