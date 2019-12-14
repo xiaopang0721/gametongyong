@@ -57,12 +57,12 @@ module gametongyong.page {
 			if (allArr.length == 1) {
 				this._viewUI.txt_info.text = allArr[0];
 				this._viewUI.list_info.visible = false;
-				this._viewUI.txt_info.visible = true;
+				this._viewUI.panel_xq.visible = true;
 				this._viewUI.txt_request.visible = false;
 			} else {
 				this._viewUI.list_info.dataSource = allArr;
 				this._viewUI.list_info.visible = true;
-				this._viewUI.txt_info.visible = false;
+				this._viewUI.panel_xq.visible = false;
 				this._viewUI.txt_request.visible = false;
 			}
 		}

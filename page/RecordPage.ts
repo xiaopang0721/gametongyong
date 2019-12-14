@@ -69,6 +69,7 @@ module gametongyong.page {
 			this._viewUI.list_record.scrollBar.elasticDistance = 100;
 			this._viewUI.list_record.itemRender = this.createChildren("game_ui.tongyong.BaoBiaoTUI", ListRecordItem);
 			this._viewUI.list_record.renderHandler = new Handler(this, this.renderHandler);
+			this._viewUI.list_record.dataSource = [];
 			this._viewUI.img_profit.skin = StringU.substitute(PathGameTongyong.ui_tongyong_general + "{0}.png", this._isCardRoomType ? "bb_jf" : "bb_yl");
 			//当天的话，数据重新获取
 			this._recordMgr.getData(1, this._roomId, this._selectTime, this._timeSelectIndex);
@@ -178,12 +179,28 @@ module gametongyong.page {
 		protected onBtnTweenEnd(e: any, target: any): void {
 			switch (target) {
 				case this._viewUI.btn_list:
-					this._viewUI.list_time.visible = !this._viewUI.list_time.visible;
-					this._viewUI.jiantou_down.visible = this._viewUI.list_time.visible;
-					this._viewUI.jiantou_up.visible = !this._viewUI.list_time.visible;
+					this.menuTween(!this._viewUI.list_time.visible);
 					break;
 				default:
 					break;
+			}
+		}
+
+		//菜单栏
+		private menuTween(isOpen: boolean) {
+			if (isOpen) {
+				this._viewUI.list_time.visible = true;
+				this._viewUI.jiantou_down.visible = this._viewUI.list_time.visible;
+				this._viewUI.jiantou_up.visible = !this._viewUI.list_time.visible;
+				this._viewUI.list_time.scale(0.2, 0.2);
+				this._viewUI.list_time.alpha = 0;
+				Laya.Tween.to(this._viewUI.list_time, { scaleX: 1, scaleY: 1, alpha: 1 }, 300, Laya.Ease.backInOut);
+			} else {
+				Laya.Tween.to(this._viewUI.list_time, { scaleX: 0.2, scaleY: 0.2, alpha: 0 }, 300, Laya.Ease.backInOut, Handler.create(this, () => {
+					this._viewUI.list_time.visible = false;
+					this._viewUI.jiantou_down.visible = this._viewUI.list_time.visible;
+					this._viewUI.jiantou_up.visible = !this._viewUI.list_time.visible;
+				}));
 			}
 		}
 
@@ -202,7 +219,7 @@ module gametongyong.page {
 			}
 
 			this.onUpdateDataInfo();
-			this.updateBoxBtnStatus();
+			this.menuTween(false);
 		}
 
 		private _notStageClickUI: any[]; //不响应舞台点击UI对象集合
@@ -214,13 +231,7 @@ module gametongyong.page {
 					return;
 				}
 			}
-			this.updateBoxBtnStatus();
-		}
-
-		private updateBoxBtnStatus() {
-			this._viewUI.list_time.visible = false;
-			this._viewUI.jiantou_down.visible = false;
-			this._viewUI.jiantou_up.visible = true;
+			this.menuTween(false);
 		}
 
 		public close(): void {
@@ -261,7 +272,7 @@ module gametongyong.page {
 			this.txt_earn.text = data.profit.toString();
 			this.img_bg.skin = StringU.substitute(PathGameTongyong.ui_tongyong_general + "tu_bb{0}.png", data.rank % 2 == 0 ? 1 : 2)
 			this.txt_earn.color = data.profit > 0 ? TeaStyle.COLOR_GREEN : TeaStyle.COLOR_RED;
-			this.txt_type.text = data.room_name.toString();
+			this.txt_type.text = this._shortRoomName(data.room_name.toString(), data.game_name.toString());
 			this.txt_time.text = Sync.getTimeShortStr(data.end_time * 1000);
 			if (this._gameId == "buyu") {//捕鱼没有详情
 				let battleidArr = data.battle_id.split("_");
@@ -269,6 +280,12 @@ module gametongyong.page {
 				this.txt_id.text = str;
 				this.btn_xq.visible = false;
 			}
+		}
+
+		private _shortRoomName(room_name: string, game_name: string): string {
+			let new_name: string = "";
+			new_name = room_name.replace(game_name, "")
+			return new_name
 		}
 
 		private _cardroomList: string[] = ["rniuniu", "rddz", "rpaodekuai", "rshisanshui"];

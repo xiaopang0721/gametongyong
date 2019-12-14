@@ -61,7 +61,8 @@ module gametongyong {
             if (!config) {
                 return 0;
             }
-            return config[3][1];
+            let index = config.length - 1;
+            return config[index][1];
         }
 
         private static _qifuNameStr: string[] = ["xs", "px", "gsy", "gg", "cs", "tdg"];
