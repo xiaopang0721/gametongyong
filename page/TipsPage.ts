@@ -71,7 +71,7 @@ module gametongyong.page {
 		private _ccb: Function;
 		setInfo(str, ecb: Function, ccb: Function, okSkin: string, titleSkin: string, cancleSkin: string, okBtnSkin?: string, cancleBtnSkin?: string) {
 			this._viewUI.txt_label.text = str;
-			TextFieldU.setHtmlText(this._viewUI.txt_label, str,false);//支持HTML
+			TextFieldU.setHtmlText(this._viewUI.txt_label, str, false);//支持HTML
 			this._ecb = ecb;
 			this._ccb = ccb;
 			if (okSkin) {
@@ -82,7 +82,7 @@ module gametongyong.page {
 						okSkin = TongyongPageDef.TIPS_SKIN_STR["fh"];
 						//重写确定函数
 						this._ecb = () => {
-							
+
 						};
 					}
 					img_enter.skin = okSkin;

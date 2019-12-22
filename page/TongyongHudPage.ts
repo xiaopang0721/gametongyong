@@ -51,15 +51,15 @@ module gametongyong.page {
 			this.updatePos();
 		}
 
-
-
 		private updatePos() {
 			this.btn_fresh.x = WebConfig.enterGameLocked ? 378 : 418;
 			Laya.timer.frameOnce(1, this, () => {
 				if (this._game.isFullScreen) {
 					this.box_btn_top_left.left = 56;
+					this.box_right.right = 56;
 				} else {
 					this.box_btn_top_left.left = 0;
+					this.box_right.right = 0;
 				}
 			})
 		}
