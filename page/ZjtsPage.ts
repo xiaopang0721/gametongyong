@@ -26,7 +26,9 @@ module gametongyong.page {
 		}
 
 		private onPlayComplte(): void {
-			this.close();
+			Laya.timer.once(1000, this, () => {
+				this.close();
+			})
 		}
 
 		public close(): void {

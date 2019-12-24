@@ -1,14 +1,14 @@
 /**
 * name 
 */
-module gametongyong.page{
+module gametongyong.page {
 	export class ZjtpPage extends game.gui.base.Page {
 		private _viewUI: ui.ajqp.game_ui.tongyong.effect.Effect_zjtpUI;
-		
+
 		constructor(v: Game, onOpenFunc?: Function, onCloseFunc?: Function) {
 			super(v, onOpenFunc, onCloseFunc);
 			this._asset = [
-				PathGameTongyong.atlas_game_ui_tongyong+ "zjtp.atlas",
+				PathGameTongyong.atlas_game_ui_tongyong + "zjtp.atlas",
 			];
 		}
 
@@ -24,10 +24,12 @@ module gametongyong.page{
 			this._viewUI.ani1.on(LEvent.COMPLETE, this, this.onPlayComplte);
 			this._viewUI.ani1.play(0, false);
 		}
-	
-        private onPlayComplte(): void {
-            this.close();
-        }
+
+		private onPlayComplte(): void {
+			Laya.timer.once(1000, this, () => {
+				this.close();
+			})
+		}
 
 		public close(): void {
 			if (this._viewUI) {
