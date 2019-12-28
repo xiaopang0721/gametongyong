@@ -87,6 +87,20 @@ module ui.ajqp.game_ui.tongyong.effect {
 }
 
 module ui.ajqp.game_ui.tongyong.effect {
+    export class Effect_bxbsUI extends View {
+		public ani1:Laya.FrameAnimation;
+
+        public static  uiView:any ={"type":"View","props":{"width":100,"height":100},"child":[{"type":"Image","props":{"skin":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10000.png"},"compId":2}],"animations":[{"nodes":[{"target":2,"keyframes":{"skin":[{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10000.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":0},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10001.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":2},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10002.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":4},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10003.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":6},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10004.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":8},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10005.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":10},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10006.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":12},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10007.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":14},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10008.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":16},{"value":"tongyong_ui/game_ui/tongyong/general/effect/baoxianbiaoshi/10009.png","tweenMethod":"linearNone","tween":false,"target":2,"key":"skin","index":18}]}}],"name":"ani1","id":1,"frameRate":24,"action":0}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.ajqp.game_ui.tongyong.effect.Effect_bxbsUI.uiView);
+        }
+    }
+}
+
+module ui.ajqp.game_ui.tongyong.effect {
     export class Effect_cmUI extends View {
 		public ani1:Laya.FrameAnimation;
 		public btn_num:Laya.Button;
@@ -1140,19 +1154,19 @@ module ui.ajqp.game_ui.tongyong {
 		public img_qifu:ui.ajqp.game_ui.tongyong.effect.Effect_qifubsUI;
 		public img_vip:Laya.Image;
 		public effWin:ui.ajqp.game_ui.tongyong.effect.Effect_yqUI;
-		public img_baoxian:ui.ajqp.game_ui.ershiyidian.effect.Effect_bxbsUI;
+		public img_baoxian:ui.ajqp.game_ui.tongyong.effect.Effect_bxbsUI;
 		public img_pos:Laya.Image;
 		public box_clip:Laya.Box;
 		public img_di:Laya.Image;
 		public clip_money:Laya.Clip;
 
-        public static  uiView:any ={"type":"View","props":{"width":100,"height":140},"child":[{"type":"Box","props":{"y":0,"x":0,"width":101,"height":141},"child":[{"type":"Image","props":{"skin":"tongyong_ui/game_ui/tongyong/general/tu_txk1.png","sizeGrid":"26,14,55,16","centerY":0,"centerX":0}},{"type":"Image","props":{"y":70,"width":68,"var":"img_icon","skin":"tongyong_ui/game_ui/tongyong/touxiang/head_0.png","height":68,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"x":51,"width":92,"var":"img_txk","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_txk0.png","scaleY":0.9,"scaleX":0.9,"height":92,"centerY":-4,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Text","props":{"y":8,"x":1,"wordWrap":true,"width":100,"var":"txt_name","text":"玩家名字","leading":6,"height":17,"fontSize":15,"color":"#ffffff","align":"center"}},{"type":"Text","props":{"y":113,"x":0,"wordWrap":true,"width":99,"var":"txt_money","text":"0","leading":6,"height":21,"fontSize":17,"color":"#f3ebb3","align":"center"}},{"type":"Image","props":{"y":-3,"x":-1,"width":103,"var":"img_frame","skin":"tongyong_ui/game_ui/tongyong/general/tu_djs.png","height":144},"child":[{"type":"Image","props":{"y":0,"x":0,"width":103,"var":"img_mask","renderType":"mask","height":144}}]},{"type":"Image","props":{"y":70,"visible":false,"var":"qifu_type","skin":"tongyong_ui/game_ui/tongyong/touxiang/f_cs2.png","scaleY":0.5,"scaleX":0.5,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Effect_qifubs","props":{"y":20,"x":69,"var":"img_qifu","runtime":"ui.ajqp.game_ui.tongyong.effect.Effect_qifubsUI"}},{"type":"Image","props":{"y":28.5,"x":5,"var":"img_vip","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_j1.png"}},{"type":"Effect_yq","props":{"y":-4,"x":-3,"var":"effWin","runtime":"ui.ajqp.game_ui.tongyong.effect.Effect_yqUI"}},{"type":"Effect_bxbs","props":{"y":10,"x":6,"var":"img_baoxian","anchorY":0.5,"anchorX":0.5,"runtime":"ui.ajqp.game_ui.ershiyidian.effect.Effect_bxbsUI"}},{"type":"Image","props":{"y":8,"x":96,"var":"img_pos","skin":"tongyong_ui/game_ui/tongyong/general/tu_weizhi1.png","anchorY":0.5,"anchorX":0.5}},{"type":"Box","props":{"y":17,"x":50,"width":173,"visible":false,"var":"box_clip","height":47,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"var":"img_di","skin":"tongyong_ui/game_ui/tongyong/general/tu_yingqian.png","centerY":0,"centerX":0}},{"type":"Clip","props":{"var":"clip_money","skin":"tongyong_ui/game_ui/tongyong/general/clip_num1.png","clipX":11,"centerY":0,"centerX":0}}]}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":100,"height":140},"child":[{"type":"Box","props":{"y":0,"x":0,"width":101,"height":141},"child":[{"type":"Image","props":{"skin":"tongyong_ui/game_ui/tongyong/general/tu_txk1.png","sizeGrid":"26,14,55,16","centerY":0,"centerX":0}},{"type":"Image","props":{"y":70,"width":68,"var":"img_icon","skin":"tongyong_ui/game_ui/tongyong/touxiang/head_0.png","height":68,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Image","props":{"x":51,"width":92,"var":"img_txk","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_txk0.png","scaleY":0.9,"scaleX":0.9,"height":92,"centerY":-4,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Text","props":{"y":8,"x":1,"wordWrap":true,"width":100,"var":"txt_name","text":"玩家名字","leading":6,"height":17,"fontSize":15,"color":"#ffffff","align":"center"}},{"type":"Text","props":{"y":113,"x":0,"wordWrap":true,"width":99,"var":"txt_money","text":"0","leading":6,"height":21,"fontSize":17,"color":"#f3ebb3","align":"center"}},{"type":"Image","props":{"y":-3,"x":-1,"width":103,"var":"img_frame","skin":"tongyong_ui/game_ui/tongyong/general/tu_djs.png","height":144},"child":[{"type":"Image","props":{"y":0,"x":0,"width":103,"var":"img_mask","renderType":"mask","height":144}}]},{"type":"Image","props":{"y":70,"visible":false,"var":"qifu_type","skin":"tongyong_ui/game_ui/tongyong/touxiang/f_cs2.png","scaleY":0.5,"scaleX":0.5,"centerX":0,"anchorY":0.5,"anchorX":0.5}},{"type":"Effect_qifubs","props":{"y":20,"x":69,"var":"img_qifu","runtime":"ui.ajqp.game_ui.tongyong.effect.Effect_qifubsUI"}},{"type":"Image","props":{"y":28.5,"x":5,"var":"img_vip","skin":"tongyong_ui/game_ui/tongyong/touxiang/tu_j1.png"}},{"type":"Effect_yq","props":{"y":-4,"x":-3,"var":"effWin","runtime":"ui.ajqp.game_ui.tongyong.effect.Effect_yqUI"}},{"type":"Effect_bxbs","props":{"y":10,"x":6,"var":"img_baoxian","anchorY":0.5,"anchorX":0.5,"runtime":"ui.ajqp.game_ui.tongyong.effect.Effect_bxbsUI"}},{"type":"Image","props":{"y":8,"x":96,"var":"img_pos","skin":"tongyong_ui/game_ui/tongyong/general/tu_weizhi1.png","anchorY":0.5,"anchorX":0.5}},{"type":"Box","props":{"y":17,"x":50,"width":173,"visible":false,"var":"box_clip","height":47,"anchorY":0.5,"anchorX":0.5},"child":[{"type":"Image","props":{"var":"img_di","skin":"tongyong_ui/game_ui/tongyong/general/tu_yingqian.png","centerY":0,"centerX":0}},{"type":"Clip","props":{"var":"clip_money","skin":"tongyong_ui/game_ui/tongyong/general/clip_num1.png","clipX":11,"centerY":0,"centerX":0}}]}]}]};
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("Text",laya.display.Text);
 			View.regComponent("ui.ajqp.game_ui.tongyong.effect.Effect_qifubsUI",ui.ajqp.game_ui.tongyong.effect.Effect_qifubsUI);
 			View.regComponent("ui.ajqp.game_ui.tongyong.effect.Effect_yqUI",ui.ajqp.game_ui.tongyong.effect.Effect_yqUI);
-			View.regComponent("ui.ajqp.game_ui.ershiyidian.effect.Effect_bxbsUI",ui.ajqp.game_ui.ershiyidian.effect.Effect_bxbsUI);
+			View.regComponent("ui.ajqp.game_ui.tongyong.effect.Effect_bxbsUI",ui.ajqp.game_ui.tongyong.effect.Effect_bxbsUI);
 
             super.createChildren();
             this.createView(ui.ajqp.game_ui.tongyong.TouXiang21dianUI.uiView);
