@@ -104,7 +104,7 @@ module gametongyong.page {
 				this.clip_money.parent.addChild(this._clipMoney);
 				this.clip_money.visible = false;
 			}
-			this._clipMoney.setText(EnumToString.getPointBackNum(this._unit.GetMoney(), 2) + "", true, false);
+			this._clipMoney.setText(EnumToString.getPointBackNum(TongyongUtil.getMoneyChange(this._unit.GetMoney()), 2) + "", true, false);
 		}
 	}
 }

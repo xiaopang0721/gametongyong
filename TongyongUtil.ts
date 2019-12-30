@@ -128,5 +128,10 @@ module gametongyong {
             }
             return false;
         }
+
+        //适应服务端元改分机制
+        public static getMoneyChange(money: number): number {
+            return money / 100;
+        }
     }
 }
