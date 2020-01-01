@@ -21,7 +21,6 @@ module gametongyong.page {
 		 */
 		onOpen(game: Game, gameId: string, isEnterMap: boolean = true, isCardRoomType: boolean = false) {
 			//全面屏
-
 			this._game = game;
 			this._gameId = gameId;
 			this._isCardRoomType = isCardRoomType;
