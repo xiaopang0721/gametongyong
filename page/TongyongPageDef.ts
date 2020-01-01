@@ -84,6 +84,8 @@ module gametongyong.page {
 			super.myinit(str);
 			View.regViewRuntime(StringU.substitute("ui.{0}.game_ui.tongyong.HudUI", WebConfig.baseplatform), TongyongHudPage);
 			Page.__createChildren("game_ui.tongyong.HudUI", TongyongHudPage);
+			View.regViewRuntime(StringU.substitute("ui.{0}.game_ui.tongyong.HudSpUI", WebConfig.baseplatform), TongyongSPHudPage);
+			Page.__createChildren("game_ui.tongyong.HudSpUI", TongyongSPHudPage);
 			PageDef._pageClassMap[this.PAGE_TONGYONG_RECORD] = RecordPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_TIPS] = TipsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTER_INFO] = PaiJuInfoPage;
