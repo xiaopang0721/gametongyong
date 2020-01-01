@@ -81,7 +81,7 @@ module gametongyong {
         public static getTouXiangKuangUrl(headKuang: string): string {
             //API不显示头像框
             if (WebConfig.enterGameLocked) {
-                return "";
+                return PathGameTongyong.ui_tongyong_touxiang + "tu_txk0" + ".png";
             } else {
                 headKuang = headKuang ? headKuang : '0';
                 return PathGameTongyong.ui_tongyong_touxiang + "tu_txk" + headKuang + ".png";
