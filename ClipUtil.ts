@@ -11,7 +11,7 @@ module gametongyong {
                 clipWidth: 20,
                 clipHeight: 28,
                 clipX: 11,
-                space: -2
+                space: -5
             }
         }
         //货币 
@@ -28,7 +28,7 @@ module gametongyong {
         //排行榜
         static get RANK_FONT2() {
             return {
-                source: PathGameTongyong.atlas_game_ui_tongyong+ "general.atlas",
+                source: PathGameTongyong.atlas_game_ui_tongyong + "general.atlas",
                 url: PathGameTongyong.ui_tongyong_general + 'clip_top.png',
                 clipWidth: 40,
                 clipHeight: 50,
@@ -47,7 +47,7 @@ module gametongyong {
                 space: 0
             }
         }
-        
+
         private _clip: ClipCell;
         constructor(font: any) {
             super();
