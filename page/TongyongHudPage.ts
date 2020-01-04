@@ -52,7 +52,6 @@ module gametongyong.page {
 		}
 
 		private updatePos() {
-			this.btn_fresh.x = WebConfig.enterGameLocked ? 378 : 418;
 			Laya.timer.frameOnce(1, this, () => {
 				if (this._game.isFullScreen) {
 					this.box_btn_top_left.left = 56;
