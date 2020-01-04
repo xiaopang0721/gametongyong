@@ -84,8 +84,17 @@ module gametongyong.page {
 					this._game.uiRoot.general.open(DatingPageDef.PAGE_CHONGZHI);
 					break;
 				case this.btn_back://返回大厅
-					this._game.uiRoot.HUD.closeAll();
-					this._game.uiRoot.HUD.open(DatingPageDef.PAGE_HUD);
+					if (this._gameId == "wxsaoleihb") {
+						this._game.uiRoot.general.open(WxsaoleihbPageDef.PAGE_WXSLHB_HB_FZTS, (page: any) => {
+							page.isInner = true;
+						}, () => {
+							this._game.uiRoot.HUD.closeAll();
+							this._game.uiRoot.HUD.open(DatingPageDef.PAGE_HUD);
+						})
+					} else {
+						this._game.uiRoot.HUD.closeAll();
+						this._game.uiRoot.HUD.open(DatingPageDef.PAGE_HUD);
+					}
 					break;
 				case this.btn_ksks://快速开始
 					let maplv: number = TongyongUtil.getJoinMapLv(this._gameId, WebConfig.info.money);
