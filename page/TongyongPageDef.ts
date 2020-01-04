@@ -125,7 +125,6 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/kaipai.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/qp.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/shaizi.atlas",
-				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/suiji.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/xipai.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/ying.atlas",
 			]
