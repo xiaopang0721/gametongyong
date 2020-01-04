@@ -85,7 +85,7 @@ module gametongyong.page {
 					break;
 				case this.btn_back://返回大厅
 					if (this._gameId == "wxsaoleihb") {
-						this._game.uiRoot.general.open(WxsaoleihbPageDef.PAGE_WXSLHB_HB_FZTS, (page: any) => {
+						this._game.uiRoot.general.open(this._gameId + 9, (page: any) => {
 							page.isInner = true;
 						}, () => {
 							this._game.uiRoot.HUD.closeAll();
