@@ -11,10 +11,7 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "1";
 		};
-		static get PAGE_TONGYONG_CLOSE_TIPS() {//关闭提示
-			this.ins;
-			return this.GAME_NAME + "2";
-		};
+		
 		static get PAGE_TONGYONG_SETTING() {//设置界面
 			this.ins;
 			return this.GAME_NAME + "3";
@@ -89,7 +86,6 @@ module gametongyong.page {
 			PageDef._pageClassMap[this.PAGE_TONGYONG_RECORD] = RecordPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_TIPS] = TipsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_BATTER_INFO] = PaiJuInfoPage;
-			PageDef._pageClassMap[this.PAGE_TONGYONG_CLOSE_TIPS] = CloseTipsPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_SETTING] = SettingPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_MATCH] = MatchPage;
 			PageDef._pageClassMap[this.PAGE_TONGYONG_SETTLE] = SettlePage;
@@ -143,23 +139,6 @@ module gametongyong.page {
 				this["__needLoadAsset"] = this["__needLoadAsset"].concat([
 				])
 			}
-		}
-
-		/**
-		  * 退出弹窗提示
-		  * @param ecb 确定
-		  * @param ccb 取消
-		  * @param gameId 游戏id
-		  */
-		alertClose(gameId: string, caller: any, ecb: Function, ccb?: Function): void {
-			this._game.uiRoot.top.close(TongyongPageDef.PAGE_TONGYONG_CLOSE_TIPS);
-			this._game.uiRoot.top.open(TongyongPageDef.PAGE_TONGYONG_CLOSE_TIPS, (tip: CloseTipsPage) => {
-				if (ccb) {
-					tip.setInfo(gameId, Handler.create(caller, ecb), Handler.create(caller, ccb));
-				} else {
-					tip.setInfo(gameId, Handler.create(caller, ecb));
-				}
-			});
 		}
 
 		static CZ_PLAY_DIFF_TIME = 5000;
