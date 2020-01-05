@@ -127,6 +127,17 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/shaizi.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/xipai.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/ying.atlas",
+				//祈福界面专用
+				DatingPath.atlas_dating_ui + "qifu.atlas",
+                DatingPath.atlas_dating_ui + 'tongyong.atlas',
+				DatingPath.atlas_dating_ui_tongyong + 'anniu.atlas',
+				//不打包的图预加载
+				DatingPath.ui_dating + "qifu/f_cs1.png",
+				DatingPath.ui_dating + "qifu/f_gg1.png",
+				DatingPath.ui_dating + "qifu/f_gsy1.png",
+				DatingPath.ui_dating + "qifu/f_px1.png",
+				DatingPath.ui_dating + "qifu/f_tdg1.png",
+				DatingPath.ui_dating + "qifu/f_xs1.png",
 			]
 			if (WebConfig.needMusicPreload) {
 				this["__needLoadAsset"] = this["__needLoadAsset"].concat([
