@@ -98,19 +98,10 @@ module gametongyong {
         }
 
         public static getQFTypeImg(qf_id): string {
-            //API不显示祈福
-            if (WebConfig.enterGameLocked) {
-                return "";
-            } else {
-                return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
-            }
+            return StringU.substitute(PathGameTongyong.ui_tongyong_touxiang + "f_{0}2.png", this._qifuNameStr[qf_id - 1]);
         }
 
         public static getIsHaveQiFu(player, serverTimeBys): boolean {
-            //API默认非祈福状态
-            if (WebConfig.enterGameLocked) {
-                return false;
-            }
             if (player instanceof PlayerData) {
                 for (let i = 0; i < 6; i++) {
                     let qfEndTime = player.GetQiFuEndTime(i);
