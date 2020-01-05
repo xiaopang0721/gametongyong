@@ -11,7 +11,7 @@ module gametongyong.page {
 			this.ins;
 			return this.GAME_NAME + "1";
 		};
-		
+
 		static get PAGE_TONGYONG_SETTING() {//设置界面
 			this.ins;
 			return this.GAME_NAME + "3";
@@ -125,7 +125,10 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/ying.atlas",
 				//祈福界面专用
 				DatingPath.atlas_dating_ui + "qifu.atlas",
-                DatingPath.atlas_dating_ui + 'tongyong.atlas',
+				DatingPath.atlas_dating_ui + "dating.atlas",
+				DatingPath.atlas_dating_ui + "datinggg.atlas",
+				DatingPath.atlas_dating_ui + 'tongyong.atlas',
+				DatingPath.atlas_dating_ui + 'chongzhi.atlas',
 				DatingPath.atlas_dating_ui_tongyong + 'anniu.atlas',
 				//不打包的图预加载
 				DatingPath.ui_dating + "qifu/f_cs1.png",
