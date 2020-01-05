@@ -123,12 +123,12 @@ module gametongyong.page {
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/shaizi.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/xipai.atlas",
 				PathGameTongyong.atlas_game_ui_tongyong_general + "effect/ying.atlas",
-				//祈福界面专用
+				//公告界面
+				DatingPath.atlas_dating_ui + "datinggg.atlas",
+				//祈福界面
 				DatingPath.atlas_dating_ui + "qifu.atlas",
 				DatingPath.atlas_dating_ui + "dating.atlas",
-				DatingPath.atlas_dating_ui + "datinggg.atlas",
 				DatingPath.atlas_dating_ui + 'tongyong.atlas',
-				DatingPath.atlas_dating_ui + 'chongzhi.atlas',
 				DatingPath.atlas_dating_ui_tongyong + 'anniu.atlas',
 				//不打包的图预加载
 				DatingPath.ui_dating + "qifu/f_cs1.png",
@@ -152,7 +152,7 @@ module gametongyong.page {
 				"qd": PathGameTongyong.ui_tongyong_dating + "tu_qd.png",		//确定
 				"qw": PathGameTongyong.ui_tongyong_dating + "tu_qw.png",		//前往
 				"js": PathGameTongyong.ui_tongyong_fk + "tu_js.png",			//解散
-				"fh": PathGameTongyong.ui_tongyong_dating + "tu_fh.png",			//返回
+				"fh": PathGameTongyong.ui_tongyong_dating + "tu_fh.png",		//返回
 				"fqtq": PathGameTongyong.ui_tongyong_fk + "tu_fqtp.png",		//发起投票
 				"wyqf": DatingPath.ui_dating + "qifu/tu_wyqf.png",	//我要祈福
 				"title_qf": DatingPath.ui_dating + "qifu/tu_qf.png",	//祈福标题
