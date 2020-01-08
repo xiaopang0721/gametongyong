@@ -32,7 +32,7 @@ module gametongyong.page {
 			this.btn_fresh.onAPI(LEvent.CLICK, this, this.onBtnClickHandle)
 			this._game.sceneObjectMgr.on(SceneObjectMgr.EVENT_PLAYER_INFO_UPDATE, this, this.onUpdatePlayerInfo);
 			this.onUpdatePlayerInfo();
-			this.ani1.play(0, false);
+			// this.ani1.play(0, false);
 			let mainPlayer: PlayerData = this._game.sceneObjectMgr.mainPlayer;
 			this.updatePos();
 		}
