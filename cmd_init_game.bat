@@ -8,7 +8,7 @@
 
 @set release=%self_path%
 
-@set bin=%cd%\first_client\first_main\src\%folder%
+@set bin=%cd%\goldfish_client\goldfish_main\src\%folder%
 if not exist %bin% ( mkdir %bin% )
 if exist %bin% ( @rd /s /Q %bin% )
 @cd %self_path%
